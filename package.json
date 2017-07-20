@@ -1,0 +1,32 @@
+{
+  "name": "UpPeat RESTful API",
+  "version": "1.0.0",
+  "description": "\"RESTful API used for accessing UpPeat data\"",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/steveburton4/UpPeat.git"
+  },
+  "keywords": [
+    "uppeat",
+    "server",
+    "whiskey",
+    "whisky"
+  ],
+  "author": "Steven Burton",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/steveburton4/UpPeat/issues"
+  },
+  "homepage": "https://github.com/steveburton4/UpPeat#readme",
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  },
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}
