@@ -1,5 +1,5 @@
 {
-  "name": "UpPeat RESTful API",
+  "name": "uppeat api",
   "version": "1.0.0",
   "description": "\"RESTful API used for accessing UpPeat data\"",
   "main": "server.js",
