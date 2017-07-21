@@ -1,0 +1,48 @@
+'use strict';
+
+var mongoose = require('mongoose'),
+  Distilleries = mongoose.model('Distilleries');
+
+exports.list_all_distilleries = function(req, res) {
+  Distilleries.find({}, function(err, distillery) {
+    if (err)
+      res.send(err);
+    res.json(distillery);
+  });
+};
+
+exports.create_a_distillery = function(req, res) {
+  var new_distillery = new Distilleries(req.body);
+  new_distillery.save(function(err, distillery) {
+    if (err)
+      res.send(err);
+    res.json(distillery);
+  });
+};
+
+exports.read_a_distillery = function(req, res) {
+  Distilleries.findById(req.params.distilleryId, function(err, distillery) {
+    if (err)
+      res.send(err);
+    res.json(distillery);
+  });
+};
+
+exports.update_a_distillery = function(req, res) {
+  Distilleries.findOneAndUpdate({_id: req.params.distilleryId}, req.body, {new: true}, function(err, distillery) {
+    if (err)
+      res.send(err);
+    res.json(distillery);
+  });
+};
+
+exports.delete_a_distillery = function(req, res) {
+  Distilleries.remove({
+    _id: req.params.distilleryId
+  }, function(err, distillery) {
+    if (err)
+      res.send(err);
+    res.json({ message: 'Distillery successfully deleted' });
+  });
+};
+
