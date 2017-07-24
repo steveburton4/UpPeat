@@ -1,6 +1,18 @@
 var express = require('express'),
   app = express(),
-  port = process.env.PORT || 54321;
+  port = process.env.PORT || 54321,
+  mongoose = require('mongoose'),
+  bodyParser = require('body-parser'),
+  userRoutes = require('./routes/userRoutes'),
+  distilleryRoutes = require('./routes/distilleryRoutes');
+
+mongoose.Promise = global.Promise;
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+distilleryRoutes(app);
+userRoutes(app);
 
 app.listen(port);
 

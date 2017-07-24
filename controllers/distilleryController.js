@@ -1,7 +1,9 @@
 'use strict';
 
+require('../models/distilleryModel');
+
 var mongoose = require('mongoose'),
-  Distilleries = mongoose.model('Distilleries');
+  Distilleries = mongoose.model('Distillery');
 
 exports.list_all_distilleries = function(req, res) {
   Distilleries.find({}, function(err, distillery) {

@@ -2,15 +2,15 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-
 var DistillerySchema = new Schema({
   id: {
-    type: guid,
+    type: Schema.ObjectId,
     Required: 'Unique identifier of the distillery'
   },
   name: {
     type: String,
-    Required: 'Enter the name of the distillery'
+    Required: 'Enter the name of the distillery',
+    trim: 'true'
   },
   Created_date: {
     type: Date,
@@ -25,4 +25,4 @@ var DistillerySchema = new Schema({
   }
 });
 
-module.exports = mongoose.model('Distilleries', DistillerySchema);
+module.exports = mongoose.model('Distillery', DistillerySchema);
