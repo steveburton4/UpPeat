@@ -22,9 +22,10 @@ var UserSchema = new Schema({
   },
   user_name: {
     type: String,
-    required: 'The unique user name',
+    required: 'The unique user name - characters, digits and underscores only',
     trim: 'true',
     set: toLower,
+    match: /^[a-zA-Z0-9_]*$/,
     index: { unique: true }
   },
   email: {

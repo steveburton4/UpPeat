@@ -7,6 +7,7 @@ var express = require('express'),
   distilleryRoutes = require('./routes/distilleryRoutes');
 
 mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/UpPeat-Test'); 
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
