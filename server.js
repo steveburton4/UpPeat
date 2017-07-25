@@ -6,8 +6,9 @@ var express = require('express'),
   userRoutes = require('./routes/userRoutes'),
   distilleryRoutes = require('./routes/distilleryRoutes');
 
+var config = require('./config');
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/UpPeat-Test'); 
+mongoose.connect(config.db[app.settings.env]); 
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
