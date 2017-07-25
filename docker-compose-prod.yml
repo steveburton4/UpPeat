@@ -1,0 +1,6 @@
+uppeat:
+  build: .
+  environment:
+    NODE_ENV: production
+  ports:
+    - '54321:54321'

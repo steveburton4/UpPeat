@@ -25,6 +25,8 @@ var UserSchema = new Schema({
     required: 'The unique user name - characters, digits and underscores only',
     trim: 'true',
     set: toLower,
+    minLength: 5,
+    maxLength: 20,
     match: /^[a-zA-Z0-9_]*$/,
     index: { unique: true }
   },
@@ -38,9 +40,11 @@ var UserSchema = new Schema({
   password: {
     type: String,
     required: 'The un-salted password for the user',
+    minLength: 5,
+    maxLength: 20,
     trim: 'true'
   },
-  Created_date: {
+  created_date: {
     type: Date,
     default: Date.now
   },

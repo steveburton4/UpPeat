@@ -1,0 +1,10 @@
+uppeat:
+  build: .
+  command: node_modules/.bin/nodemon index.js
+  environment:
+    NODE_ENV: development
+  ports:
+    - '54321:54321'
+  volumes:
+    - .:/home/app/uppeat
+    - /home/app/uppeat/node_modules

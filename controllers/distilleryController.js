@@ -23,7 +23,7 @@ exports.create_a_distillery = function(req, res) {
 };
 
 exports.read_a_distillery = function(req, res) {
-  Distilleries.findById(req.params.distilleryId, function(err, distillery) {
+  Distilleries.findById(req.params._id, function(err, distillery) {
     if (err)
       res.send(err);
     res.json(distillery);
@@ -31,7 +31,7 @@ exports.read_a_distillery = function(req, res) {
 };
 
 exports.update_a_distillery = function(req, res) {
-  Distilleries.findOneAndUpdate({_id: req.params.distilleryId}, req.body, {new: true}, function(err, distillery) {
+  Distilleries.findOneAndUpdate({_id: req.params._id}, req.body, {new: true}, function(err, distillery) {
     if (err)
       res.send(err);
     res.json(distillery);
@@ -40,7 +40,7 @@ exports.update_a_distillery = function(req, res) {
 
 exports.delete_a_distillery = function(req, res) {
   Distilleries.remove({
-    _id: req.params.distilleryId
+    _id: req.params._id
   }, function(err, distillery) {
     if (err)
       res.send(err);

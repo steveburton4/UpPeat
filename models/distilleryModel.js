@@ -3,16 +3,12 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var DistillerySchema = new Schema({
-  id: {
-    type: Schema.ObjectId,
-    Required: 'Unique identifier of the distillery'
-  },
   name: {
     type: String,
     Required: 'Enter the name of the distillery',
     trim: 'true'
   },
-  Created_date: {
+  created_date: {
     type: Date,
     default: Date.now
   },

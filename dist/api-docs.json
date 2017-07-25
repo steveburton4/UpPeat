@@ -1,0 +1,516 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.1",
+    "title": "UpPeat API Specification",
+    "description": "Specification for UpPeat API",
+    "termsOfService": "http://swagger.io/terms/"
+  },
+  "basePath": "/uppeat",
+  "tags" : [
+    {
+        "name": "Users", 
+        "description": "CRUD operations for the User data"
+    },
+    {
+        "name": "Distilleries", 
+        "description": "CRUD operations for the Distillery data"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/users": {
+        "get":{
+            "tags": ["Users"],
+            "description": "Returns a list of all users",
+            "operationId": "find",
+            "produces": [
+            "application/json"
+            ],
+            "responses": {
+                "200": {
+                "description": "response",
+                "schema": {
+                    "$ref": "#/definitions/user_schema"
+                    }
+                }
+            }
+        },
+       "post": {
+          "tags": ["Users"],
+          "description": "Adds a new user",
+          "operationId": "save",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+              {
+                "name": "user",
+                "in": "body",
+                "description": "The user to create",
+                "required": true,
+              "schema": {
+                "$ref": "#/definitions/user_schema"
+                }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The created user",
+              "schema": {
+                 "$ref": "#/definitions/user_schema"
+              }
+            }
+          }
+        }
+    },
+    "/users/username/{user_name}": {
+        "put": {
+            "tags": ["Users"],
+            "description": "Updates the given user",
+            "operationId": "findOneAndUpdate",
+            "produces": [
+                "application/json"
+            ],
+            "parameters": [
+            {
+                "name": "user_name",
+                "in": "query",
+                "description": "The user name of the user to update",
+                "required": true,
+                "type": "string"
+            },
+            {
+                "name": "user",
+                "in": "body",
+                "description": "The user details to update",
+                "required": true,
+                "schema": {
+                    "$ref": "#/definitions/user_schema"
+                }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The updated user",
+              "schema": {
+                 "$ref": "#/definitions/user_schema"
+              }
+            }
+          }
+        },
+        "delete":{
+            "tags":["Users"],
+            "description":"Deletes a user",
+            "operationId":"findOneAndUpdate",
+            "produces": [
+            "application/json"
+            ],
+            "parameters":[
+                {
+                    "name": "user_name",
+                    "in": "query",
+                    "description": "The user name of the user to delete",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "responses": {
+            "200": {
+                "description": "Delete response",
+                "schema":{
+                "$ref":"#/definitions/user_deleted"
+                }
+            }
+          }
+        },
+        "get":{
+            "tags": ["Users"],
+            "description": "Returns the given user",
+            "operationId": "findById",
+            "produces": [
+            "application/json"
+            ],
+            "parameters":[
+                {
+                    "name": "user_name",
+                    "in": "query",
+                    "description": "The user name of the user to find",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "responses": {
+                "200": {
+                "description": "response",
+                "schema": {
+                    "$ref": "#/definitions/user_schema"
+                    }
+                }
+            }
+        }
+    },
+    "/users/{_id}": {
+        "put": {
+            "tags": ["Users"],
+            "description": "Updates the given user",
+            "operationId": "findOneAndUpdate",
+            "produces": [
+                "application/json"
+            ],
+            "parameters": [
+            {
+                "name": "_id",
+                "in": "query",
+                "description": "The ObjectId(_id) of the user to update",
+                "required": true,
+                "type": "string"
+            },
+            {
+                "name": "user",
+                "in": "body",
+                "description": "The user details to update",
+                "required": true,
+                "schema": {
+                    "$ref": "#/definitions/user_schema"
+                }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The updated user",
+              "schema": {
+                 "$ref": "#/definitions/user_schema"
+              }
+            }
+          }
+        },
+        "delete":{
+            "tags":["Users"],
+            "description":"Deletes a user",
+            "operationId":"findOneAndUpdate",
+            "produces": [
+            "application/json"
+            ],
+            "parameters":[
+                {
+                    "name": "_id",
+                    "in": "query",
+                    "description": "The ObjectId(_id) of the user to delete",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "responses": {
+            "200": {
+                "description": "Delete response",
+                "schema":{
+                "$ref":"#/definitions/user_deleted"
+                }
+            }
+          }
+        },
+        "get":{
+            "tags": ["Users"],
+            "description": "Returns the given user",
+            "operationId": "findById",
+            "produces": [
+            "application/json"
+            ],
+            "parameters":[
+                {
+                    "name": "_id",
+                    "in": "query",
+                    "description": "The ObjectId(_id) of the user to find",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "responses": {
+                "200": {
+                "description": "response",
+                "schema": {
+                    "$ref": "#/definitions/user_schema"
+                    }
+                }
+            }
+        }
+      },
+    "/distilleries": {
+        "get":{
+            "tags": ["Distilleries"],
+            "description": "Returns a list of all distilleries",
+            "operationId": "find",
+            "produces": [
+            "application/json"
+            ],
+            "responses": {
+                "200": {
+                "description": "response",
+                "schema": {
+                    "$ref": "#/definitions/distillery_schema"
+                    }
+                }
+            }
+        },
+       "post": {
+          "tags": ["Distilleries"],
+          "description": "Adds a new distillery",
+          "operationId": "save",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+              {
+                "name": "distillery",
+                "in": "body",
+                "description": "The distillery to create",
+                "required": true,
+              "schema": {
+                "$ref": "#/definitions/distillery_schema"
+                }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The created distillery",
+              "schema": {
+                 "$ref": "#/definitions/distillery_schema"
+              }
+            }
+          }
+        }
+    },
+    "/distilleries/{_id}": {
+        "put": {
+            "tags": ["Distilleries"],
+            "description": "Updates the given distillery",
+            "operationId": "findOneAndUpdate",
+            "produces": [
+                "application/json"
+            ],
+            "parameters": [
+            {
+                "name": "_id",
+                "in": "query",
+                "description": "The ObjectId(_id) of the distillery to update",
+                "required": true,
+                "type": "string"
+            },
+            {
+                "name": "distillery",
+                "in": "body",
+                "description": "The distillery details to update",
+                "required": true,
+                "schema": {
+                    "$ref": "#/definitions/distillery_schema"
+                }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The updated distillery",
+              "schema": {
+                 "$ref": "#/definitions/distillery_schema"
+              }
+            }
+          }
+        },
+        "delete":{
+            "tags":["Distilleries"],
+            "description":"Deletes a distillery",
+            "operationId":"findOneAndUpdate",
+            "produces": [
+            "application/json"
+            ],
+            "parameters":[
+                {
+                    "name": "_id",
+                    "in": "query",
+                    "description": "The ObjectId(_id) of the distillery to delete",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "responses": {
+            "200": {
+                "description": "Delete response",
+                "schema":{
+                "$ref":"#/definitions/distillery_deleted"
+                }
+            }
+          }
+        },
+        "get":{
+            "tags": ["Distilleries"],
+            "description": "Returns the given distillery",
+            "operationId": "findById",
+            "produces": [
+            "application/json"
+            ],
+            "parameters":[
+                {
+                    "name": "_id",
+                    "in": "query",
+                    "description": "The ObjectId(_id) of the distillery to find",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "responses": {
+                "200": {
+                "description": "response",
+                "schema": {
+                    "$ref": "#/definitions/distillery_schema"
+                    }
+                }
+            }
+        }
+      }
+  },
+  "definitions": {
+    "user_schema": {
+        "properties": {
+                "first_name": {
+                "required":true,
+                "type": "string",
+                "example": "Joe"
+            },
+                "surname": {
+                "required":true,
+                "type": "string",
+                "example": "Bloggs"
+            },
+                "full_name": {
+                "type": "string",
+                "example": "Joe Bloggs",
+                "description": "Automatically generated property, not passed in"
+            },
+                "user_name": {
+                "required":true,
+                "type": "string",
+                "pattern": "/^[a-zA-Z0-9_]*$/",
+                "minLength": 5,
+                "maxLength": 20,
+                "example": "Joe_Bloggs99"
+            },
+                "email": {
+                "required":true,
+                "type": "string",
+                "pattern": "/^([\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4})?$/",
+                "example": "joe@bloggs.com"
+            },
+                "password": {
+                "required":true,
+                "type": "string",
+                "minLength": 5,
+                "maxLength": 20,
+                "example": "joe999"
+            },
+                "created_date": {
+                "required":true,
+                "type": "datetime"
+            },
+                "deleted": {
+                "required":true,
+                "type": "boolean"
+            }
+        }
+    },
+    "distillery_schema": {
+        "properties": {
+                "name": {
+                "required":true,
+                "type": "string",
+                "example": "Joe's Distillery"
+            },
+                "created_date": {
+                "required":true,
+                "type": "datetime"
+            },
+                "status": {
+                "required":true,
+                "type": "string",
+                "enum": ["pending", "ongoing", "completed"]
+            }
+        }
+    },
+    "whiskey_schema": {
+        "properties": {
+                "name": {
+                "required":true,
+                "type": "string",
+                "example": "Joe's 10 Year Whiskey"
+            },
+                "abv": {
+                "required":true,
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+            },
+                "distillery_id": {
+                "required":true,
+                "type": "string",
+                "description": "The ObjectId (_id) of the distillery the whiskey belongs to"
+            },
+                "created_date": {
+                "required":true,
+                "type": "datetime"
+            },
+                "type": {
+                "required":true,
+                "type": "string",
+                "enum": ["malt", "grain", "blended", "single pot", "bourbon", "tennessee", "rye", "corn"]
+            }
+        }
+    },
+    "rating_schema": {
+        "properties": {
+                "rating": {
+                "required":true,
+                "type": "number",
+                "minimum": 0,
+                "maximum": 10
+            },
+                "whiskey_id": {
+                "required":true,
+                "type": "string",
+                "description": "The ObjectId (_id) of the whiskey being rated"
+            },
+                "created_by": {
+                "required":true,
+                "type": "string",
+                "description": "The ObjectId (_id) of the user adding the rating"
+            },
+                "created_date": {
+                "required":true,
+                "type": "datetime"
+            }
+        }
+    },
+    "user_deleted" : {
+       "properties": {
+        "message": {
+          "type": "string",
+          "example" : "User successfully deleted"
+        }
+      }
+    },
+    "distillery_deleted" : {
+       "properties": {
+        "message": {
+          "type": "string",
+          "example" : "Distillery successfully deleted"
+        }
+      }
+    }
+  }
+}

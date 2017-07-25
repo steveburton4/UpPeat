@@ -7,7 +7,7 @@ module.exports = function(app) {
     .get(distilleryList.list_all_distilleries)
     .post(distilleryList.create_a_distillery);
 
-  app.route('/distilleries/:distilleryId')
+  app.route('/distilleries/:_id')
     .get(distilleryList.read_a_distillery)
     .put(distilleryList.update_a_distillery)
     .delete(distilleryList.delete_a_distillery);
