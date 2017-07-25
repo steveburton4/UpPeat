@@ -1,6 +1,6 @@
 {
   "name": "uppeat-api",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "\"RESTful API used for accessing UpPeat data\"",
   "main": "server.js",
   "scripts": {
