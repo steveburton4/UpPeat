@@ -440,6 +440,9 @@
                 "required":true,
                 "type": "string",
                 "enum": ["pending", "ongoing", "completed"]
+            },
+                "tags": {
+                    "$ref": "#/definitions/tags"
             }
         }
     },
@@ -464,6 +467,9 @@
                 "created_date": {
                 "required":true,
                 "type": "datetime"
+            },
+                "tags": {
+                    "$ref": "#/definitions/tags"
             },
                 "type": {
                 "required":true,
@@ -490,11 +496,25 @@
                 "type": "string",
                 "description": "The ObjectId (_id) of the user adding the rating"
             },
+                "tags": {
+                    "$ref": "#/definitions/tags"
+            },
+                "place_id" : {
+                "type": "string",
+                "description": "The Id of the maps place the rating was added"
+            },
                 "created_date": {
                 "required":true,
                 "type": "datetime"
             }
         }
+    },
+    "tags" : {
+        "description": "An array of tagged strings",
+        "properties": {
+            "tag": "string"
+        },
+        "type": "array"
     },
     "user_deleted" : {
        "properties": {

@@ -5,12 +5,15 @@ var Schema = mongoose.Schema;
 var DistillerySchema = new Schema({
   name: {
     type: String,
-    Required: 'Enter the name of the distillery',
+    required: 'Enter the name of the distillery',
     trim: 'true'
   },
   created_date: {
     type: Date,
     default: Date.now
+  },
+  tags: {
+    type: [String]
   },
   status: {
     type: [{

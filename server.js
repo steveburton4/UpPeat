@@ -38,10 +38,6 @@ app.get('/v1', function (req, res) {
     res.sendFile(__dirname +'/dist/index.html');
 });
 
-app.get('/v1/swagger-docs', function (req, res) {
-    res.sendFile(__dirname +'/dist/api-docs.json');
-});
-
 swagger.configureSwaggerPaths('', 'api-docs', '');
 swagger.setAppHandler(subpath);
 swagger.configure("http://localhost:54321/uppeat/v1", "1.0.1");

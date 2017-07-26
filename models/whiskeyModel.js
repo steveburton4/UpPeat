@@ -5,23 +5,26 @@ var Schema = mongoose.Schema;
 var WhiskeySchema = new Schema({
   name: {
     type: String,
-    Required: 'Enter the name of the whiskey',
+    required: 'Enter the name of the whiskey',
     trim: 'true'
   },
   abv: {
     type: Number,
-    Required: 'Average volume for the whiskey',
+    required: 'Average volume for the whiskey',
     min: 0,
     max: 100
   },
   distillery_id: {
     type: Schema.ObjectId,
-    Required: 'Unique identifier of the distillery the whiskey belongs to',
+    required: 'Unique identifier of the distillery the whiskey belongs to',
     ref: 'Distillery'
   },
   created_date: {
     type: Date,
     default: Date.now
+  },
+  tags: {
+    type: [String]
   },
   type: {
     type: [{
