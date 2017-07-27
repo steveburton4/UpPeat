@@ -13,6 +13,6 @@ var configuredApp = app.createApp();
 var documentationSubPath = documentation(configuredApp, 'http://localhost:'+port+basePath, documentationDirName);
 
 server.use(basePath, documentationSubPath);
-server.listen(port);
+server.listen(port, "0.0.0.0");
 
-console.log('UpPeat RESTful API server started on: ' + port);
+console.log('UpPeat RESTful API server started on: http://0.0.0.0:' + port);

@@ -1,10 +1,25 @@
-uppeat:
-  build: .
-  command: node_modules/.bin/nodemon index.js
-  environment:
-    NODE_ENV: development
-  ports:
-    - '54321:54321'
-  volumes:
-    - .:/home/app/uppeat
-    - /home/app/uppeat/node_modules
+version: '2.0'
+services:
+  uppeat:
+    build: .
+    container_name: uppeat
+    ports:
+      - 54321:54321
+      - 127.0.0.1:54321:54321
+    environment:
+      NODE_ENV: development
+      MONGODB_ADDRESS: mongodb
+      PORT: 54321
+    depends_on:
+      - mongodb
+  mongodb:
+    image: mongo:latest
+    container_name: "mongodb"
+    environment:
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
+    volumes:
+      - ./data/db:/data/db
+    ports:
+      - 27017:27017
+    command: mongod --smallfiles --logpath=/dev/null --quiet

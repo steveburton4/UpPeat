@@ -13,13 +13,11 @@ USER app
 WORKDIR $HOME/uppeat
 
 RUN npm install
-RUN npm cache clean
+RUN npm cache clean -f
 
 USER root
-COPY . $HOME/uppeat
+COPY . $HOME/uppeat/
 RUN chown -R app:app $HOME/*
+
 USER app
-
-EXPOSE 54321
-
 CMD ["node", "server.js"]

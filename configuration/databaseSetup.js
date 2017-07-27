@@ -4,5 +4,5 @@ module.exports = function(app)
         config = require('./appSettings');
 
     mongoose.Promise = global.Promise;
-    mongoose.connect(config.db[app.settings.env]);    
+    mongoose.connect(config.db[app.settings.env], { useMongoClient: true });
 }

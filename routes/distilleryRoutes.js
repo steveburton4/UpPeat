@@ -2,7 +2,7 @@
 
 module.exports = function(app) {
   var distilleryList = require('../controllers/distilleryController'),
-  var whiskeyList = require('../controllers/whiskeyController');
+    whiskeyList = require('../controllers/whiskeyController');
 
   app.route('/distilleries')
     .get(distilleryList.list_all_distilleries)
