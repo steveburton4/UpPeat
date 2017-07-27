@@ -15,6 +15,10 @@
     {
         "name": "Distilleries", 
         "description": "CRUD operations for the Distillery data"
+    },
+    {
+        "name": "Whiskeys", 
+        "description": "CRUD operations for the Whiskey data"
     }
   ],
   "schemes": [
@@ -373,6 +377,163 @@
                     }
                 }
             }
+        },
+    "/distilleries/{distilleryId}/whiskeys": {
+        "get":{
+            "tags": ["Distilleries"],
+            "description": "Returns the whiskeys for the given distillery",
+            "operationId": "find",
+            "produces": [
+            "application/json"
+            ],
+            "parameters":[
+                {
+                    "name": "distilleryId",
+                    "in": "query",
+                    "description": "The ObjectId(_id) of the distillery to find whiskeys for",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "responses": {
+                "200": {
+                "description": "response",
+                "schema": {
+                    "$ref": "#/definitions/whiskey_schema"
+                    }
+                }
+            }
+        }
+      },
+    "/whiskeys": {
+        "get":{
+            "tags": ["Whiskeys"],
+            "description": "Returns a list of all whiskeys",
+            "operationId": "find",
+            "produces": [
+            "application/json"
+            ],
+            "responses": {
+                "200": {
+                "description": "response",
+                "schema": {
+                    "$ref": "#/definitions/whiskey_schema"
+                    }
+                }
+            }
+        },
+       "post": {
+          "tags": ["Whiskeys"],
+          "description": "Adds a new whiskey",
+          "operationId": "save",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+              {
+                "name": "whiskey",
+                "in": "body",
+                "description": "The whiskey to create",
+                "required": true,
+              "schema": {
+                "$ref": "#/definitions/whiskey_schema"
+                }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The created whiskey",
+              "schema": {
+                 "$ref": "#/definitions/whiskey_schema"
+              }
+            }
+          }
+        }
+    },
+    "/whiskeys/{_id}": {
+        "put": {
+            "tags": ["Whiskeys"],
+            "description": "Updates the given whiskey",
+            "operationId": "findOneAndUpdate",
+            "produces": [
+                "application/json"
+            ],
+            "parameters": [
+            {
+                "name": "_id",
+                "in": "query",
+                "description": "The ObjectId(_id) of the whiskey to update",
+                "required": true,
+                "type": "string"
+            },
+            {
+                "name": "whiskey",
+                "in": "body",
+                "description": "The whiskey details to update",
+                "required": true,
+                "schema": {
+                    "$ref": "#/definitions/whiskey_schema"
+                }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The updated whiskey",
+              "schema": {
+                 "$ref": "#/definitions/whiskey_schema"
+              }
+            }
+          }
+        },
+        "delete":{
+            "tags":["Whiskeys"],
+            "description":"Deletes a whiskey",
+            "operationId":"findOneAndUpdate",
+            "produces": [
+            "application/json"
+            ],
+            "parameters":[
+                {
+                    "name": "_id",
+                    "in": "query",
+                    "description": "The ObjectId(_id) of the whiskey to delete",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "responses": {
+            "200": {
+                "description": "Delete response",
+                "schema":{
+                "$ref":"#/definitions/whiskey_deleted"
+                }
+            }
+          }
+        },
+        "get":{
+            "tags": ["Whiskeys"],
+            "description": "Returns the given whiskey",
+            "operationId": "findById",
+            "produces": [
+            "application/json"
+            ],
+            "parameters":[
+                {
+                    "name": "_id",
+                    "in": "query",
+                    "description": "The ObjectId(_id) of the whiskey to find",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "responses": {
+                "200": {
+                "description": "response",
+                "schema": {
+                    "$ref": "#/definitions/whiskey_schema"
+                    }
+                }
+            }
         }
       }
   },
@@ -529,6 +690,14 @@
         "message": {
           "type": "string",
           "example" : "Distillery successfully deleted"
+        }
+      }
+    },
+    "whiskey_deleted" : {
+       "properties": {
+        "message": {
+          "type": "string",
+          "example" : "Whiskey successfully deleted"
         }
       }
     }
