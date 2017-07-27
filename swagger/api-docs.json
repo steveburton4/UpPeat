@@ -377,7 +377,8 @@
                     }
                 }
             }
-        },
+        }
+    },
     "/distilleries/{distilleryId}/whiskeys": {
         "get":{
             "tags": ["Distilleries"],
