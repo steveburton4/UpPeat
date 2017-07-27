@@ -8,9 +8,10 @@ services:
     environment:
       NODE_ENV: development
       MONGODB_ADDRESS: mongodb
+    links:
+      - mongodb
     depends_on:
       - mongodb
-    network_mode: "host"
   mongodb:
     image: mongo:latest
     container_name: "mongodb"
