@@ -19,5 +19,7 @@ USER root
 COPY . $HOME/uppeat/
 RUN chown -R app:app $HOME/*
 
+EXPOSE 54321
+
 USER app
 CMD ["node", "server.js"]
