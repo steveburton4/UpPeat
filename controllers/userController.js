@@ -3,24 +3,42 @@
 require('../models/userModel');
 
 var mongoose = require('mongoose'),
-  Users = mongoose.model('User');
+  Users = mongoose.model('User'),
+  results = require('./resultController');
 
 exports.list_all_users = function(req, res) {
   Users.find({}, function(err, user) {
-    if (err)
-      res.send(err);
-    res.json(user);
+    results.sendSuccessAfterCheckingError(res, err, user);
   });
 };
 
 exports.create_a_user = function(req, res) {
   var new_user = new Users(req.body);
-  new_user.save(function(err, user) {
-    if (err)
-      res.send(err);
-    res.json(user);
+  check_user_name(req, res, new_user.user_name, function(req, res) {
+    if (validate_user(req, res))
+    {
+      new_user.save(function(err, user) {
+        results.sendSuccessAfterCheckingError(res, err, user);
+      });
+    }
   });
 };
+
+function check_user_name(req, res, username, successCallback)
+{
+  Users.findOne({user_name: username, deleted: false}, function(err, user) {
+    if (results.checkAndSendError(res, err))
+      return;
+    
+    if (user != null)
+    {
+      results.sendRequestError(res, 'User already exists' );
+      return;
+    }
+
+    successCallback(req, res);
+  });
+}
 
 exports.read_a_user = function(req, res) {
   read_a_user_base({_id: req.params._id}, req, res); 
@@ -32,9 +50,7 @@ exports.read_a_user_by_name = function(req, res) {
 
 function read_a_user_base (conditions, req, res) {
   Users.findOne(conditions, function(err, user) {
-    if (err)
-      res.send(err);
-    res.json(user);
+    results.sendSuccessAfterCheckingError(res, err, user);
   });
 };
 
@@ -47,11 +63,12 @@ exports.update_a_user_by_name = function(req, res) {
 };
 
 function update_a_user_base (conditions, req, res) {
-  Users.findOneAndUpdate(conditions, req.body, {new: true}, function(err, user) {
-    if (err)
-      res.send(err);
-    res.json(user);
-  });
+  if (validate_user(req, res))
+  {
+    Users.findOneAndUpdate(conditions, req.body, {new: true}, function(err, user) {
+      results.sendSuccessAfterCheckingError(res, err, user);
+    });
+  }
 };
 
 exports.delete_a_user = function(req, res) {
@@ -63,40 +80,51 @@ exports.delete_a_user_by_name = function(req, res) {
 };
 
 function delete_a_user_base (conditions, req, res) {
-  Users.findOne(conditions, function(err, user) {
-    if (err)
-      res.send(err);
+  Users.findOne(conditions, function(err, new_user) {
+    if (results.checkAndSendError(res, err))
+      return;
     
-    if (user == null)
-      res.json({ message: 'User could not be found' });
+    if (new_user == null)
+      results.sendRequestError(res, 'User could not be found' );
     
-    if (user.deleted)
-      res.json({ message: 'User already deleted' });
+    if (new_user.deleted)
+      results.sendRequestError(res, 'User already deleted' );
 
-    user.deleted = true;
-    Users.findOneAndUpdate({_id: user._id}, req.body, {new: true}, function(err, user) {
-      if (err)
-        res.send(err);
-      res.json({ message: 'User successfully deleted' });
+    new_user.deleted = true;
+    Users.findOneAndUpdate({_id: new_user._id}, new_user, {new: true}, function(err, user) {
+      results.sendSuccessAfterCheckingError(res, err, 'User successfully deleted');
     });
   });
 };
 
+function validate_user(req, res) {
+  var schema = require('../validation schemas/userValidationSchema');
+  req.checkBody(schema);
+  const errors = req.validationErrors();
+  
+  return !results.checkAndSendError(res, errors);
+}
 
-exports.delete_a_user = function(req, res) {
-  Users.findById(req.params.user_name, function(err, user) {
-    if (err)
-      res.send(err);
-    
-    if (user.deleted)
-      res.json({ message: 'User already deleted' });
+module.exports.login = function(req, res)
+{
+  Users.getAuthenticated(req.params._id, req.params.password, function(err, user, reason) {
+    if (results.checkAndSendError(res, err))
+      return;
 
-    user.deleted = true;
-    Users.findOneAndUpdate({_id: req.params.user_name}, req.body, {new: true}, function(err, user) {
-      if (err)
-        res.send(err);
-      res.json({ message: 'User successfully deleted' });
-    });
+    if (user) {
+        results.sendSuccess('Login successful');
+        return;
+    }
+
+    var reasons = Users.failedLogin;
+    switch (reason) {
+        case reasons.NOT_FOUND:
+        case reasons.PASSWORD_INCORRECT:
+            results.sendRequestError('Login failed');
+            break;
+        case reasons.MAX_ATTEMPTS:
+            results.sendRequestError('User account is locked out');
+            break;
+    }
   });
-};
-
+}

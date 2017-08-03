@@ -29,22 +29,23 @@ var UserSchema = new Schema({
     set: toLower,
     minLength: 5,
     maxLength: 20,
-    match: /^[a-zA-Z0-9_]*$/,
-    index: { unique: true }
+    match: /^[a-zA-Z0-9_]*$/
   },
   email: {
     type: String,
     required: 'The e-mail address for the user',
     trim: 'true',
     match: /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/,
-    set: toLower
+    set: toLower,
+    index: { unique: true, sparse: true }
   },
   password: {
     type: String,
     required: 'The un-salted password for the user',
     minLength: 5,
     maxLength: 20,
-    trim: 'true'
+    trim: 'true',
+    match: /^(?=.*[a-zA-Z_])(?=.*[0-9_]+).*$/
   },
   created_date: {
     type: Date,
@@ -130,8 +131,8 @@ UserSchema.methods.incLoginAttempts = function(cb) {
     return this.update(updates, cb);
 };
 
-UserSchema.statics.getAuthenticated = function(username, password, cb) {
-    this.findOne({ username: username }, function(err, user) {
+UserSchema.statics.getAuthenticated = function(_id, password, cb) {
+    this.findOne({ _id: _id }, function(err, user) {
         if (err) return cb(err);
 
         if (!user) {
@@ -168,5 +169,10 @@ UserSchema.statics.getAuthenticated = function(username, password, cb) {
         });
     });
 };
+
+UserSchema.index({user_name: 1, deleted: 1}, {unique: true, partialFilterExpression: {deleted: false}});
+
+var plugins = require('./plugins/timestampPlugin');
+UserSchema.plugin(plugins.timestamps);
 
 module.exports = mongoose.model('User', UserSchema);

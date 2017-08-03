@@ -29,9 +29,12 @@
   "dependencies": {
     "bcrypt": "^1.0.2",
     "body-parser": "1.9.x",
+    "connect-mongo": "^1.3.2",
     "express": "^4.15.3",
+    "express-session": "^1.15.4",
+    "express-validator": "^3.2.1",
+    "minimist": "*",
     "mongoose": "^4.11.3",
-    "swagger-node-express": "~2.0",
-    "minimist": "*"
+    "swagger-node-express": "~2.0"
   }
 }
