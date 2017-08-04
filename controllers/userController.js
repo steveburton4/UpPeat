@@ -60,6 +60,9 @@ function read_a_user_base (conditions, req, res) {
       return;
     }
 
+    if (results.checkUserIsLoggedIn(req, res, user.user_name) == false)
+      return;
+
     results.sendSuccessAfterCheckingError(res, err, user);
   });
 };
@@ -75,8 +78,22 @@ exports.update_a_user_by_name = function(req, res) {
 function update_a_user_base (conditions, req, res) {
   if (validate_user(req, res))
   {
-    Users.findOneAndUpdate(conditions, req.body, {new: true}, function(err, user) {
-      results.sendSuccessAfterCheckingError(res, err, user);
+    Users.findOne(conditions, function(err, user) {
+      if (results.checkAndSendError(res, err))
+        return;
+
+      if (user == null)
+      {
+        results.sendNotFound(res, "No user could be found with the given details");
+        return;
+      }
+
+      if (results.checkUserIsLoggedIn(req, res, user.user_name) == false)
+        return;
+
+      Users.findByIdAndUpdate(user._id, req.body, {new: true}, function(err, user) {
+        results.sendSuccessAfterCheckingError(res, err, user);
+      });
     });
   }
 };
@@ -100,11 +117,17 @@ function delete_a_user_base (conditions, req, res) {
       results.sendRequestError(res, "Could not find user to delete");
       return;
     }
+      
+    if (results.checkUserIsLoggedIn(req, res, user.user_name) == false)
+      return;
 
     Users.findByIdAndRemove(user._id, function(err) {
     if (results.checkAndSendError(res, err))
       return;
 
+    req.logout();
+    req.session.destroy();
+    
     results.sendSuccessAfterCheckingError(res, err, 'User successfully deleted');
     });  
   });

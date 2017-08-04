@@ -17,6 +17,12 @@ function sendSuccess(res, information)
         res.status(200).send();
 }
 
+function sendForbidden(res, information)
+{
+    res.status(403).json({message:information});
+    res.send();
+}
+
 module.exports.sendSuccess = sendSuccess;
 
 module.exports.checkAndSendError = checkAndSendError;
@@ -36,5 +42,26 @@ module.exports.sendNotFound = function(res, errorText)
 module.exports.sendSuccessAfterCheckingError = function(res, err, information)
 {
     if (!checkAndSendError(res, err))
+    {
         sendSuccess(res, information);
+        return true;
+    }
+
+    return false;
+}
+
+module.exports.checkUserIsLoggedIn = function(req, res, userToMatch)
+{
+    if (!req.user)
+    {
+        sendForbidden(res, "User must be logged in to access this resource");
+        return false;
+    }
+    else if (userToMatch & req.user.user_name != userToMatch)
+    {
+        sendForbidden(res, "Logged in user (" + req.user.user_name + ") is not authorised to access this resource");
+        return false;
+    }
+
+    return true;
 }
