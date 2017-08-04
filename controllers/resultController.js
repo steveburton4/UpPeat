@@ -36,7 +36,5 @@ module.exports.sendNotFound = function(res, errorText)
 module.exports.sendSuccessAfterCheckingError = function(res, err, information)
 {
     if (!checkAndSendError(res, err))
-    {
         sendSuccess(res, information);
-    }
 }

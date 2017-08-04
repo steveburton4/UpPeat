@@ -5,10 +5,7 @@ module.exports.createApp = function()
     var bodyParser = require('body-parser'),
         express = require('express'),
         passport = require('./passport'),
-        cookieParser = require('cookie-parser'),
         app = express();
-
-    app.use(cookieParser());
 
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());
