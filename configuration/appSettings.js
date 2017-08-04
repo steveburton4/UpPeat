@@ -4,9 +4,9 @@ module.exports.createApp = function()
 {
     var bodyParser = require('body-parser'),
         express = require('express'),
-        routes = require('../configuration/routes'),
+        routes = require('./routes'),
         validator = require('express-validator'),
-        passport = require('passport'),
+        passport = require('./passport'),
         app = express();
 
 

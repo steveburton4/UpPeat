@@ -27,6 +27,12 @@ module.exports.sendRequestError = function(res, errorText)
     res.send();
 }
 
+module.exports.sendNotFound = function(res, errorText)
+{
+    res.status(404).json({message:errorText});
+    res.send();
+}
+
 module.exports.sendSuccessAfterCheckingError = function(res, err, information)
 {
     if (!checkAndSendError(res, err))

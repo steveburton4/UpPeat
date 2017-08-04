@@ -47,14 +47,6 @@ var UserSchema = new Schema({
     trim: 'true',
     match: /^(?=.*[a-zA-Z_])(?=.*[0-9_]+).*$/
   },
-  created_date: {
-    type: Date,
-    default: Date.now
-  },
-  deleted: {
-    type: Boolean,
-    default: false
-  },
   loginAttempts: { 
     type: Number, 
     required: true, 
@@ -131,8 +123,8 @@ UserSchema.methods.incLoginAttempts = function(cb) {
     return this.update(updates, cb);
 };
 
-UserSchema.statics.getAuthenticated = function(_id, password, cb) {
-    this.findOne({ _id: _id }, function(err, user) {
+UserSchema.statics.getAuthenticated = function(user_name, password, cb) {
+    this.findOne({ user_name: user_name }, function(err, user) {
         if (err) return cb(err);
 
         if (!user) {
@@ -170,7 +162,7 @@ UserSchema.statics.getAuthenticated = function(_id, password, cb) {
     });
 };
 
-UserSchema.index({user_name: 1, deleted: 1}, {unique: true, partialFilterExpression: {deleted: false}});
+UserSchema.index({user_name: 1, deleted: 1}, {unique: true, partialFilterExpression: {deleted: {$exists: true}}});
 
 var plugins = require('./plugins/timestampPlugin');
 UserSchema.plugin(plugins.timestamps);

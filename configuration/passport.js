@@ -27,16 +27,16 @@ passport.use('local-signup', new LocalStrategy({
           return done(err);
           }
         if(user) {
-          return done(null, false, {errMsg: 'User name already exists'});
+          return done(null, false, {message: 'User name already exists'});
         }
         else {
             var new_User = new Users();
-            new_User.username = username;
-            new_User.first_name = req.body.user_name;
+            new_User.user_name = user_name;
+            new_User.first_name = req.body.first_name;
             new_User.surname = req.body.surname;
             new_User.email = req.body.email;
             new_User.password = password;
-            newUser.save(function(err) {
+            new_User.save(function(err) {
               if(err) {
                   return done(err);
                 }
@@ -54,7 +54,7 @@ passport.use('local-login', new LocalStrategy({
         passReqToCallback : true
     },
     function(req, user_name, password, done) {
-        Users.getAuthenticated(username, password, function(err, user, reason) {
+        Users.getAuthenticated(user_name, password, function(err, user, reason) {
             if (err) { return done(err); }        
 
             if (user) {

@@ -27,7 +27,7 @@ exports.create_a_user = function(req, res) {
 
 function check_user_name(req, res, username, successCallback)
 {
-  Users.findOne({user_name: username, deleted: false}, function(err, user) {
+  Users.findOne({user_name: username}, function(err, user) {
     if (results.checkAndSendError(res, err))
       return;
     
@@ -51,6 +51,15 @@ exports.read_a_user_by_name = function(req, res) {
 
 function read_a_user_base (conditions, req, res) {
   Users.findOne(conditions, function(err, user) {
+    if (results.checkAndSendError(res, err))
+      return;
+
+    if (user == null)
+    {
+      results.sendNotFound(res, "No user could be found with the given details");
+      return;
+    }
+
     results.sendSuccessAfterCheckingError(res, err, user);
   });
 };
@@ -81,20 +90,23 @@ exports.delete_a_user_by_name = function(req, res) {
 };
 
 function delete_a_user_base (conditions, req, res) {
-  Users.findOne(conditions, function(err, new_user) {
+
+  Users.findOne(conditions, function(err, user) {
     if (results.checkAndSendError(res, err))
       return;
-    
-    if (new_user == null)
-      results.sendRequestError(res, 'User could not be found' );
-    
-    if (new_user.deleted)
-      results.sendRequestError(res, 'User already deleted' );
 
-    new_user.deleted = true;
-    Users.findOneAndUpdate({_id: new_user._id}, new_user, {new: true}, function(err, user) {
-      results.sendSuccessAfterCheckingError(res, err, 'User successfully deleted');
-    });
+    if (user == null)
+    {
+      results.sendRequestError(res, "Could not find user to delete");
+      return;
+    }
+
+    Users.findByIdAndRemove(user._id, function(err) {
+    if (results.checkAndSendError(res, err))
+      return;
+
+    results.sendSuccessAfterCheckingError(res, err, 'User successfully deleted');
+    });  
   });
 };
 
@@ -114,38 +126,39 @@ module.exports.logout = function(req, res)
   });
 }
 
-module.exports.login = function(req, res)
+module.exports.login = function(req, res, next)
 {
   passport.authenticate('local-login', function(err, user, info) {
-    if(results.checkAndSendError(err))
+    if(results.checkAndSendError(res, err))
       return;
       
     if (!user) {
-      results.sendRequestError(info.message);
+      results.sendRequestError(res, info.message);
+      return;
     }
     req.login(user, function(err){
-      if(results.checkAndSendError(err))
+      if(results.checkAndSendError(res, err))
         return;
 
-      return results.sendSuccess();
+      return results.sendSuccess(res, "User logged in successfully");
     });
-  });
+  })(req, res, next);
 }
 
-module.exports.signup = function(req, res)
+module.exports.signup = function(req, res, next)
 {
   passport.authenticate('local-signup', function(err, user, info) {
-    if(results.checkAndSendError(err))
+    if(results.checkAndSendError(res, err))
       return;
 
     if (!user) {
-      results.sendRequestError(info.message);
+      results.sendRequestError(res, info.message);
     }
     req.login(user, function(err){
-      if(results.checkAndSendError(err))
+      if(results.checkAndSendError(res, err))
         return;
 
-      return results.sendSuccess();
+      return results.sendSuccess(res, user);
     });
-  })
+  })(req, res, next);
 }

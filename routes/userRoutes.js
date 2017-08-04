@@ -17,12 +17,12 @@ module.exports = function(app) {
     .put(userList.update_a_user)
     .delete(userList.delete_a_user);
 
-  app.route('/users/:id/login')
+  app.route('/users/login')
     .post(userList.login);
 
-  app.route('/users/:id/logout')
+  app.route('/users/logout')
     .post(userList.logout);
 
-  app.route('/users/username/:user_name/signup')
+  app.route('/users/signup')
     .post(userList.signup);
 };
