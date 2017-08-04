@@ -29,7 +29,8 @@ var UserSchema = new Schema({
     set: toLower,
     minLength: 5,
     maxLength: 20,
-    match: /^[a-zA-Z0-9_]*$/
+    match: /^[a-zA-Z0-9_]*$/,
+    unique: true
   },
   email: {
     type: String,
@@ -161,8 +162,6 @@ UserSchema.statics.getAuthenticated = function(user_name, password, cb) {
         });
     });
 };
-
-UserSchema.index({user_name: 1, deleted: 1}, {unique: true, partialFilterExpression: {deleted: {$exists: true}}});
 
 var plugins = require('./plugins/timestampPlugin');
 UserSchema.plugin(plugins.timestamps);

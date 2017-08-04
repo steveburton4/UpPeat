@@ -3,48 +3,91 @@
 require('../models/distilleryModel');
 
 var mongoose = require('mongoose'),
+  results = require('./resultController'),
   Distilleries = mongoose.model('Distillery');
 
 exports.list_all_distilleries = function(req, res) {
   Distilleries.find({}, function(err, distillery) {
-    if (err)
-      res.send(err);
-    res.json(distillery);
+    if (results.checkAndSendError(res, err))
+      return;
+
+    results.sendSuccess(res, distillery);
   });
 };
 
 exports.create_a_distillery = function(req, res) {
   var new_distillery = new Distilleries(req.body);
-  new_distillery.save(function(err, distillery) {
-    if (err)
-      res.send(err);
-    res.json(distillery);
-  });
+
+  if (check_distillery_name(req, res, new_distillery.name, function(req, res)
+  {
+    new_distillery.save(function(err, distillery) {
+      if (results.checkAndSendError(res, err))
+        return;
+
+      results.sendSuccess(res, distillery);
+    });
+  }));
 };
+
+function check_distillery_name(req, res, name, successCallback)
+{
+  Distilleries.findOne({name: name}, function(err, user) {
+    if (results.checkAndSendError(res, err))
+      return;
+    
+    if (user != null)
+    {
+      results.sendRequestError(res, 'Distillery name already exists');
+      return;
+    }
+
+    successCallback(req, res);
+  });
+}
 
 exports.read_a_distillery = function(req, res) {
   Distilleries.findById(req.params._id, function(err, distillery) {
-    if (err)
-      res.send(err);
-    res.json(distillery);
+    if (results.checkAndSendError(res, err))
+      return;
+
+    if (distillery == null)
+    {
+      results.sendNotFound(res, "No distillery could be found with the given details");
+      return;
+    }
+
+    results.sendSuccess(res, distillery);
   });
 };
 
 exports.update_a_distillery = function(req, res) {
-  Distilleries.findOneAndUpdate({_id: req.params._id}, req.body, {new: true}, function(err, distillery) {
-    if (err)
-      res.send(err);
-    res.json(distillery);
-  });
+  var edited_distillery = new Distilleries(req.body);
+
+  if (check_distillery_name(req, res, edited_distillery.name, function(req, res)
+  {
+    Distilleries.findByIdAndUpdate(req.params._id, req.body, {new: true}, function(err, distillery) {
+      if (results.checkAndSendError(res, err))
+        return;
+
+      results.sendSuccess(res, distillery);
+    });
+  }));
 };
 
 exports.delete_a_distillery = function(req, res) {
-  Distilleries.remove({
-    _id: req.params._id
-  }, function(err, distillery) {
-    if (err)
-      res.send(err);
-    res.json({ message: 'Distillery successfully deleted' });
+  Distilleries.findById(req.params._id, function(err, distillery) {
+    if (results.checkAndSendError(res, err))
+      return;
+
+    if (distillery == null)
+    {
+      results.sendRequestError(res, "Could not find distillery to delete");
+      return;
+    }
+
+    Distilleries.findByIdAndRemove(distillery._id, function(err) {
+      results.sendSuccessAfterCheckingError(res, err, 'Distillery successfully deleted');
+    });  
   });
 };
 

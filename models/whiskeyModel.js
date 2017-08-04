@@ -15,9 +15,19 @@ var WhiskeySchema = new Schema({
     max: 100
   },
   distillery_id: {
-    type: Schema.ObjectId,
-    required: 'Unique identifier of the distillery the whiskey belongs to',
+    type: [Schema.ObjectId],
+    required: 'Unique identifiers of the distilleries the whiskey belongs to',
     ref: 'Distillery'
+  },
+  type: {
+    type: [{
+      type: String,
+      enum: ['malt', 'grain', 'blended', 'single pot', 'bourbon', 'tennessee', 'rye', 'corn', 'rice']
+    }],
+    required: 'Type of the whiskey'
+  },
+  description: {
+    type: String
   },
   created_date: {
     type: Date,
@@ -26,12 +36,9 @@ var WhiskeySchema = new Schema({
   tags: {
     type: [String]
   },
-  type: {
-    type: [{
-      type: String,
-      enum: ['malt', 'grain', 'blended', 'single pot', 'bourbon', 'tennessee', 'rye', 'corn']
-    }],
-    Required: 'Type of the whiskey'
+  meta: {
+    likes: Number,
+    ratings: Number
   }
 });
 

@@ -9,6 +9,9 @@ var RatingSchema = new Schema({
     min: 0,
     max: 10
   },
+  comments: {
+    type: String
+  },
   whiskey_id: {
     type: Schema.ObjectId,
     required: 'Unique identifier of the whiskey the rating is for',
@@ -19,8 +22,9 @@ var RatingSchema = new Schema({
     required: 'Unique identifier of the user submitting the rating',
     ref: 'User'
   },
-  place_id: {
-    type: String
+  location_id: {
+    type: Schema.ObjectId,
+    ref: 'Location'
   },
   tags: {
     type: [String]

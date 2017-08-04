@@ -1144,6 +1144,30 @@
 						"description": ""
 					},
 					"response": []
+				},
+				{
+					"name": "Add whiskey",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Whiskeys",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
 				}
 			]
 		},
@@ -1171,6 +1195,341 @@
 						"method": "GET",
 						"header": [],
 						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add distillery",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"new_distillery_id\", jsonData._id);",
+									"",
+									"tests[\"Check name is correct\"] = jsonData.name === \"testDistillery\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Distilleries",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"testDistillery\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add duplicate distillery",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 400\"] = responseCode.code === 400;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Check response is correct\"] = jsonData.message === \"Distillery name already exists\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Distilleries",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"testDistillery\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get distillery",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"var id = postman.getEnvironmentVariable(\"new_distillery_id\");",
+									"",
+									"tests[\"Check id is correct\"] = jsonData._id === id;",
+									"tests[\"Check name is correct\"] = jsonData.name === \"testDistillery\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Distilleries/{{new_distillery_id}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"testDistillery\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Edit distillery with duplicate name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 400\"] = responseCode.code === 400;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Check response is correct\"] = jsonData.message === \"Distillery name already exists\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Distilleries/{{new_distillery_id}}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"testDistillery\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Edit distillery",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Check name is correct\"] = jsonData.name === \"testDistilleryEdit\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Distilleries/{{new_distillery_id}}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"testDistilleryEdit\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get edited distillery",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"var id = postman.getEnvironmentVariable(\"new_distillery_id\");",
+									"",
+									"tests[\"Check id is correct\"] = jsonData._id === id;",
+									"tests[\"Check name is correct\"] = jsonData.name === \"testDistilleryEdit\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Distilleries/{{new_distillery_id}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"testDistilleryEdit\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete distillery",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"tests[\"Check response is correct\"] = responseBody.has(\"Distillery successfully deleted\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Distilleries/{{new_distillery_id}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"testDistilleryEdit\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete deleted distillery",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 400\"] = responseCode.code === 400;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Check response is correct\"] = jsonData.message === \"Could not find distillery to delete\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Distilleries/{{new_distillery_id}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"testDistilleryEdit\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get deleted distillery",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 404\"] = responseCode.code === 404;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Check response is correct\"] = jsonData.message === \"No distillery could be found with the given details\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Distilleries/{{new_distillery_id}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"testDistilleryEdit\"\n}"
+						},
 						"description": ""
 					},
 					"response": []

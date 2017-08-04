@@ -2,12 +2,11 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var DistillerySchema = new Schema({
+var LocationSchema = new Schema({
   name: {
     type: String,
-    required: 'Enter the name of the distillery',
-    trim: 'true',
-    unique: true
+    required: 'Enter the name of the location',
+    trim: 'true'
   },
   description: {
     type: String
@@ -18,10 +17,6 @@ var DistillerySchema = new Schema({
   },
   place_id: {
     type: String
-  },
-  location_id: {
-    type: Schema.ObjectId,
-    ref: 'Location'
   },
   links: {
     twitter: String,
@@ -34,11 +29,10 @@ var DistillerySchema = new Schema({
   tags: {
     type: [String]
   },
-  meta: {
-    likes: Number,
-    ratings: Number,
-    whiskeys: Number
+  distillery_ids: {
+    type: [Schema.ObjectId],
+    ref: 'Distillery'
   }
 });
 
-module.exports = mongoose.model('Distillery', DistillerySchema);
+module.exports = mongoose.model('Location', LocationSchema);
