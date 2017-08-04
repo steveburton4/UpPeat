@@ -13,14 +13,13 @@ function setupSessionManagement(app, dbConnection)
             mongooseConnection: dbConnection,
             ttl: (1 * 60 * 60)
         }),
-        secret: 'jeff',
-        saveUninitialized: true,
+        secret: 'uppeat',
+        saveUninitialized: false,
         resave: false,
         cookie: {
             path: "/",
             maxAge: 1800000,
-            httpOnly: true,
-            secure: true
+            httpOnly: true
         },
         name: "uppeat"
     }));

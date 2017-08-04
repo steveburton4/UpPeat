@@ -6,11 +6,16 @@ module.exports.createApp = function()
         express = require('express'),
         routes = require('../configuration/routes'),
         validator = require('express-validator'),
+        passport = require('passport'),
         app = express();
+
 
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());
     app.use(validator());
+    
+    app.use(passport.initialize());
+    app.use(passport.session());
     
     routes(app);
 

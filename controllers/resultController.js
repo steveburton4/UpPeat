@@ -3,6 +3,7 @@ function checkAndSendError(res, err)
     if (err)
     {
         res.status(500).json(err);
+        res.send();
         return true;
     }
     return false;
@@ -23,6 +24,7 @@ module.exports.checkAndSendError = checkAndSendError;
 module.exports.sendRequestError = function(res, errorText)
 {
     res.status(400).json({message:errorText});
+    res.send();
 }
 
 module.exports.sendSuccessAfterCheckingError = function(res, err, information)

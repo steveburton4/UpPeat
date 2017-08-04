@@ -4,7 +4,8 @@ require('../models/userModel');
 
 var mongoose = require('mongoose'),
   Users = mongoose.model('User'),
-  results = require('./resultController');
+  results = require('./resultController'),
+  passport = require('../configuration/passport');
 
 exports.list_all_users = function(req, res) {
   Users.find({}, function(err, user) {
@@ -105,26 +106,46 @@ function validate_user(req, res) {
   return !results.checkAndSendError(res, errors);
 }
 
+module.exports.logout = function(req, res)
+{        
+  req.logout();
+  req.session.destroy(function() {
+    results.sendSuccess(res, 'User logged out');
+  });
+}
+
 module.exports.login = function(req, res)
 {
-  Users.getAuthenticated(req.params._id, req.params.password, function(err, user, reason) {
-    if (results.checkAndSendError(res, err))
+  passport.authenticate('local-login', function(err, user, info) {
+    if(results.checkAndSendError(err))
+      return;
+      
+    if (!user) {
+      results.sendRequestError(info.message);
+    }
+    req.login(user, function(err){
+      if(results.checkAndSendError(err))
+        return;
+
+      return results.sendSuccess();
+    });
+  });
+}
+
+module.exports.signup = function(req, res)
+{
+  passport.authenticate('local-signup', function(err, user, info) {
+    if(results.checkAndSendError(err))
       return;
 
-    if (user) {
-        results.sendSuccess('Login successful');
+    if (!user) {
+      results.sendRequestError(info.message);
+    }
+    req.login(user, function(err){
+      if(results.checkAndSendError(err))
         return;
-    }
 
-    var reasons = Users.failedLogin;
-    switch (reason) {
-        case reasons.NOT_FOUND:
-        case reasons.PASSWORD_INCORRECT:
-            results.sendRequestError('Login failed');
-            break;
-        case reasons.MAX_ATTEMPTS:
-            results.sendRequestError('User account is locked out');
-            break;
-    }
-  });
+      return results.sendSuccess();
+    });
+  })
 }
