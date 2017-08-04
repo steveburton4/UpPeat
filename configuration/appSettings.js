@@ -4,19 +4,27 @@ module.exports.createApp = function()
 {
     var bodyParser = require('body-parser'),
         express = require('express'),
-        routes = require('./routes'),
-        validator = require('express-validator'),
         passport = require('./passport'),
+        cookieParser = require('cookie-parser'),
         app = express();
 
+    app.use(cookieParser());
 
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());
-    app.use(validator());
     
     app.use(passport.initialize());
     app.use(passport.session());
+
+    return app;
+}
+
+module.exports.setupApp = function(app)
+{
+    var routes = require('./routes'),
+        validator = require('express-validator');
     
+    app.use(validator());
     routes(app);
 
     app.use(function(req, res) {

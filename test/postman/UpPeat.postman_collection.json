@@ -1,0 +1,1152 @@
+{
+	"variables": [],
+	"info": {
+		"name": "UpPeat",
+		"_postman_id": "0d5b78ee-90ed-a4e2-4709-df9bad968230",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"description": "",
+			"item": [
+				{
+					"name": "Get all users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Users",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add new user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"new_user_id\", jsonData.id);",
+									"",
+									"tests[\"First name value is correct\"] = jsonData.first_name === \"Test\";",
+									"tests[\"Surname value is correct\"] = jsonData.surname === \"User\";",
+									"tests[\"Username value is correct\"] = jsonData.user_name === \"test_user1\";",
+									"tests[\"Email value is correct\"] = jsonData.email === \"test@user.com\";",
+									"tests[\"Is locked value is correct\"] = jsonData.isLocked === false;",
+									"tests[\"Full name value is correct\"] = jsonData.full_name === \"Test User\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Users",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"first_name\": \"Test\",\n\t\"surname\": \"User\",\n\t\"user_name\": \"test_User1\",\n\t\"email\": \"test@user.com\",\n\t\"password\": \"test1\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add duplicate user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 400\"] = responseCode.code === 400;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"tests[\"Return message correct\"] = responseBody.has(\"User already exists\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Users",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"first_name\": \"Test\",\n\t\"surname\": \"User\",\n\t\"user_name\": \"test_User1\",\n\t\"email\": \"test@user.com\",\n\t\"password\": \"test1\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get new user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"var id = postman.getEnvironmentVariable(\"new_user_id\");",
+									"",
+									"tests[\"User Id value is correct\"] = jsonData.id === id;",
+									"tests[\"First name value is correct\"] = jsonData.first_name === \"Test\";",
+									"tests[\"Surname value is correct\"] = jsonData.surname === \"User\";",
+									"tests[\"Username value is correct\"] = jsonData.user_name === \"test_user1\";",
+									"tests[\"Email value is correct\"] = jsonData.email === \"test@user.com\";",
+									"tests[\"Is locked value is correct\"] = jsonData.isLocked === false;",
+									"tests[\"Full name value is correct\"] = jsonData.full_name === \"Test User\";",
+									"",
+									"tests[\"Login attempts is 0\"] = jsonData.loginAttempts === 0;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Users/{{new_user_id}}",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Login with incorrect password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 400\"] = responseCode.code === 400;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Response message correct\"] = jsonData.message === \"Login failed\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Users/login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user_name\": \"test_user1\",\n\t\"password\": \"test2\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get user and check incorrect logins increased",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"var id = postman.getEnvironmentVariable(\"new_user_id\");",
+									"",
+									"tests[\"User Id value is correct\"] = jsonData.id === id;",
+									"tests[\"First name value is correct\"] = jsonData.first_name === \"Test\";",
+									"tests[\"Surname value is correct\"] = jsonData.surname === \"User\";",
+									"tests[\"Username value is correct\"] = jsonData.user_name === \"test_user1\";",
+									"tests[\"Email value is correct\"] = jsonData.email === \"test@user.com\";",
+									"tests[\"Is locked value is correct\"] = jsonData.isLocked === false;",
+									"tests[\"Full name value is correct\"] = jsonData.full_name === \"Test User\";",
+									"",
+									"tests[\"Login attempts is 1\"] = jsonData.loginAttempts === 1;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Users/{{new_user_id}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user_name\": \"test_user1\",\n\t\"password\": \"test2\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Lock out user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 400\"] = responseCode.code === 400;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Response message correct\"] = jsonData.message === \"Login failed\";",
+									"",
+									"var counter = postman.getEnvironmentVariable(\"counter\");",
+									"var requestNumber = postman.getEnvironmentVariable(\"request_number\");",
+									"",
+									"if (requestNumber < counter){",
+									"    postman.setNextRequest(\"Lock out user\");",
+									"    requestNumber ++;",
+									"    postman.setEnvironmentVariable(\"request_number\", requestNumber);",
+									"}",
+									"else{",
+									"    postman.setEnvironmentVariable(\"request_number\", 1);",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Users/login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user_name\": \"test_user1\",\n\t\"password\": \"test2\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get locked out user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"var id = postman.getEnvironmentVariable(\"new_user_id\");",
+									"",
+									"tests[\"User Id value is correct\"] = jsonData.id === id;",
+									"tests[\"First name value is correct\"] = jsonData.first_name === \"Test\";",
+									"tests[\"Surname value is correct\"] = jsonData.surname === \"User\";",
+									"tests[\"Username value is correct\"] = jsonData.user_name === \"test_user1\";",
+									"tests[\"Email value is correct\"] = jsonData.email === \"test@user.com\";",
+									"tests[\"Is locked value is correct\"] = jsonData.isLocked === true;",
+									"tests[\"Full name value is correct\"] = jsonData.full_name === \"Test User\";",
+									"",
+									"tests[\"Login attempts is 5\"] = jsonData.loginAttempts === 5;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Users/{{new_user_id}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user_name\": \"test_user1\",\n\t\"password\": \"test2\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add user with username less than min length",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 500\"] = responseCode.code === 500;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Return message param correct\"] = jsonData[0].param === \"user_name\";",
+									"tests[\"Return message correct\"] = jsonData[0].msg === \"Must be between 5 and 20 characters\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Users",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"first_name\": \"Test\",\n\t\"surname\": \"User\",\n\t\"user_name\": \"test\",\n\t\"email\": \"test@user.com\",\n\t\"password\": \"test1\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add user with username more than max length",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 500\"] = responseCode.code === 500;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Return message param correct\"] = jsonData[0].param === \"user_name\";",
+									"tests[\"Return message correct\"] = jsonData[0].msg === \"Must be between 5 and 20 characters\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Users",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"first_name\": \"Test\",\n\t\"surname\": \"User\",\n\t\"user_name\": \"testusertestusertest1\",\n\t\"email\": \"test@user.com\",\n\t\"password\": \"test1\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add user with username with invalid characters",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 500\"] = responseCode.code === 500;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Return message param correct\"] = jsonData[0].param === \"user_name\";",
+									"tests[\"Return message correct\"] = jsonData[0].msg === \"Username may contain alphanumeric characters or underscores only\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Users",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"first_name\": \"Test\",\n\t\"surname\": \"User\",\n\t\"user_name\": \"test_User*1\",\n\t\"email\": \"test@user.com\",\n\t\"password\": \"test1\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add user with password less than min length",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 500\"] = responseCode.code === 500;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Return message param correct\"] = jsonData[0].param === \"password\";",
+									"tests[\"Return message correct\"] = jsonData[0].msg === \"Must be between 5 and 20 characters\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Users",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"first_name\": \"Test\",\n\t\"surname\": \"User\",\n\t\"user_name\": \"test_User2\",\n\t\"email\": \"test@user.com\",\n\t\"password\": \"tes1\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add user with password more than max length",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 500\"] = responseCode.code === 500;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Return message param correct\"] = jsonData[0].param === \"password\";",
+									"tests[\"Return message correct\"] = jsonData[0].msg === \"Must be between 5 and 20 characters\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Users",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"first_name\": \"Test\",\n\t\"surname\": \"User\",\n\t\"user_name\": \"test_User2\",\n\t\"email\": \"test@user.com\",\n\t\"password\": \"testusertestuseruser1\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add user with password with invalid characters",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 500\"] = responseCode.code === 500;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Return message param correct\"] = jsonData[0].param === \"password\";",
+									"tests[\"Return message correct\"] = jsonData[0].msg === \"Password must be alphanumeric and may contain underscores\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Users",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"first_name\": \"Test\",\n\t\"surname\": \"User\",\n\t\"user_name\": \"test_User2\",\n\t\"email\": \"test@user.com\",\n\t\"password\": \"te$$$$1\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add user with invalid email",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 500\"] = responseCode.code === 500;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Return message param correct\"] = jsonData[0].param === \"email\";",
+									"tests[\"Return message correct\"] = jsonData[0].msg === \"Invalid email\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Users",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"first_name\": \"Test\",\n\t\"surname\": \"User\",\n\t\"user_name\": \"test_User2\",\n\t\"email\": \"test@usercom\",\n\t\"password\": \"testuser1\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add user with no surname",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 500\"] = responseCode.code === 500;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Return message param correct\"] = jsonData[0].param === \"surname\";",
+									"tests[\"Return message correct\"] = jsonData[0].msg === \"Invalid surname\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Users",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"first_name\": \"Test\",\n\t\"surname\": \"\",\n\t\"user_name\": \"test_User2\",\n\t\"email\": \"test@user.com\",\n\t\"password\": \"testuser1\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add user with no first name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 500\"] = responseCode.code === 500;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Return message param correct\"] = jsonData[0].param === \"first_name\";",
+									"tests[\"Return message correct\"] = jsonData[0].msg === \"Invalid first name\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Users",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"first_name\": \"\",\n\t\"surname\": \"User\",\n\t\"user_name\": \"test_User2\",\n\t\"email\": \"test@user.com\",\n\t\"password\": \"testuser1\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Edit user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Users/{{new_user_id}}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"first_name\": \"Test\",\n\t\"surname\": \"UserEdit\",\n\t\"user_name\": \"testUserEdit1\",\n\t\"email\": \"test.edit@user.com\",\n\t\"password\": \"testUser1\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get edited user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"var id = postman.getEnvironmentVariable(\"new_user_id\");",
+									"",
+									"tests[\"User Id value is correct\"] = jsonData.id === id;",
+									"tests[\"First name value is correct\"] = jsonData.first_name === \"Test\";",
+									"tests[\"Surname value is correct\"] = jsonData.surname === \"UserEdit\";",
+									"tests[\"Username value is correct\"] = jsonData.user_name === \"testUserEdit1\";",
+									"tests[\"Email value is correct\"] = jsonData.email === \"test.edit@user.com\";",
+									"tests[\"Full name value is correct\"] = jsonData.full_name === \"Test UserEdit\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Users/{{new_user_id}}",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete valid user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"tests[\"Return message correct\"] = responseBody.has(\"User successfully deleted\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Users/{{new_user_id}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete already deleted user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 400\"] = responseCode.code === 400;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Return message correct\"] = jsonData.message === \"Could not find user to delete\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Users/{{new_user_id}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get deleted user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 404\"] = responseCode.code === 404;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Response message is correct\"] = jsonData.message === \"No user could be found with the given details\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Users/{{new_user_id}}",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add new user via signup",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"new_user_id\", jsonData.id);",
+									"",
+									"tests[\"First name value is correct\"] = jsonData.first_name === \"Test\";",
+									"tests[\"Surname value is correct\"] = jsonData.surname === \"User\";",
+									"tests[\"Username value is correct\"] = jsonData.user_name === \"test_user2\";",
+									"tests[\"Email value is correct\"] = jsonData.email === \"test2@user.com\";",
+									"tests[\"Is locked value is correct\"] = jsonData.isLocked === false;",
+									"tests[\"Full name value is correct\"] = jsonData.full_name === \"Test User\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Users/signup",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"first_name\": \"Test\",\n\t\"surname\": \"User\",\n\t\"user_name\": \"test_User2\",\n\t\"email\": \"test2@user.com\",\n\t\"password\": \"test2\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add existing user via signup",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 400\"] = responseCode.code === 400;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Response message is correct\"] = jsonData.message === \"User name already exists\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Users/signup",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"first_name\": \"Test\",\n\t\"surname\": \"User\",\n\t\"user_name\": \"test_user2\",\n\t\"email\": \"test2@user.com\",\n\t\"password\": \"test2\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete signed up user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"tests[\"Return message correct\"] = responseBody.has(\"User successfully deleted\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Users/{{new_user_id}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"first_name\": \"Test\",\n\t\"surname\": \"User\",\n\t\"user_name\": \"test_User2\",\n\t\"email\": \"test2@user.com\",\n\t\"password\": \"test2\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add new user for login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"new_user_id\", jsonData.id);",
+									"",
+									"tests[\"First name value is correct\"] = jsonData.first_name === \"Test\";",
+									"tests[\"Surname value is correct\"] = jsonData.surname === \"User\";",
+									"tests[\"Username value is correct\"] = jsonData.user_name === \"test_user3\";",
+									"tests[\"Email value is correct\"] = jsonData.email === \"test3@user.com\";",
+									"tests[\"Is locked value is correct\"] = jsonData.isLocked === false;",
+									"tests[\"Full name value is correct\"] = jsonData.full_name === \"Test User\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Users",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"first_name\": \"Test\",\n\t\"surname\": \"User\",\n\t\"user_name\": \"test_User3\",\n\t\"email\": \"test3@user.com\",\n\t\"password\": \"test3\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var token1 = postman.getResponseCookie(\"uppeat\").value;",
+									"postman.setEnvironmentVariable(\"cookie\", token1);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Users/login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user_name\": \"test_user3\",\n\t\"password\": \"test3\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"tests[\"Response message is correct\"] = responseBody.has(\"User logged out\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Users/logout",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user_name\": \"test_user3\",\n\t\"password\": \"test3\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete login/logout user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"tests[\"Return message correct\"] = responseBody.has(\"User successfully deleted\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Users/{{new_user_id}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Whiskeys",
+			"description": "",
+			"item": [
+				{
+					"name": "Get all whiskeys",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Whiskeys",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Distilleries",
+			"description": "",
+			"item": [
+				{
+					"name": "Get all distilleries",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Distilleries",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

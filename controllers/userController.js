@@ -153,6 +153,7 @@ module.exports.signup = function(req, res, next)
 
     if (!user) {
       results.sendRequestError(res, info.message);
+      return;
     }
     req.login(user, function(err){
       if(results.checkAndSendError(res, err))

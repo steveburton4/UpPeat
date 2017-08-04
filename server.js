@@ -7,10 +7,13 @@ var express = require('express'),
   basePath = '/uppeat',
   documentationDirName = __dirname +'/swagger';
 
+var configuredApp = app.createApp();
+
 database.setupDatabase(server);
 
-var configuredApp = app.createApp();
-var documentationSubPath = documentation(configuredApp, 'http://localhost:'+port+basePath, documentationDirName);
+var setupApp = app.setupApp(configuredApp);
+
+var documentationSubPath = documentation(setupApp, 'http://localhost:'+port+basePath, documentationDirName);
 
 server.use(basePath, documentationSubPath);
 server.listen(port, '0.0.0.0');
