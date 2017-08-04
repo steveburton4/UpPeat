@@ -11,10 +11,6 @@ var LocationSchema = new Schema({
   description: {
     type: String
   },
-  created_date: {
-    type: Date,
-    default: Date.now
-  },
   place_id: {
     type: String
   },
@@ -34,5 +30,8 @@ var LocationSchema = new Schema({
     ref: 'Distillery'
   }
 });
+
+var plugins = require('./plugins/timestampPlugin');
+LocationSchema.plugin(plugins.timestamps);
 
 module.exports = mongoose.model('Location', LocationSchema);

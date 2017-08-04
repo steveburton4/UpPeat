@@ -34,11 +34,10 @@ var RatingSchema = new Schema({
       type: String,
       enum: ['malt', 'grain', 'blended', 'single pot', 'bourbon', 'tennessee', 'rye', 'corn']
     }]
-  },
-  created_date: {
-    type: Date,
-    default: Date.now
   }
 });
+
+var plugins = require('./plugins/timestampPlugin');
+RatingSchema.plugin(plugins.timestamps);
 
 module.exports = mongoose.model('Rating', RatingSchema);

@@ -29,10 +29,6 @@ var WhiskeySchema = new Schema({
   description: {
     type: String
   },
-  created_date: {
-    type: Date,
-    default: Date.now
-  },
   tags: {
     type: [String]
   },
@@ -41,5 +37,8 @@ var WhiskeySchema = new Schema({
     ratings: Number
   }
 });
+
+var plugins = require('./plugins/timestampPlugin');
+WhiskeySchema.plugin(plugins.timestamps);
 
 module.exports = mongoose.model('Whiskey', WhiskeySchema);

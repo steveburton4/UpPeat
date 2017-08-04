@@ -12,10 +12,6 @@ var DistillerySchema = new Schema({
   description: {
     type: String
   },
-  created_date: {
-    type: Date,
-    default: Date.now
-  },
   place_id: {
     type: String
   },
@@ -40,5 +36,8 @@ var DistillerySchema = new Schema({
     whiskeys: Number
   }
 });
+
+var plugins = require('./plugins/timestampPlugin');
+DistillerySchema.plugin(plugins.timestamps);
 
 module.exports = mongoose.model('Distillery', DistillerySchema);
