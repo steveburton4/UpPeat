@@ -2215,6 +2215,409 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Locations",
+			"description": "",
+			"item": [
+				{
+					"name": "Get all locations",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Locations",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add location without name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 500\"] = responseCode.code === 500;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Check error parameter is correct\"] = jsonData[0].param === \"name\";",
+									"tests[\"Check error message is correct\"] = jsonData[0].msg === \"Missing name\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Locations",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add location",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"new_location_id\", jsonData._id);",
+									"",
+									"tests[\"Check name is correct\"] = jsonData.name === \"testLocation\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Locations",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"testLocation\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add duplicate location",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 400\"] = responseCode.code === 400;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Check response is correct\"] = jsonData.message === \"Location name already exists\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Locations",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"testLocation\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get location",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"var id = postman.getEnvironmentVariable(\"new_location_id\");",
+									"",
+									"tests[\"Check id is correct\"] = jsonData._id === id;",
+									"tests[\"Check name is correct\"] = jsonData.name === \"testLocation\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Locations/{{new_location_id}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"testDistillery\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Edit location with duplicate name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 400\"] = responseCode.code === 400;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Check response is correct\"] = jsonData.message === \"Location name already exists\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Locations/{{new_location_id}}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"testLocation\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Edit location",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Check name is correct\"] = jsonData.name === \"testLocationEdit\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Locations/{{new_location_id}}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"testLocationEdit\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get edited location",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"var id = postman.getEnvironmentVariable(\"new_location_id\");",
+									"",
+									"tests[\"Check id is correct\"] = jsonData._id === id;",
+									"tests[\"Check name is correct\"] = jsonData.name === \"testLocationEdit\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Locations/{{new_location_id}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"testDistilleryEdit\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete location",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"tests[\"Check response is correct\"] = responseBody.has(\"Location successfully deleted\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Locations/{{new_location_id}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete deleted location",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 400\"] = responseCode.code === 400;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Check response is correct\"] = jsonData.message === \"Could not find location to delete\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Locations/{{new_location_id}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get deleted distillery",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 404\"] = responseCode.code === 404;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Check response is correct\"] = jsonData.message === \"No location could be found with the given details\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Locations/{{new_location_id}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"testDistilleryEdit\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
