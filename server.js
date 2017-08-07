@@ -11,11 +11,11 @@ var configuredApp = app.createApp();
 
 database.setupDatabase(server);
 
-var setupApp = app.setupApp(configuredApp);
+var appWithDocumentationSetup = documentation(configuredApp, 'http://localhost:'+port+basePath, documentationDirName);
 
-var documentationSubPath = documentation(setupApp, 'http://localhost:'+port+basePath, documentationDirName);
+var setupApp = app.setupAppRoutesAndValidation(appWithDocumentationSetup);
 
-server.use(basePath, documentationSubPath);
+server.use(basePath, setupApp);
 server.listen(port, '0.0.0.0');
 
 console.log('UpPeat RESTful API server started on: http://0.0.0.0:' + port);

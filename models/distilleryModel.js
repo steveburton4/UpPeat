@@ -12,9 +12,6 @@ var DistillerySchema = new Schema({
   description: {
     type: String
   },
-  place_id: {
-    type: String
-  },
   location_id: {
     type: Schema.ObjectId,
     ref: 'Location'

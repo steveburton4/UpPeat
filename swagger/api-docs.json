@@ -248,6 +248,108 @@
             }
         }
       },
+    "/users/login": {
+        "post": {
+            "tags": ["Users"],
+            "description": "Logs in the given user",
+            "operationId": "login",
+            "produces": [
+                "application/json"
+            ],
+            "parameters": [
+            {
+                "name": "user_name",
+                "in": "body",
+                "description": "The user name of the user to login",
+                "required": true,
+                "type": "string"
+            },
+            {
+                "name": "password",
+                "in": "body",
+                "description": "The password to log in with",
+                "required": true,
+                "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+                "description": "The logged in user",
+                "schema": {
+                    "$ref": "#/definitions/user_schema"
+                }
+            },
+            "500": {
+                "description": "Reason the login failed",
+                "properties": {
+                    "message": {
+                    "type": "string",
+                    "example" : "User account is locked out"
+                    }
+            }
+          }
+        }
+      }
+    },
+    "/users/signup": {
+        "post": {
+            "tags": ["Users"],
+            "description": "Signs up a new user",
+            "operationId": "signup",
+            "produces": [
+                "application/json"
+            ],
+            "parameters": [
+            {
+                "name": "user",
+                "in": "body",
+                "description": "The user to sign up with as the plain JSON body",
+                "required": true,
+                "schema": {
+                    "$ref": "#/definitions/user_schema"
+                }
+            }
+          ],
+          "responses": {
+            "200": {
+                "description": "The signed up user",
+                "schema": {
+                    "$ref": "#/definitions/user_schema"
+                }
+            },
+            "500": {
+                "description": "Reason the sign up failed",
+                "properties": {
+                    "message": {
+                    "type": "string",
+                    "example" : "User name already exists"
+                    }
+            }
+          }
+        }
+      }
+    },
+    "/users/logout": {
+        "post": {
+            "tags": ["Users"],
+            "description": "Logs out the current user",
+            "operationId": "logout",
+            "produces": [
+                "application/json"
+            ],
+          "responses": {
+            "200": {
+                "description": "Confirmation of logout",
+                "properties": {
+                    "message": {
+                    "type": "string",
+                    "example" : "User logged out"
+                    }
+                }
+            }
+          }
+        }
+      },
     "/distilleries": {
         "get":{
             "tags": ["Distilleries"],
@@ -405,7 +507,7 @@
                 }
             }
         }
-      },
+    },
     "/whiskeys": {
         "get":{
             "tags": ["Whiskeys"],
@@ -575,14 +677,24 @@
                 "type": "string",
                 "minLength": 5,
                 "maxLength": 20,
-                "example": "joe999"
+                "pattern": "/^(?=.*[a-zA-Z_])(?=.*[0-9_]+).*$/",
+                "example": "joe_999"
             },
-                "created_date": {
-                "required":true,
-                "type": "datetime"
+                "ctime": {
+                    "$ref": "#/definitions/ctime"
             },
-                "deleted": {
+                "mtime": {
+                    "$ref": "#/definitions/mtime"
+            },
+                "loginAttempts": {
                 "required":true,
+                "type": "number",
+                "default": 0
+            },
+                "lockUntil": {
+                "type": "number"
+            },
+                "isLocked": {
                 "type": "boolean"
             }
         }
@@ -594,17 +706,24 @@
                 "type": "string",
                 "example": "Joe's Distillery"
             },
-                "created_date": {
-                "required":true,
-                "type": "datetime"
+                "description": {
+                "type": "string"
             },
-                "status": {
-                "required":true,
+                "location_id" : {
                 "type": "string",
-                "enum": ["pending", "ongoing", "completed"]
+                "description": "The ObjectId (_id) of the location where the distillery is based"
+            },
+                "ctime": {
+                    "$ref": "#/definitions/ctime"
+            },
+                "mtime": {
+                    "$ref": "#/definitions/mtime"
             },
                 "tags": {
                     "$ref": "#/definitions/tags"
+            },
+                "links": {
+                    "$ref": "#/definitions/links"
             }
         }
     },
@@ -626,12 +745,17 @@
                 "type": "string",
                 "description": "The ObjectId (_id) of the distillery the whiskey belongs to"
             },
-                "created_date": {
-                "required":true,
-                "type": "datetime"
+                "ctime": {
+                    "$ref": "#/definitions/ctime"
+            },
+                "mtime": {
+                    "$ref": "#/definitions/mtime"
             },
                 "tags": {
                     "$ref": "#/definitions/tags"
+            },
+                "description": {
+                "type": "string"
             },
                 "type": {
                 "required":true,
@@ -648,6 +772,9 @@
                 "minimum": 0,
                 "maximum": 10
             },
+                "comments": {
+                "type": "string"
+            },
                 "whiskey_id": {
                 "required":true,
                 "type": "string",
@@ -661,13 +788,46 @@
                 "tags": {
                     "$ref": "#/definitions/tags"
             },
+                "location_id" : {
+                "type": "string",
+                "description": "The ObjectId (_id) of the location where the rating was added"
+            },
+                "ctime": {
+                    "$ref": "#/definitions/ctime"
+            },
+                "mtime": {
+                    "$ref": "#/definitions/mtime"
+            }
+        }
+    },
+    "location_schema": {
+        "properties": {
+                "name": {
+                "required":true,
+                "type": "string"
+            },
+                "description": {
+                "type": "string"
+            },
                 "place_id" : {
                 "type": "string",
-                "description": "The Id of the maps place the rating was added"
+                "description": "The maps place id for this location"
             },
-                "created_date": {
-                "required":true,
-                "type": "datetime"
+                "ctime": {
+                    "$ref": "#/definitions/ctime"
+            },
+                "mtime": {
+                    "$ref": "#/definitions/mtime"
+            },
+                "tags": {
+                    "$ref": "#/definitions/tags"
+            },
+                "distillery_ids" : {
+                    "description": "An array of distilleries distilling from this location by ObjectId (_id)",
+                    "properties": {
+                        "tag": "string"
+                    },
+                    "type": "array"
             }
         }
     },
@@ -677,6 +837,22 @@
             "tag": "string"
         },
         "type": "array"
+    },
+    "ctime" : {
+        "description": "Time of creation",
+        "properties": {
+            "ctime": {
+                "type": "datetime"
+            }
+        }
+    },
+    "mtime" : {
+        "description": "Time of last modification",
+        "properties": {
+            "mtime": {
+                "type": "datetime"
+            }
+        }
     },
     "user_deleted" : {
        "properties": {
@@ -699,6 +875,28 @@
         "message": {
           "type": "string",
           "example" : "Whiskey successfully deleted"
+        }
+      }
+    },
+    "links" : {
+       "properties": {
+        "twitter": {
+          "type": "string"
+        },
+        "facebook": {
+          "type": "string"
+        },
+        "instagram": {
+          "type": "string"
+        },
+        "website": {
+          "type": "string"
+        },
+        "foursquare": {
+          "type": "string"
+        },
+        "yelp": {
+          "type": "string"
         }
       }
     }

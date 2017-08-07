@@ -16,7 +16,7 @@ module.exports.createApp = function()
     return app;
 }
 
-module.exports.setupApp = function(app)
+module.exports.setupAppRoutesAndValidation = function(app)
 {
     var routes = require('./routes'),
         validator = require('express-validator');
