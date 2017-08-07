@@ -20,10 +20,8 @@ var WhiskeySchema = new Schema({
     ref: 'Distillery'
   },
   type: {
-    type: [{
-      type: String,
-      enum: ['malt', 'grain', 'blended', 'single pot', 'bourbon', 'tennessee', 'rye', 'corn', 'rice']
-    }],
+    type: String,
+    enum: ['malt', 'grain', 'blended', 'single pot', 'bourbon', 'tennessee', 'rye', 'corn', 'rice'],
     required: 'Type of the whiskey'
   },
   description: {
