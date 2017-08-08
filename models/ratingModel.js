@@ -20,12 +20,16 @@ var RatingSchema = new Schema({
   },
   created_by: {
     type: Schema.ObjectId,
-    required: 'Unique identifier of the user submitting the rating',
     ref: 'User'
   },
   location_id: {
     type: Schema.ObjectId,
     ref: 'Location'
+  },
+  users:
+  {
+    type: [Schema.ObjectId],
+    ref: 'User'
   },
   tags: {
     type: [String]

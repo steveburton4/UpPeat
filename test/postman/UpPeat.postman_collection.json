@@ -1184,44 +1184,6 @@
 					"response": []
 				},
 				{
-					"name": "Add distillery for whiskey",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"postman.setEnvironmentVariable(\"new_distillery_id\", jsonData._id);",
-									"",
-									"tests[\"Check name is correct\"] = jsonData.name === \"whiskeyDistillery\";"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Distilleries",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"name\": \"whiskeyDistillery\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
 					"name": "Add whiskey with invalid type",
 					"event": [
 						{
@@ -2665,10 +2627,7 @@
 									"tests[\"Check error message is correct\"] = jsonData[0].msg === \"Must be an integer between 0 and 10\";",
 									"",
 									"tests[\"Check error parameter two is correct\"] = jsonData[1].param === \"whiskey_id\";",
-									"tests[\"Check error message two is correct\"] = jsonData[1].msg === \"Missing whiskey id\";",
-									"",
-									"tests[\"Check error parameter three is correct\"] = jsonData[2].param === \"created_by\";",
-									"tests[\"Check error message three is correct\"] = jsonData[2].msg === \"Missing user id\";"
+									"tests[\"Check error message two is correct\"] = jsonData[1].msg === \"Missing whiskey id\";"
 								]
 							}
 						}
@@ -2853,6 +2812,79 @@
 						"body": {
 							"mode": "raw",
 							"raw": "{\n\t\"first_name\": \"Rating\",\n\t\"surname\": \"User\",\n\t\"user_name\": \"ratingUser\",\n\t\"email\": \"rating@user.com\",\n\t\"password\": \"rating1\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add valid rating before login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 403\"] = responseCode.code === 403;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Response is correct\"] = jsonData.message === \"User must be logged in to access this resource\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Ratings",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"rating\": 5,\n\t\"whiskey_id\": \"{{new_whiskey_id}}\",\n\t\"created_by\": \"{{new_user_id}}\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Login as rating user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var token1 = postman.getResponseCookie(\"uppeat\").value;",
+									"postman.setEnvironmentVariable(\"cookie\", token1);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Users/login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user_name\": \"ratinguser\",\n\t\"password\": \"rating1\"\n}"
 						},
 						"description": ""
 					},
@@ -3059,6 +3091,41 @@
 						"body": {
 							"mode": "raw",
 							"raw": "{\n\t\"name\": \"testWhiskey\",\n\t\"abv\": 7,\n\t\"type\": \"grain\",\n\t\"distillery_id\": \"{{new_distillery_id}}\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"tests[\"Response message is correct\"] = responseBody.has(\"User logged out\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Users/logout",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user_name\": \"ratinguser\",\n\t\"password\": \"rating1\"\n}"
 						},
 						"description": ""
 					},
@@ -3329,7 +3396,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"rating\": 6,\n\t\"whiskey_id\": \"{{new_whiskey_id}}\",\n\t\"created_by\": \"{{new_user_id}}\"\n}"
+							"raw": "{\n\t\"rating\": 6,\n\t\"whiskey_id\": \"{{new_whiskey_id}}\"\n}"
 						},
 						"description": ""
 					},

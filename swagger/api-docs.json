@@ -87,7 +87,7 @@
     "/users/username/{user_name}": {
         "put": {
             "tags": ["Users"],
-            "description": "Updates the given user",
+            "description": "Updates the given user (must be logged in as this user)",
             "operationId": "findOneAndUpdate",
             "produces": [
                 "application/json"
@@ -121,12 +121,13 @@
                 "description": "No user logged in or different user logged in",
                 "schema":{
                     "$ref":"#/definitions/forbidden"
+                    }
                 }
             }
         },
         "delete":{
             "tags":["Users"],
-            "description":"Deletes a user",
+            "description":"Deletes a user (must be logged in as this user)",
             "operationId":"findOneAndUpdate",
             "produces": [
             "application/json"
@@ -157,7 +158,7 @@
         },
         "get":{
             "tags": ["Users"],
-            "description": "Returns the given user",
+            "description": "Returns the given user (must be logged in as this user)",
             "operationId": "findById",
             "produces": [
             "application/json"
@@ -190,7 +191,7 @@
     "/users/{_id}": {
         "put": {
             "tags": ["Users"],
-            "description": "Updates the given user",
+            "description": "Updates the given user (must be logged in as this user)",
             "operationId": "findOneAndUpdate",
             "produces": [
                 "application/json"
@@ -230,7 +231,7 @@
         },
         "delete":{
             "tags":["Users"],
-            "description":"Deletes a user",
+            "description":"Deletes a user (must be logged in as this user)",
             "operationId":"findOneAndUpdate",
             "produces": [
             "application/json"
@@ -261,7 +262,7 @@
         },
         "get":{
             "tags": ["Users"],
-            "description": "Returns the given user",
+            "description": "Returns the given user (must be logged in as this user)",
             "operationId": "findById",
             "produces": [
             "application/json"
@@ -356,8 +357,8 @@
                     "type": "string",
                     "example" : "User account is locked out"
                     }
-            }
-          }
+                }
+            } 
         }
       }
     },
@@ -663,7 +664,7 @@
             "description":"Deletes a whiskey",
             "operationId":"findOneAndUpdate",
             "produces": [
-            "application/json"
+                "application/json"
             ],
             "parameters":[
                 {
@@ -688,7 +689,7 @@
             "description": "Returns the given whiskey",
             "operationId": "findById",
             "produces": [
-            "application/json"
+                "application/json"
             ],
             "parameters":[
                 {
@@ -715,7 +716,7 @@
             "description": "Returns the ratings for the given whiskey",
             "operationId": "findById",
             "produces": [
-            "application/json"
+                "application/json"
             ],
             "parameters":[
                 {
@@ -942,7 +943,7 @@
     "/ratings/{_id}": {
         "put": {
             "tags": ["Ratings"],
-            "description": "Updates the given rating",
+            "description": "Updates the given rating (must be logged in as the user who created the rating)",
             "operationId": "findOneAndUpdate",
             "produces": [
                 "application/json"
@@ -954,7 +955,7 @@
                 "description": "The ObjectId(_id) of the rating to update",
                 "required": true,
                 "type": "string"
-            }
+            },
             {
                 "name": "rating",
                 "in": "body",
@@ -983,7 +984,8 @@
                 "description": "User forbidden from deleting rating",
                 "schema":{
                     "$ref":"#/definitions/forbidden"
-                },
+                }
+            },
             "404": {
                 "description": "User or rating not found",
                 "properties": {
@@ -992,11 +994,12 @@
                     "example" : "No rating found with given details"
                     }
                 }
+            }
           }
         },
         "delete":{
             "tags":["Ratings"],
-            "description":"Deletes a rating",
+            "description":"Deletes a rating (must be logged in as the user who created the rating)",
             "operationId":"findOneAndUpdate",
             "produces": [
             "application/json"
@@ -1023,11 +1026,13 @@
                 "schema":{
                     "$ref":"#/definitions/rating_deleted"
                 },
+            },
             "403": {
                 "description": "User forbidden from deleting rating",
                 "schema":{
                     "$ref":"#/definitions/forbidden"
                 },
+            },
             "404": {
                 "description": "User or rating not found",
                 "properties": {
@@ -1219,7 +1224,25 @@
                 "description": "The ObjectId (_id) of the location where the rating was added"
             },
                 "profile": {
-                    "$ref": "#/definitions/whiskey_profile_model"
+                    "appearance": {
+                        "properties": {
+                            "colour": "string",
+                            "clarity": "string",
+                            "viscosity": "string"
+                        }
+                    },
+                        "nose": {
+                        "type": "string"
+                    },
+                        "palate": {
+                        "type": "string"
+                    },
+                        "finish": {
+                        "type": "string"
+                    },
+                        "base_notes": {
+                        "type": "string"
+                    }
             },
                 "ctime": {
                     "$ref": "#/definitions/ctime"
@@ -1232,7 +1255,7 @@
     "location_schema": {
         "properties": {
                 "name": {
-                "required":true,
+                "required": true,
                 "type": "string"
             },
                 "description": {
@@ -1257,29 +1280,6 @@
                         "tag": "string"
                     },
                     "type": "array"
-            }
-        }
-    },
-    "whiskey_profile_model": {
-        "properties": {
-            "appearance": {
-                "properties": {
-                    "colour": "string",
-                    "clarity": "string",
-                    "viscosity": "string"
-                }
-            },
-                "nose": {
-                "type": "string"
-            },
-                "palate": {
-                "type": "string"
-            },
-                "finish": {
-                "type": "string"
-            },
-                "base_notes": {
-                "type": "string"
             }
         }
     },

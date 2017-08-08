@@ -10,9 +10,5 @@ module.exports = {
     "whiskey_id": {
         notEmpty: true,
         errorMessage: "Missing whiskey id"
-    },
-    "created_by": {
-        notEmpty: true,
-        errorMessage: "Missing user id"
     }
 };

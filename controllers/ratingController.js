@@ -44,7 +44,11 @@ exports.create_a_rating = function(req, res) {
 
   if (validate_rating(req, res))
   {
+    if (results.checkUserIsLoggedIn(req, res) == false)
+      return;
+
     check_rating_timing(req, res, new_rating, function(req, res) {
+      new_rating.created_by = req.user._id;
       new_rating.save(function(err, rating) {
         if (results.checkAndSendError(res, err))
           return;
@@ -57,7 +61,7 @@ exports.create_a_rating = function(req, res) {
 
 function check_rating_timing(req, res, rating, successCallback)
 {
-  Ratings.findOne().sort({ctime: -1}).exec(function(err, latestRating) { 
+  Ratings.findOne({created_by : req.user._id}).sort({ctime: -1}).exec(function(err, latestRating) { 
     if (results.checkAndSendError(res, err))
       return;
 
@@ -123,7 +127,9 @@ exports.update_a_rating = function(req, res) {
 
       if (validate_rating(req, res))
       {
-        Ratings.findByIdAndUpdate(req.params._id, req.body, {new: true}, function(err, rating) {
+        edited_rating.created_by = req.user._id;
+        edited_rating._id = req.params._id;
+        Ratings.findByIdAndUpdate(req.params._id, edited_rating, {new: true}, function(err, rating) {
           if (results.checkAndSendError(res, err))
             return;
 
