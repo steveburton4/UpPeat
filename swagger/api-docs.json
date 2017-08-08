@@ -1212,9 +1212,8 @@
                 "description": "The ObjectId (_id) of the whiskey being rated"
             },
                 "created_by": {
-                "required":true,
                 "type": "string",
-                "description": "The ObjectId (_id) of the user adding the rating"
+                "description": "The ObjectId (_id) of the user adding the rating (set automatically when creating and editing ratings)"
             },
                 "tags": {
                     "$ref": "#/definitions/tags"

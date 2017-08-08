@@ -19,7 +19,7 @@ function setupSessionManagement(app, dbConnection)
         cookie: {
             path: "/",
             maxAge: 1800000,
-            httpOnly: true
+            httpOnly: false
         },
         name: "uppeat"
     }));

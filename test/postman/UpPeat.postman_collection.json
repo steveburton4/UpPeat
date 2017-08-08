@@ -1588,6 +1588,39 @@
 					"response": []
 				},
 				{
+					"name": "Delete distillery for whiskey",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 400\"] = responseCode.code === 400;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Distilleries/{{new_distillery_id}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
 					"name": "Get edited whiskey",
 					"event": [
 						{
@@ -1626,40 +1659,6 @@
 						"body": {
 							"mode": "raw",
 							"raw": "{\n\t\"name\": \"testWhiskeyEdit\",\n\t\"abv\": 10,\n\t\"type\": \"single pot\",\n\t\"distillery_id\": \"{{new_distillery_id}}\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Delete distillery for whiskey",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"tests[\"Check response is correct\"] = responseBody.has(\"Distillery successfully deleted\");"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Distilleries/{{new_distillery_id}}",
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
 						},
 						"description": ""
 					},
