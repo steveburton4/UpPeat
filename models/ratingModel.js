@@ -1,10 +1,11 @@
 'use strict';
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+
+var mongoose = require('mongoose'),
+    Schema = mongoose.Schema;
 
 var RatingSchema = new Schema({
   rating: {
-    type: number,
+    type: Number,
     required: 'The value of the rating',
     min: 0,
     max: 10
@@ -29,15 +30,25 @@ var RatingSchema = new Schema({
   tags: {
     type: [String]
   },
-  method: {
-    type: [{
-      type: String,
-      enum: ['malt', 'grain', 'blended', 'single pot', 'bourbon', 'tennessee', 'rye', 'corn']
-    }]
+  profile: {
+    appearance: {
+      colour: [String],
+      clarity: [String],
+      viscosity: [String],
+    },
+    nose: {
+      colour: [String]
+    },
+    palate: {
+      colour: [String]
+    },
+    finish: {
+      type: [String]
+    },
+    base_notes: {
+      type: [String]
+    }
   }
 });
-
-var plugins = require('./plugins/timestampPlugin');
-RatingSchema.plugin(plugins.timestamps);
 
 module.exports = mongoose.model('Rating', RatingSchema);

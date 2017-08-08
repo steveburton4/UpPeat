@@ -34,7 +34,4 @@ var DistillerySchema = new Schema({
   }
 });
 
-var plugins = require('./plugins/timestampPlugin');
-DistillerySchema.plugin(plugins.timestamps);
-
 module.exports = mongoose.model('Distillery', DistillerySchema);

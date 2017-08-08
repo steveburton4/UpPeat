@@ -1,4 +1,4 @@
-module.exports.timestamps = function(schema, options) {
+module.exports = function(schema, options) {
   schema.add({ctime: {type: Date}});
   schema.add({mtime: {type: Date}});
 

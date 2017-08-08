@@ -99,7 +99,10 @@ exports.delete_a_distillery = function(req, res) {
       return;
     }
 
-    Distilleries.findByIdAndRemove(distillery._id, function(err) {
+    distillery.remove(function (err, distilleryDeleted) {
+      if (results.checkAndSendError(res, err))
+        return;
+      
       results.sendSuccessAfterCheckingError(res, err, 'Distillery successfully deleted');
     });  
   });

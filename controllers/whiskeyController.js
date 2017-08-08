@@ -106,7 +106,10 @@ exports.delete_a_whiskey = function(req, res) {
       return;
     }
 
-    Whiskeys.findByIdAndRemove(whiskey._id, function(err) {
+    whiskey.remove(function (err, whiskeyDeleted) {
+      if (results.checkAndSendError(res, err))
+        return;
+
       results.sendSuccessAfterCheckingError(res, err, 'Whiskey successfully deleted');
     });  
   });

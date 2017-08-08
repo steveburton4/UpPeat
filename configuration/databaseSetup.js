@@ -42,10 +42,12 @@ function setupSessionManagement(app, dbConnection)
 module.exports.setupDatabase = function(app)
 {
     var mongoose = require('mongoose'),
-        config = require('./appSettings');
+        config = require('./appSettings'),
+        timestampPlugin = require('../models/plugins/timestampPlugin');
 
     mongoose.Promise = global.Promise;
     mongoose.connect(config.db[app.settings.env], { useMongoClient: true });
+    mongoose.plugin(timestampPlugin);
 
     setupSessionManagement(app, mongoose.connection);
 }

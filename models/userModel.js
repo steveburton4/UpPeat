@@ -163,7 +163,4 @@ UserSchema.statics.getAuthenticated = function(user_name, password, cb) {
     });
 };
 
-var plugins = require('./plugins/timestampPlugin');
-UserSchema.plugin(plugins.timestamps);
-
 module.exports = mongoose.model('User', UserSchema);

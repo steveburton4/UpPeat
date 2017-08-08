@@ -121,7 +121,10 @@ function delete_a_user_base (conditions, req, res) {
     if (results.checkUserIsLoggedIn(req, res, user.user_name) == false)
       return;
 
-    Users.findByIdAndRemove(user._id, function(err) {
+    user.remove(function (err, userDeleted) {
+      if (results.checkAndSendError(res, err))
+        return;
+
       req.logout();
       req.session.destroy();
       

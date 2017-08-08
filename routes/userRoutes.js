@@ -1,7 +1,8 @@
 'use strict';
 
 module.exports = function(app) {
-  var userList = require('../controllers/userController');
+  var userList = require('../controllers/userController'),
+      ratingList = require('../controllers/ratingController');
 
   app.route('/users')
     .get(userList.list_all_users)
@@ -16,6 +17,9 @@ module.exports = function(app) {
     .get(userList.read_a_user)
     .put(userList.update_a_user)
     .delete(userList.delete_a_user);
+
+  app.route('/users/:_id/ratings')
+    .get(ratingList.list_all_ratings_for_user);
 
   app.route('/users/login')
     .post(userList.login);

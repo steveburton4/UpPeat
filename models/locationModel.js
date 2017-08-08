@@ -31,7 +31,4 @@ var LocationSchema = new Schema({
   }
 });
 
-var plugins = require('./plugins/timestampPlugin');
-LocationSchema.plugin(plugins.timestamps);
-
 module.exports = mongoose.model('Location', LocationSchema);

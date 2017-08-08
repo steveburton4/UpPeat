@@ -36,7 +36,4 @@ var WhiskeySchema = new Schema({
   }
 });
 
-var plugins = require('./plugins/timestampPlugin');
-WhiskeySchema.plugin(plugins.timestamps);
-
 module.exports = mongoose.model('Whiskey', WhiskeySchema);

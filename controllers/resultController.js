@@ -57,7 +57,7 @@ module.exports.checkUserIsLoggedIn = function(req, res, userToMatch)
         sendForbidden(res, "User must be logged in to access this resource");
         return false;
     }
-    else if (userToMatch & req.user.user_name != userToMatch)
+    else if (userToMatch && req.user.user_name != userToMatch)
     {
         sendForbidden(res, "Logged in user (" + req.user.user_name + ") is not authorised to access this resource");
         return false;

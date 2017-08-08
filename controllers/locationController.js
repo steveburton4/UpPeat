@@ -99,7 +99,10 @@ exports.delete_a_location = function(req, res) {
       return;
     }
 
-    Locations.findByIdAndRemove(location._id, function(err) {
+    location.remove(function (err, locationDeleted) {
+      if (results.checkAndSendError(res, err))
+        return;
+
       results.sendSuccessAfterCheckingError(res, err, 'Location successfully deleted');
     });  
   });

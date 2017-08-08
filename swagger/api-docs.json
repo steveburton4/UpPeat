@@ -19,6 +19,14 @@
     {
         "name": "Whiskeys", 
         "description": "CRUD operations for the Whiskey data"
+    },
+    {
+        "name": "Locations", 
+        "description": "CRUD operations for the Location data"
+    },
+    {
+        "name": "Ratings", 
+        "description": "CRUD operations for the Rating data"
     }
   ],
   "schemes": [
@@ -104,12 +112,17 @@
           ],
           "responses": {
             "200": {
-              "description": "The updated user",
-              "schema": {
-                 "$ref": "#/definitions/user_schema"
-              }
+                "description": "The updated user",
+                "schema": {
+                    "$ref": "#/definitions/user_schema"
+                }
+            },
+            "403": {
+                "description": "No user logged in or different user logged in",
+                "schema":{
+                    "$ref":"#/definitions/forbidden"
+                }
             }
-          }
         },
         "delete":{
             "tags":["Users"],
@@ -133,6 +146,12 @@
                 "schema":{
                 "$ref":"#/definitions/user_deleted"
                 }
+            },
+            "403": {
+                "description": "No user logged in or different user logged in",
+                "schema":{
+                    "$ref":"#/definitions/forbidden"
+                }
             }
           }
         },
@@ -154,9 +173,15 @@
             ],
             "responses": {
                 "200": {
-                "description": "response",
-                "schema": {
-                    "$ref": "#/definitions/user_schema"
+                    "description": "response",
+                    "schema": {
+                        "$ref": "#/definitions/user_schema"
+                        }
+                },
+                "403": {
+                    "description": "No user logged in or different user logged in",
+                    "schema":{
+                        "$ref":"#/definitions/forbidden"
                     }
                 }
             }
@@ -194,6 +219,12 @@
               "schema": {
                  "$ref": "#/definitions/user_schema"
               }
+            },
+            "403": {
+                "description": "No user logged in or different user logged in",
+                "schema":{
+                    "$ref":"#/definitions/forbidden"
+                }
             }
           }
         },
@@ -218,6 +249,12 @@
                 "description": "Delete response",
                 "schema":{
                 "$ref":"#/definitions/user_deleted"
+                }
+            },
+            "403": {
+                "description": "No user logged in or different user logged in",
+                "schema":{
+                    "$ref":"#/definitions/forbidden"
                 }
             }
           }
@@ -244,10 +281,43 @@
                 "schema": {
                     "$ref": "#/definitions/user_schema"
                     }
+                },
+                "403": {
+                    "description": "No user logged in or different user logged in",
+                    "schema":{
+                        "$ref":"#/definitions/forbidden"
+                    }
                 }
             }
         }
       },
+    "/users/{_id}/ratings": {
+        "get":{
+            "tags": ["Users"],
+            "description": "Returns the ratings for the given user",
+            "operationId": "findById",
+            "produces": [
+            "application/json"
+            ],
+            "parameters":[
+                {
+                    "name": "_id",
+                    "in": "query",
+                    "description": "The ObjectId(_id) of the user to find ratings for",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "responses": {
+                "200": {
+                "description": "response",
+                "schema": {
+                    "$ref": "#/definitions/rating_schema"
+                    }
+                }
+            }
+        }
+    },
     "/users/login": {
         "post": {
             "tags": ["Users"],
@@ -638,7 +708,363 @@
                 }
             }
         }
-      }
+    },
+    "/whiskeys/{_id}/ratings": {
+        "get":{
+            "tags": ["Whiskeys"],
+            "description": "Returns the ratings for the given whiskey",
+            "operationId": "findById",
+            "produces": [
+            "application/json"
+            ],
+            "parameters":[
+                {
+                    "name": "_id",
+                    "in": "query",
+                    "description": "The ObjectId(_id) of the whiskey to find ratings for",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "responses": {
+                "200": {
+                "description": "response",
+                "schema": {
+                    "$ref": "#/definitions/rating_schema"
+                    }
+                }
+            }
+        }
+    },
+    "/locations": {
+        "get":{
+            "tags": ["Locations"],
+            "description": "Returns a list of all locations",
+            "operationId": "find",
+            "produces": [
+            "application/json"
+            ],
+            "responses": {
+                "200": {
+                "description": "response",
+                "schema": {
+                    "$ref": "#/definitions/location_schema"
+                    }
+                }
+            }
+        },
+       "post": {
+          "tags": ["Locations"],
+          "description": "Adds a new location",
+          "operationId": "save",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+              {
+                "name": "location",
+                "in": "body",
+                "description": "The location to create",
+                "required": true,
+              "schema": {
+                "$ref": "#/definitions/location_schema"
+                }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The created location",
+              "schema": {
+                 "$ref": "#/definitions/location_schema"
+              }
+            }
+          }
+        }
+    },
+    "/locations/{_id}": {
+        "put": {
+            "tags": ["Locations"],
+            "description": "Updates the given location",
+            "operationId": "findOneAndUpdate",
+            "produces": [
+                "application/json"
+            ],
+            "parameters": [
+            {
+                "name": "_id",
+                "in": "query",
+                "description": "The ObjectId(_id) of the location to update",
+                "required": true,
+                "type": "string"
+            },
+            {
+                "name": "location",
+                "in": "body",
+                "description": "The location details to update",
+                "required": true,
+                "schema": {
+                    "$ref": "#/definitions/location_schema"
+                }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The updated location",
+              "schema": {
+                 "$ref": "#/definitions/location_schema"
+              }
+            }
+          }
+        },
+        "delete":{
+            "tags":["Locations"],
+            "description":"Deletes a location",
+            "operationId":"findOneAndUpdate",
+            "produces": [
+            "application/json"
+            ],
+            "parameters":[
+                {
+                    "name": "_id",
+                    "in": "query",
+                    "description": "The ObjectId(_id) of the location to delete",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "responses": {
+            "200": {
+                "description": "Delete response",
+                "schema":{
+                "$ref":"#/definitions/location_deleted"
+                }
+            }
+          }
+        },
+        "get":{
+            "tags": ["Locations"],
+            "description": "Returns the given location",
+            "operationId": "findById",
+            "produces": [
+            "application/json"
+            ],
+            "parameters":[
+                {
+                    "name": "_id",
+                    "in": "query",
+                    "description": "The ObjectId(_id) of the location to find",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "responses": {
+                "200": {
+                "description": "response",
+                "schema": {
+                    "$ref": "#/definitions/location_schema"
+                    }
+                }
+            }
+        }
+    },
+    "/locations/{_id}/ratings": {
+        "get":{
+            "tags": ["Locations"],
+            "description": "Returns the ratings for the given location",
+            "operationId": "findById",
+            "produces": [
+            "application/json"
+            ],
+            "parameters":[
+                {
+                    "name": "_id",
+                    "in": "query",
+                    "description": "The ObjectId(_id) of the location to find ratings for",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "responses": {
+                "200": {
+                "description": "response",
+                "schema": {
+                    "$ref": "#/definitions/rating_schema"
+                    }
+                }
+            }
+        }
+    },
+    "/ratings": {
+        "get":{
+            "tags": ["Ratings"],
+            "description": "Returns a list of all ratings",
+            "operationId": "find",
+            "produces": [
+            "application/json"
+            ],
+            "responses": {
+                "200": {
+                "description": "response",
+                "schema": {
+                    "$ref": "#/definitions/rating_schema"
+                    }
+                }
+            }
+        },
+       "post": {
+          "tags": ["Ratings"],
+          "description": "Adds a new rating",
+          "operationId": "save",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+              {
+                "name": "rating",
+                "in": "body",
+                "description": "The rating to create",
+                "required": true,
+              "schema": {
+                "$ref": "#/definitions/rating_schema"
+                }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The created rating",
+              "schema": {
+                 "$ref": "#/definitions/rating_schema"
+              }
+            }
+          }
+        }
+    },
+    "/ratings/{_id}": {
+        "put": {
+            "tags": ["Ratings"],
+            "description": "Updates the given rating",
+            "operationId": "findOneAndUpdate",
+            "produces": [
+                "application/json"
+            ],
+            "parameters": [
+            {
+                "name": "_id",
+                "in": "query",
+                "description": "The ObjectId(_id) of the rating to update",
+                "required": true,
+                "type": "string"
+            }
+            {
+                "name": "rating",
+                "in": "body",
+                "description": "The rating details to update",
+                "required": true,
+                "schema": {
+                    "$ref": "#/definitions/rating_schema"
+                }
+            },
+            {
+                "name": "user_id",
+                "in": "query",
+                "description": "The ObjectId(_id) of the user who is editing the rating",
+                "required": true,
+                "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The updated rating",
+                "schema": {
+                    "$ref": "#/definitions/rating_schema"
+                }
+            },
+            "403": {
+                "description": "User forbidden from deleting rating",
+                "schema":{
+                    "$ref":"#/definitions/forbidden"
+                },
+            "404": {
+                "description": "User or rating not found",
+                "properties": {
+                    "message": {
+                    "type": "string",
+                    "example" : "No rating found with given details"
+                    }
+                }
+          }
+        },
+        "delete":{
+            "tags":["Ratings"],
+            "description":"Deletes a rating",
+            "operationId":"findOneAndUpdate",
+            "produces": [
+            "application/json"
+            ],
+            "parameters":[
+                {
+                    "name": "_id",
+                    "in": "query",
+                    "description": "The ObjectId(_id) of the rating to delete",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "user_id",
+                    "in": "query",
+                    "description": "The ObjectId(_id) of the user who is deleting the rating",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "responses": {
+            "200": {
+                "description": "Delete response",
+                "schema":{
+                    "$ref":"#/definitions/rating_deleted"
+                },
+            "403": {
+                "description": "User forbidden from deleting rating",
+                "schema":{
+                    "$ref":"#/definitions/forbidden"
+                },
+            "404": {
+                "description": "User or rating not found",
+                "properties": {
+                    "message": {
+                    "type": "string",
+                    "example" : "No rating found with given details"
+                    }
+                }
+            }
+          }
+        },
+        "get":{
+            "tags": ["Ratings"],
+            "description": "Returns the given rating",
+            "operationId": "findById",
+            "produces": [
+            "application/json"
+            ],
+            "parameters":[
+                {
+                    "name": "_id",
+                    "in": "query",
+                    "description": "The ObjectId(_id) of the rating to find",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "responses": {
+                "200": {
+                "description": "response",
+                "schema": {
+                    "$ref": "#/definitions/rating_schema"
+                    }
+                }
+            }
+        }
+    }
   },
   "definitions": {
     "user_schema": {
@@ -792,6 +1218,9 @@
                 "type": "string",
                 "description": "The ObjectId (_id) of the location where the rating was added"
             },
+                "profile": {
+                    "$ref": "#/definitions/whiskey_profile_model"
+            },
                 "ctime": {
                     "$ref": "#/definitions/ctime"
             },
@@ -828,6 +1257,29 @@
                         "tag": "string"
                     },
                     "type": "array"
+            }
+        }
+    },
+    "whiskey_profile_model": {
+        "properties": {
+            "appearance": {
+                "properties": {
+                    "colour": "string",
+                    "clarity": "string",
+                    "viscosity": "string"
+                }
+            },
+                "nose": {
+                "type": "string"
+            },
+                "palate": {
+                "type": "string"
+            },
+                "finish": {
+                "type": "string"
+            },
+                "base_notes": {
+                "type": "string"
             }
         }
     },
@@ -875,6 +1327,30 @@
         "message": {
           "type": "string",
           "example" : "Whiskey successfully deleted"
+        }
+      }
+    },
+    "location_deleted" : {
+       "properties": {
+        "message": {
+          "type": "string",
+          "example" : "Location successfully deleted"
+        }
+      }
+    },
+    "rating_deleted" : {
+       "properties": {
+        "message": {
+          "type": "string",
+          "example" : "Rating successfully deleted"
+        }
+      }
+    },
+    "forbidden" : {
+       "properties": {
+        "message": {
+          "type": "string",
+          "example" : "User does not have permission to delete this data"
         }
       }
     },
