@@ -24,9 +24,14 @@ module.exports.setupAppRoutesAndValidation = function(app)
     app.use(validator());
     routes(app);
 
+    app.get('/status', function (req, res) {
+        res.status(200).send({status: 'active'});
+    });
+
     app.use(function(req, res) {
         res.status(404).send({url: req.originalUrl + ' not found'})
     });
+    
     app.use(function (req, res, next) {
         if (!req.client.authorized) {
             return res.status(401).send('Client is not authorised');

@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+ - node
+notifications:
+email:
+  recipients:
+    - steven.burton@emishealth.com
+  on_success: always
+  on_failure: always
+services:
+  - mongodb
+script:
+- npm run newman-server

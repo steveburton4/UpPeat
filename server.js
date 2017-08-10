@@ -19,6 +19,8 @@ var setupApp = app.setupAppRoutesAndValidation(appWithDocumentationSetup);
 
 server.use(basePath, setupApp);
 
-https.createServer(authentication.options, server).listen(port);
+https.globalAgent.maxSockets = 50;
+
+https.createServer(authentication.options, server).listen(port, "0.0.0.0");
 
 console.log('UpPeat RESTful API server started on: https://0.0.0.0:' + port);
