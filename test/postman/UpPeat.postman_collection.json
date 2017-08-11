@@ -589,6 +589,15 @@
 									"postman.setEnvironmentVariable(\"cookie\", token1);"
 								]
 							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"postman.clearEnvironmentVariable(\"cookie\");"
+								]
+							}
 						}
 					],
 					"request": {
@@ -878,6 +887,15 @@
 									"tests[\"Full name value is correct\"] = jsonData.full_name === \"Test User\";"
 								]
 							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"postman.clearEnvironmentVariable(\"cookie\");"
+								]
+							}
 						}
 					],
 					"request": {
@@ -1034,6 +1052,15 @@
 									"console.log(responseBody);"
 								]
 							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"postman.clearEnvironmentVariable(\"cookie\");"
+								]
+							}
 						}
 					],
 					"request": {
@@ -1103,6 +1130,15 @@
 									"",
 									"var token1 = postman.getResponseCookie(\"uppeat\").value;",
 									"postman.setEnvironmentVariable(\"cookie\", token1);"
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"postman.clearEnvironmentVariable(\"cookie\");"
 								]
 							}
 						}
@@ -2960,6 +2996,15 @@
 									"console.log(responseBody);"
 								]
 							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"postman.clearEnvironmentVariable(\"cookie\");"
+								]
+							}
 						}
 					],
 					"request": {
@@ -3340,6 +3385,15 @@
 									"tests[\"Full name value is correct\"] = jsonData.full_name === \"Rating User\";"
 								]
 							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"postman.clearEnvironmentVariable(\"cookie\");"
+								]
+							}
 						}
 					],
 					"request": {
@@ -3450,6 +3504,15 @@
 									"postman.setEnvironmentVariable(\"cookie\", token1);",
 									"",
 									"console.log(responseBody);"
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"postman.clearEnvironmentVariable(\"cookie\");"
 								]
 							}
 						}
@@ -3884,6 +3947,15 @@
 									"",
 									"var token1 = postman.getResponseCookie(\"uppeat\").value;",
 									"postman.setEnvironmentVariable(\"cookie\", token1);"
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"postman.clearEnvironmentVariable(\"cookie\");"
 								]
 							}
 						}
