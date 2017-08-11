@@ -6,6 +6,7 @@ notifications:
       - steven.burton@emishealth.com
 services:
   - mongodb
+  - docker
 before_install:
   - npm install
   - npm install newman -g
@@ -15,3 +16,5 @@ node_js:
  - node
 script:
   - npm run newman-server
+after_script:
+  - docker build
