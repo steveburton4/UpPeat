@@ -3413,6 +3413,8 @@
 									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
 									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
 									"",
+									"console.log(responseBody);",
+									"",
 									"var jsonData = JSON.parse(responseBody);",
 									"",
 									"var id = postman.getEnvironmentVariable(\"new_rating_id\");",
