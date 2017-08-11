@@ -586,6 +586,13 @@
 									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
 									"",
 									"var token1 = postman.getResponseHeader(\"set-cookie\");",
+									"",
+									"if (token1.indexOf(';') > -1)",
+									"{",
+									"  var array = token1.split(';');",
+									"  token1 = array[0];",
+									"}",
+									"",
 									"postman.setEnvironmentVariable(\"cookie\", token1);"
 								]
 							}
@@ -874,6 +881,13 @@
 									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
 									"",
 									"var token1 = postman.getResponseHeader(\"set-cookie\");",
+									"",
+									"if (token1.indexOf(';') > -1)",
+									"{",
+									"  var array = token1.split(';');",
+									"  token1 = array[0];",
+									"}",
+									"",
 									"postman.setEnvironmentVariable(\"cookie\", token1);",
 									"",
 									"var jsonData = JSON.parse(responseBody);",
@@ -1047,6 +1061,13 @@
 									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
 									"",
 									"var token1 = postman.getResponseHeader(\"set-cookie\");",
+									"",
+									"if (token1.indexOf(';') > -1)",
+									"{",
+									"  var array = token1.split(';');",
+									"  token1 = array[0];",
+									"}",
+									"",
 									"postman.setEnvironmentVariable(\"cookie\", token1);",
 									"",
 									"console.log(responseBody);"
@@ -1129,6 +1150,13 @@
 									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
 									"",
 									"var token1 = postman.getResponseHeader(\"set-cookie\");",
+									"",
+									"if (token1.indexOf(';') > -1)",
+									"{",
+									"  var array = token1.split(';');",
+									"  token1 = array[0];",
+									"}",
+									"",
 									"postman.setEnvironmentVariable(\"cookie\", token1);"
 								]
 							}
@@ -2991,6 +3019,13 @@
 									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
 									"",
 									"var token1 = postman.getResponseHeader(\"set-cookie\");",
+									"",
+									"if (token1.indexOf(';') > -1)",
+									"{",
+									"  var array = token1.split(';');",
+									"  token1 = array[0];",
+									"}",
+									"",
 									"postman.setEnvironmentVariable(\"cookie\", token1);",
 									"",
 									"console.log(responseBody);"
@@ -3955,6 +3990,13 @@
 									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
 									"",
 									"var token1 = postman.getResponseHeader(\"set-cookie\");",
+									"",
+									"if (token1.indexOf(';') > -1)",
+									"{",
+									"  var array = token1.split(';');",
+									"  token1 = array[0];",
+									"}",
+									"",
 									"postman.setEnvironmentVariable(\"cookie\", token1);"
 								]
 							}
