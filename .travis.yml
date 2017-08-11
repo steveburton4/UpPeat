@@ -13,6 +13,7 @@ services:
 install:
   - npm install
   - npm install newman -g
+  - npm install pkill -g
 script:
   - npm run newman-server
 after_script:
