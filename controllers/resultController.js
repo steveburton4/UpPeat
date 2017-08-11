@@ -52,6 +52,7 @@ module.exports.sendSuccessAfterCheckingError = function(res, err, information)
 
 module.exports.checkUserIsLoggedIn = function(req, res, userToMatch)
 {
+    console.log(req.headers);
     if (!req.user)
     {
         sendForbidden(res, "User must be logged in to access this resource");

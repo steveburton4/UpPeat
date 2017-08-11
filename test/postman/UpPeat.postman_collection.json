@@ -646,6 +646,11 @@
 								"key": "Content-Type",
 								"value": "application/json",
 								"description": ""
+							},
+							{
+								"key": "cookie",
+								"value": "{{cookie_header}}",
+								"description": ""
 							}
 						],
 						"body": {
@@ -678,6 +683,11 @@
 							{
 								"key": "Content-Type",
 								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "cookie",
+								"value": "{{cookie_header}}",
 								"description": ""
 							}
 						],
@@ -717,7 +727,13 @@
 					"request": {
 						"url": "{{base_url}}/Users/{{new_user_id}}",
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "cookie",
+								"value": "{{cookie_header}}",
+								"description": ""
+							}
+						],
 						"body": {},
 						"description": ""
 					},
@@ -746,6 +762,11 @@
 							{
 								"key": "Content-Type",
 								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "cookie",
+								"value": "{{cookie_header}}",
 								"description": ""
 							}
 						],
@@ -783,6 +804,11 @@
 								"key": "Content-Type",
 								"value": "application/json",
 								"description": ""
+							},
+							{
+								"key": "cookie",
+								"value": "{{cookie_header}}",
+								"description": ""
 							}
 						],
 						"body": {
@@ -814,7 +840,13 @@
 					"request": {
 						"url": "{{base_url}}/Users/{{new_user_id}}",
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "cookie",
+								"value": "{{cookie_header}}",
+								"description": ""
+							}
+						],
 						"body": {},
 						"description": ""
 					},
@@ -831,6 +863,9 @@
 									"tests[\"Response code is 200\"] = responseCode.code === 200;",
 									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
 									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var token1 = postman.getResponseCookie(\"uppeat\").value;",
+									"postman.setEnvironmentVariable(\"cookie\", token1);",
 									"",
 									"var jsonData = JSON.parse(responseBody);",
 									"postman.setEnvironmentVariable(\"new_user_id\", jsonData.id);",
@@ -922,6 +957,11 @@
 							{
 								"key": "Content-Type",
 								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "cookie",
+								"value": "{{cookie_header}}",
 								"description": ""
 							}
 						],
@@ -1110,6 +1150,11 @@
 							{
 								"key": "Content-Type",
 								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "cookie",
+								"value": "{{cookie_header}}",
 								"description": ""
 							}
 						],
@@ -2970,6 +3015,11 @@
 								"key": "Content-Type",
 								"value": "application/json",
 								"description": ""
+							},
+							{
+								"key": "cookie",
+								"value": "{{cookie_header}}",
+								"description": ""
 							}
 						],
 						"body": {
@@ -3006,6 +3056,11 @@
 							{
 								"key": "Content-Type",
 								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "cookie",
+								"value": "{{cookie_header}}",
 								"description": ""
 							}
 						],
@@ -3050,6 +3105,11 @@
 								"key": "Content-Type",
 								"value": "application/json",
 								"description": ""
+							},
+							{
+								"key": "cookie",
+								"value": "{{cookie_header}}",
+								"description": ""
 							}
 						],
 						"body": {
@@ -3093,6 +3153,11 @@
 							{
 								"key": "Content-Type",
 								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "cookie",
+								"value": "{{cookie_header}}",
 								"description": ""
 							}
 						],
@@ -3443,6 +3508,11 @@
 								"key": "Content-Type",
 								"value": "application/json",
 								"description": ""
+							},
+							{
+								"key": "cookie",
+								"value": "{{cookie_header}}",
+								"description": ""
 							}
 						],
 						"body": {
@@ -3487,6 +3557,11 @@
 								"key": "Content-Type",
 								"value": "application/json",
 								"description": ""
+							},
+							{
+								"key": "cookie",
+								"value": "{{cookie_header}}",
+								"description": ""
 							}
 						],
 						"body": {
@@ -3521,6 +3596,11 @@
 								"key": "Content-Type",
 								"value": "application/json",
 								"description": ""
+							},
+							{
+								"key": "cookie",
+								"value": "{{cookie_header}}",
+								"description": ""
 							}
 						],
 						"body": {
@@ -3554,6 +3634,11 @@
 							{
 								"key": "Content-Type",
 								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "cookie",
+								"value": "{{cookie_header}}",
 								"description": ""
 							}
 						],
@@ -3591,6 +3676,11 @@
 							{
 								"key": "Content-Type",
 								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "cookie",
+								"value": "{{cookie_header}}",
 								"description": ""
 							}
 						],
@@ -3765,6 +3855,11 @@
 								"key": "Content-Type",
 								"value": "application/json",
 								"description": ""
+							},
+							{
+								"key": "cookie",
+								"value": "{{cookie_header}}",
+								"description": ""
 							}
 						],
 						"body": {
@@ -3836,6 +3931,11 @@
 							{
 								"key": "Content-Type",
 								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "cookie",
+								"value": "{{cookie_header}}",
 								"description": ""
 							}
 						],
