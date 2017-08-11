@@ -621,6 +621,8 @@
 									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
 									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
 									"",
+									"console.log(responseBody);",
+									"",
 									"var jsonData = JSON.parse(responseBody);",
 									"var id = postman.getEnvironmentVariable(\"new_user_id\");",
 									"",
@@ -1094,7 +1096,9 @@
 									"tests[\"Response code is 200\"] = responseCode.code === 200;",
 									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
 									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"tests[\"Return message correct\"] = responseBody.has(\"User successfully deleted\");"
+									"tests[\"Return message correct\"] = responseBody.has(\"User successfully deleted\");",
+									"",
+									"console.log(responseBody);"
 								]
 							}
 						}
@@ -2943,6 +2947,8 @@
 									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
 									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
 									"",
+									"console.log(responseBody);",
+									"",
 									"var jsonData = JSON.parse(responseBody);",
 									"postman.setEnvironmentVariable(\"new_rating_id\", jsonData._id);",
 									"",
@@ -3816,7 +3822,9 @@
 									"tests[\"Response code is 200\"] = responseCode.code === 200;",
 									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
 									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"tests[\"Check response is correct\"] = responseBody.has(\"User successfully deleted\");"
+									"tests[\"Check response is correct\"] = responseBody.has(\"User successfully deleted\");",
+									"",
+									"console.log(responseBody);"
 								]
 							}
 						}
