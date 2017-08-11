@@ -3503,7 +3503,9 @@
 									"var token1 = postman.getResponseCookie(\"uppeat\").value;",
 									"postman.setEnvironmentVariable(\"cookie\", token1);",
 									"",
-									"console.log(responseBody);"
+									"console.log(responseBody);",
+									"console.log(token1);",
+									"console.log(responseHeaders);"
 								]
 							}
 						},
