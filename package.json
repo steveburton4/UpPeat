@@ -4,7 +4,7 @@
   "description": "\"RESTful API used for accessing UpPeat data\"",
   "main": "server.js",
   "scripts": {
-    "newman-run": "newman run ./test/postman/UpPeat.postman_collection.json -e ./test/postman/localhost.postman_environment.json --reporter-html-export results.html",
+    "newman-run": "newman run ./test/postman/UpPeat.postman_collection.json -e ./test/postman/localhost.postman_environment.json --reporters cli,html --reporter-html-export ./test/postman/Postman-Results.html --insecure",
     "delay": "node ./node_modules/npm-delay 1000",
     "newman-sleep": "run-s delay newman-run",
     "newman-server": "run-p start newman-sleep",

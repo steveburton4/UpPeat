@@ -21,7 +21,8 @@
 								"exec": [
 									"tests[\"Response code is 200\"] = responseCode.code === 200;",
 									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");"
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"console.log(responseBody);"
 								]
 							}
 						}

@@ -1,9 +1,9 @@
 notifications:
-email:
-  recipients:
-    - steven.burton@emishealth.com
-  on_success: always
-  on_failure: always
+  email:
+    on_success: always
+    on_failure: always
+    recipients:
+      - steven.burton@emishealth.com
 services:
   - mongodb
 before_install:
