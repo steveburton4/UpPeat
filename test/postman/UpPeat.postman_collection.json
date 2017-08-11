@@ -1633,7 +1633,7 @@
 							"script": {
 								"type": "text/javascript",
 								"exec": [
-									"tests[\"Response code is 400\"] = responseCode.code === 400;",
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
 									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
 									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");"
 								]
