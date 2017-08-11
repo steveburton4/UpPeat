@@ -21,8 +21,7 @@
 								"exec": [
 									"tests[\"Response code is 200\"] = responseCode.code === 200;",
 									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"console.log(responseBody);"
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");"
 								]
 							}
 						}
@@ -1179,6 +1178,44 @@
 						"body": {
 							"mode": "raw",
 							"raw": "{\n\t\"name\": \"testWhiskey\",\n\t\"abv\": 5,\n\t\"type\": \"grain\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add distillery for whiskey",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"new_distillery_id\", jsonData._id);",
+									"",
+									"tests[\"Check name is correct\"] = jsonData.name === \"whiskeyDistillery\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/Distilleries",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"whiskeyDistillery\"\n}"
 						},
 						"description": ""
 					},
