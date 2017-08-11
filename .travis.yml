@@ -1,5 +1,3 @@
-env:
-  DOCKER_COMPOSE_VERSION: 1.14.0
 notifications:
 email:
   recipients:
@@ -7,23 +5,13 @@ email:
   on_success: always
   on_failure: always
 services:
-  - docker
+  - mongodb
 before_install:
-  - sudo apt-get update
   - npm install
-  - sudo rm /usr/local/bin/docker-compose
-  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
-  - chmod +x docker-compose
-  - sudo mv docker-compose /usr/local/bin
-  - docker-compose --version
-  - docker-compose build
-  - docker-compose up
-  - docker ps
+  - npm install newman -g
 install: true
 language: node_js
 node_js:
  - node
 script:
   - npm run newman-server
-after_script:
-  - docker-compose down
