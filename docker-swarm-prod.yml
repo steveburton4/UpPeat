@@ -1,0 +1,40 @@
+version: '3.0'
+services:
+  api:
+    image: steveburton4/uppeat:latest
+    ports:
+      - "54321:54321"
+    environment:
+      NODE_ENV: production
+      MONGODB_ADDRESS: database
+    depends_on:
+      - database
+    deploy:
+      replicas: 2
+      update_config:
+        parallelism: 1
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+    networks:
+      - ingress
+  database:
+    image: mongo:latest
+    environment:
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
+    ports:
+      - 27017:27017
+    command: mongod --smallfiles --logpath=/dev/null
+    deploy:
+      replicas: 2
+      update_config:
+        parallelism: 1
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+    networks:
+      - ingress
+networks:
+  ingress:
+    external: true

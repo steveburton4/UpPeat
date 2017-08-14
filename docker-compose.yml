@@ -1,4 +1,4 @@
-version: '2.0'
+version: '3.0'
 services:
   api:
     build: .
@@ -8,8 +8,6 @@ services:
     environment:
       NODE_ENV: development
       MONGODB_ADDRESS: database
-    links:
-      - database
     depends_on:
       - database
   database:
