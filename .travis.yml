@@ -18,12 +18,11 @@ before_install:
   - pip install --upgrade --user awscli
 install:
   - npm install
-  - npm install curl -g
   - npm install newman -g
   - npm install pkill -g
 script:
   - npm run newman-server
-  - docker build -t steveburton4/uppeat:latest .
+  - docker build -t uppeat .
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
     docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
