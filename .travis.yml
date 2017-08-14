@@ -10,9 +10,11 @@ notifications:
 services:
   - mongodb
   - docker
+addons:
+  apt:
+    packages:
+    - python-pip
 before_install:
-  - apt-get update
-  - apt-get -y install python-pip
   - pip install --upgrade --user awscli
 install:
   - npm install
