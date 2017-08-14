@@ -12,9 +12,20 @@ services:
   - docker
 install:
   - npm install
+  - npm install curl -g
   - npm install newman -g
   - npm install pkill -g
 script:
   - npm run newman-server
 after_script:
   - docker build .
+after_success:
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+    docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+    docker push steveburton4/uppeat;
+    fi
+after_failure:
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+    docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+    docker push steveburton4/uppeat;
+    fi
