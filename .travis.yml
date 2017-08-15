@@ -23,16 +23,10 @@ install:
 script:
   - npm run newman-server
   - docker build -t uppeat .
-after_success:
-  - if [ "$TRAVIS_BRANCH" == "master" ]; then
-    docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-    docker push steveburton4/uppeat;
-    fi
 after_failure:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
-    aws ecr get-login --no-include-email --region us-east-1;
     export PATH=$PATH:$HOME/.local/bin;
-    eval $(aws ecr get-login --region us-east-1);
-    docker tag uppeat:latest 236542331794.dkr.ecr.us-east-1.amazonaws.com/uppeat:latest;
-    docker push 236542331794.dkr.ecr.us-east-1.amazonaws.com/uppeat:latest;
+    eval $(aws ecr get-login --no-include-email --region eu-west-2);
+    docker tag uppeat:latest 236542331794.dkr.ecr.eu-west-2.amazonaws.com/uppeat:latest;
+    docker push 236542331794.dkr.ecr.eu-west-2.amazonaws.com/uppeat:latest;
     fi
