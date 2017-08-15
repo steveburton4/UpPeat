@@ -7,7 +7,7 @@ services:
       - "54321:54321"
     environment:
       NODE_ENV: development
-      MONGODB_ADDRESS: database
+      MONGO_PORT_27017_TCP_ADDR: database
     depends_on:
       - database
   database:

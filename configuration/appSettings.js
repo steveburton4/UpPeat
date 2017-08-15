@@ -1,4 +1,4 @@
-var server = process.env.MONGODB_ADDRESS || "localhost";
+var server = process.env.MONGO_PORT_27017_TCP_ADDR || "localhost";
 
 module.exports.createApp = function(options)
 {
