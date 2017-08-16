@@ -16,6 +16,8 @@ addons:
     - python-pip
 before_install:
   - pip install --upgrade --user awscli
+  - chmod +x deploy/docker-push.sh
+  - chmod +x deploy/ecs-deploy.sh
 install:
   - npm install
   - npm install newman -g
