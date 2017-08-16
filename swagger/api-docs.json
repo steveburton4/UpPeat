@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "version": "1.0.1",
+    "version": "1.0.2",
     "title": "UpPeat API Specification",
     "description": "Specification for UpPeat API",
     "termsOfService": "http://swagger.io/terms/"
@@ -30,7 +30,7 @@
     }
   ],
   "schemes": [
-    "http"
+    "https"
   ],
   "consumes": [
     "application/json"
