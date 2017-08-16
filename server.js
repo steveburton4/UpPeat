@@ -4,7 +4,7 @@ var express = require('express'),
   documentation = require('./configuration/documentationSetup'),
   database = require('./configuration/databaseSetup'),
   app = require('./configuration/appSettings'),
-  basePath = '/uppeat',
+  basePath = '/',
   documentationDirName = __dirname +'/swagger',
   http = require('http');
 
