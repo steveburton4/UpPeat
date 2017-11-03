@@ -1,10 +1,9 @@
 {
-	"variables": [],
 	"info": {
 		"name": "UpPeat",
 		"_postman_id": "0d5b78ee-90ed-a4e2-4709-df9bad968230",
 		"description": "",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -27,10 +26,18 @@
 						}
 					],
 					"request": {
-						"url": "{{base_url}}/Users",
 						"method": "GET",
 						"header": [],
 						"body": {},
+						"url": {
+							"raw": "{{base_url}}/Users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Users"
+							]
+						},
 						"description": ""
 					},
 					"response": []
@@ -61,18 +68,25 @@
 						}
 					],
 					"request": {
-						"url": "{{base_url}}/Users",
 						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"first_name\": \"Test\",\n\t\"surname\": \"User\",\n\t\"user_name\": \"test_User1\",\n\t\"email\": \"test@user.com\",\n\t\"password\": \"test1\"\n}"
+							"raw": "{\n  \"first_name\": \"Test\",\n  \"surname\": \"User\",\n  \"user_name\": \"test_User1\",\n  \"email\": \"test@user.com\",\n  \"password\": \"test1\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Users"
+							]
 						},
 						"description": ""
 					},
@@ -96,18 +110,25 @@
 						}
 					],
 					"request": {
-						"url": "{{base_url}}/Users",
 						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"first_name\": \"Test\",\n\t\"surname\": \"User\",\n\t\"user_name\": \"test_User1\",\n\t\"email\": \"test@user.com\",\n\t\"password\": \"test1\"\n}"
+							"raw": "{\n  \"first_name\": \"Test\",\n  \"surname\": \"User\",\n  \"user_name\": \"test_User1\",\n  \"email\": \"test@user.com\",\n  \"password\": \"test1\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Users"
+							]
 						},
 						"description": ""
 					},
@@ -132,10 +153,19 @@
 						}
 					],
 					"request": {
-						"url": "{{base_url}}/Users/{{new_user_id}}",
 						"method": "GET",
 						"header": [],
 						"body": {},
+						"url": {
+							"raw": "{{base_url}}/Users/{{new_user_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Users",
+								"{{new_user_id}}"
+							]
+						},
 						"description": ""
 					},
 					"response": []
@@ -159,10 +189,19 @@
 						}
 					],
 					"request": {
-						"url": "{{base_url}}/Users/{{new_user_id}}",
 						"method": "DELETE",
 						"header": [],
 						"body": {},
+						"url": {
+							"raw": "{{base_url}}/Users/{{new_user_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Users",
+								"{{new_user_id}}"
+							]
+						},
 						"description": ""
 					},
 					"response": []
@@ -186,18 +225,26 @@
 						}
 					],
 					"request": {
-						"url": "{{base_url}}/Users/{{new_user_id}}",
 						"method": "PUT",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"first_name\": \"Test\",\n\t\"surname\": \"UserEdit\",\n\t\"user_name\": \"testUserEdit1\",\n\t\"email\": \"test.edit@user.com\",\n\t\"password\": \"testUser1\"\n}"
+							"raw": "{\n  \"first_name\": \"Test\",\n  \"surname\": \"UserEdit\",\n  \"user_name\": \"testUserEdit1\",\n  \"email\": \"test.edit@user.com\",\n  \"password\": \"testUser1\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Users/{{new_user_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Users",
+								"{{new_user_id}}"
+							]
 						},
 						"description": ""
 					},
@@ -223,18 +270,26 @@
 						}
 					],
 					"request": {
-						"url": "{{base_url}}/Users/login",
 						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"user_name\": \"test_user1\",\n\t\"password\": \"test2\"\n}"
+							"raw": "{\n  \"user_name\": \"test_user1\",\n  \"password\": \"test2\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Users/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Users",
+								"login"
+							]
 						},
 						"description": ""
 					},
@@ -260,18 +315,25 @@
 						}
 					],
 					"request": {
-						"url": "{{base_url}}/Users",
 						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"first_name\": \"Test\",\n\t\"surname\": \"User\",\n\t\"user_name\": \"test\",\n\t\"email\": \"test@user.com\",\n\t\"password\": \"test1\"\n}"
+							"raw": "{\n  \"first_name\": \"Test\",\n  \"surname\": \"User\",\n  \"user_name\": \"test\",\n  \"email\": \"test@user.com\",\n  \"password\": \"test1\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Users"
+							]
 						},
 						"description": ""
 					},
@@ -297,18 +359,25 @@
 						}
 					],
 					"request": {
-						"url": "{{base_url}}/Users",
 						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"first_name\": \"Test\",\n\t\"surname\": \"User\",\n\t\"user_name\": \"testusertestusertest1\",\n\t\"email\": \"test@user.com\",\n\t\"password\": \"test1\"\n}"
+							"raw": "{\n  \"first_name\": \"Test\",\n  \"surname\": \"User\",\n  \"user_name\": \"testusertestusertest1\",\n  \"email\": \"test@user.com\",\n  \"password\": \"test1\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Users"
+							]
 						},
 						"description": ""
 					},
@@ -334,18 +403,25 @@
 						}
 					],
 					"request": {
-						"url": "{{base_url}}/Users",
 						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"first_name\": \"Test\",\n\t\"surname\": \"User\",\n\t\"user_name\": \"test_User*1\",\n\t\"email\": \"test@user.com\",\n\t\"password\": \"test1\"\n}"
+							"raw": "{\n  \"first_name\": \"Test\",\n  \"surname\": \"User\",\n  \"user_name\": \"test_User*1\",\n  \"email\": \"test@user.com\",\n  \"password\": \"test1\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Users"
+							]
 						},
 						"description": ""
 					},
@@ -371,18 +447,25 @@
 						}
 					],
 					"request": {
-						"url": "{{base_url}}/Users",
 						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"first_name\": \"Test\",\n\t\"surname\": \"User\",\n\t\"user_name\": \"test_User2\",\n\t\"email\": \"test@user.com\",\n\t\"password\": \"tes1\"\n}"
+							"raw": "{\n  \"first_name\": \"Test\",\n  \"surname\": \"User\",\n  \"user_name\": \"test_User2\",\n  \"email\": \"test@user.com\",\n  \"password\": \"tes1\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Users"
+							]
 						},
 						"description": ""
 					},
@@ -408,18 +491,25 @@
 						}
 					],
 					"request": {
-						"url": "{{base_url}}/Users",
 						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"first_name\": \"Test\",\n\t\"surname\": \"User\",\n\t\"user_name\": \"test_User2\",\n\t\"email\": \"test@user.com\",\n\t\"password\": \"testusertestuseruser1\"\n}"
+							"raw": "{\n  \"first_name\": \"Test\",\n  \"surname\": \"User\",\n  \"user_name\": \"test_User2\",\n  \"email\": \"test@user.com\",\n  \"password\": \"testusertestuseruser1\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Users"
+							]
 						},
 						"description": ""
 					},
@@ -445,18 +535,25 @@
 						}
 					],
 					"request": {
-						"url": "{{base_url}}/Users",
 						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"first_name\": \"Test\",\n\t\"surname\": \"User\",\n\t\"user_name\": \"test_User2\",\n\t\"email\": \"test@user.com\",\n\t\"password\": \"te$$$$1\"\n}"
+							"raw": "{\n  \"first_name\": \"Test\",\n  \"surname\": \"User\",\n  \"user_name\": \"test_User2\",\n  \"email\": \"test@user.com\",\n  \"password\": \"te$$$$1\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Users"
+							]
 						},
 						"description": ""
 					},
@@ -482,18 +579,25 @@
 						}
 					],
 					"request": {
-						"url": "{{base_url}}/Users",
 						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"first_name\": \"Test\",\n\t\"surname\": \"User\",\n\t\"user_name\": \"test_User2\",\n\t\"email\": \"test@usercom\",\n\t\"password\": \"testuser1\"\n}"
+							"raw": "{\n  \"first_name\": \"Test\",\n  \"surname\": \"User\",\n  \"user_name\": \"test_User2\",\n  \"email\": \"test@usercom\",\n  \"password\": \"testuser1\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Users"
+							]
 						},
 						"description": ""
 					},
@@ -519,18 +623,25 @@
 						}
 					],
 					"request": {
-						"url": "{{base_url}}/Users",
 						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"first_name\": \"Test\",\n\t\"surname\": \"\",\n\t\"user_name\": \"test_User2\",\n\t\"email\": \"test@user.com\",\n\t\"password\": \"testuser1\"\n}"
+							"raw": "{\n  \"first_name\": \"Test\",\n  \"surname\": \"\",\n  \"user_name\": \"test_User2\",\n  \"email\": \"test@user.com\",\n  \"password\": \"testuser1\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Users"
+							]
 						},
 						"description": ""
 					},
@@ -556,18 +667,25 @@
 						}
 					],
 					"request": {
-						"url": "{{base_url}}/Users",
 						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"first_name\": \"\",\n\t\"surname\": \"User\",\n\t\"user_name\": \"test_User2\",\n\t\"email\": \"test@user.com\",\n\t\"password\": \"testuser1\"\n}"
+							"raw": "{\n  \"first_name\": \"\",\n  \"surname\": \"User\",\n  \"user_name\": \"test_User2\",\n  \"email\": \"test@user.com\",\n  \"password\": \"testuser1\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Users"
+							]
 						},
 						"description": ""
 					},
@@ -608,18 +726,26 @@
 						}
 					],
 					"request": {
-						"url": "{{base_url}}/Users/login",
 						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"user_name\": \"test_user1\",\n\t\"password\": \"test1\"\n}"
+							"raw": "{\n  \"user_name\": \"test_user1\",\n  \"password\": \"test1\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Users/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Users",
+								"login"
+							]
 						},
 						"description": ""
 					},
@@ -655,23 +781,26 @@
 						}
 					],
 					"request": {
-						"url": "{{base_url}}/Users/{{new_user_id}}",
 						"method": "GET",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							},
-							{
-								"key": "cookie",
-								"value": "{{cookie}}",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"user_name\": \"test_user1\",\n\t\"password\": \"test1\"\n}"
+							"raw": "{\n  \"user_name\": \"test_user1\",\n  \"password\": \"test1\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Users/{{new_user_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Users",
+								"{{new_user_id}}"
+							]
 						},
 						"description": ""
 					},
@@ -693,23 +822,26 @@
 						}
 					],
 					"request": {
-						"url": "{{base_url}}/Users/{{new_user_id}}",
 						"method": "PUT",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							},
-							{
-								"key": "cookie",
-								"value": "{{cookie}}",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"first_name\": \"Test\",\n\t\"surname\": \"UserEdit\",\n\t\"user_name\": \"testUserEdit1\",\n\t\"email\": \"test.edit@user.com\",\n\t\"password\": \"testUser1\"\n}"
+							"raw": "{\n  \"first_name\": \"Test\",\n  \"surname\": \"UserEdit\",\n  \"user_name\": \"testUserEdit1\",\n  \"email\": \"test.edit@user.com\",\n  \"password\": \"testUser1\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Users/{{new_user_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Users",
+								"{{new_user_id}}"
+							]
 						},
 						"description": ""
 					},
@@ -741,16 +873,24 @@
 						}
 					],
 					"request": {
-						"url": "{{base_url}}/Users/{{new_user_id}}",
 						"method": "GET",
 						"header": [
 							{
 								"key": "cookie",
-								"value": "{{cookie}}",
-								"description": ""
+								"value": "{{cookie}}"
 							}
 						],
 						"body": {},
+						"url": {
+							"raw": "{{base_url}}/Users/{{new_user_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Users",
+								"{{new_user_id}}"
+							]
+						},
 						"description": ""
 					},
 					"response": []
@@ -772,23 +912,30 @@
 						}
 					],
 					"request": {
-						"url": "{{base_url}}/Users/{{new_user_id}}",
 						"method": "DELETE",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							},
 							{
 								"key": "cookie",
-								"value": "{{cookie}}",
-								"description": ""
+								"value": "{{cookie}}"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/Users/{{new_user_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Users",
+								"{{new_user_id}}"
+							]
 						},
 						"description": ""
 					},
@@ -813,23 +960,30 @@
 						}
 					],
 					"request": {
-						"url": "{{base_url}}/Users/{{new_user_id}}",
 						"method": "DELETE",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							},
 							{
 								"key": "cookie",
-								"value": "{{cookie}}",
-								"description": ""
+								"value": "{{cookie}}"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/Users/{{new_user_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Users",
+								"{{new_user_id}}"
+							]
 						},
 						"description": ""
 					},
@@ -854,16 +1008,19 @@
 						}
 					],
 					"request": {
-						"url": "{{base_url}}/Users/{{new_user_id}}",
 						"method": "GET",
-						"header": [
-							{
-								"key": "cookie",
-								"value": "{{cookie}}",
-								"description": ""
-							}
-						],
+						"header": [],
 						"body": {},
+						"url": {
+							"raw": "{{base_url}}/Users/{{new_user_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Users",
+								"{{new_user_id}}"
+							]
+						},
 						"description": ""
 					},
 					"response": []
@@ -913,18 +1070,26 @@
 						}
 					],
 					"request": {
-						"url": "{{base_url}}/Users/signup",
 						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"first_name\": \"Test\",\n\t\"surname\": \"User\",\n\t\"user_name\": \"test_User2\",\n\t\"email\": \"test2@user.com\",\n\t\"password\": \"test2\"\n}"
+							"raw": "{\n  \"first_name\": \"Test\",\n  \"surname\": \"User\",\n  \"user_name\": \"test_User2\",\n  \"email\": \"test2@user.com\",\n  \"password\": \"test2\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Users/signup",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Users",
+								"signup"
+							]
 						},
 						"description": ""
 					},
@@ -949,18 +1114,26 @@
 						}
 					],
 					"request": {
-						"url": "{{base_url}}/Users/signup",
 						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"first_name\": \"Test\",\n\t\"surname\": \"User\",\n\t\"user_name\": \"test_user2\",\n\t\"email\": \"test2@user.com\",\n\t\"password\": \"test2\"\n}"
+							"raw": "{\n  \"first_name\": \"Test\",\n  \"surname\": \"User\",\n  \"user_name\": \"test_user2\",\n  \"email\": \"test2@user.com\",\n  \"password\": \"test2\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Users/signup",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Users",
+								"signup"
+							]
 						},
 						"description": ""
 					},
@@ -983,23 +1156,26 @@
 						}
 					],
 					"request": {
-						"url": "{{base_url}}/Users/{{new_user_id}}",
 						"method": "DELETE",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							},
-							{
-								"key": "cookie",
-								"value": "{{cookie}}",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"first_name\": \"Test\",\n\t\"surname\": \"User\",\n\t\"user_name\": \"test_User2\",\n\t\"email\": \"test2@user.com\",\n\t\"password\": \"test2\"\n}"
+							"raw": "{\n  \"first_name\": \"Test\",\n  \"surname\": \"User\",\n  \"user_name\": \"test_User2\",\n  \"email\": \"test2@user.com\",\n  \"password\": \"test2\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Users/{{new_user_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Users",
+								"{{new_user_id}}"
+							]
 						},
 						"description": ""
 					},
@@ -1031,18 +1207,25 @@
 						}
 					],
 					"request": {
-						"url": "{{base_url}}/Users",
 						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"first_name\": \"Test\",\n\t\"surname\": \"User\",\n\t\"user_name\": \"test_User3\",\n\t\"email\": \"test3@user.com\",\n\t\"password\": \"test3\"\n}"
+							"raw": "{\n  \"first_name\": \"Test\",\n  \"surname\": \"User\",\n  \"user_name\": \"test_User3\",\n  \"email\": \"test3@user.com\",\n  \"password\": \"test3\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Users"
+							]
 						},
 						"description": ""
 					},
@@ -1085,18 +1268,26 @@
 						}
 					],
 					"request": {
-						"url": "{{base_url}}/Users/login",
 						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"user_name\": \"test_user3\",\n\t\"password\": \"test3\"\n}"
+							"raw": "{\n  \"user_name\": \"test_user3\",\n  \"password\": \"test3\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Users/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Users",
+								"login"
+							]
 						},
 						"description": ""
 					},
@@ -1120,18 +1311,26 @@
 						}
 					],
 					"request": {
-						"url": "{{base_url}}/Users/logout",
 						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"user_name\": \"test_user3\",\n\t\"password\": \"test3\"\n}"
+							"raw": "{\n  \"user_name\": \"test_user3\",\n  \"password\": \"test3\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Users/logout",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Users",
+								"logout"
+							]
 						},
 						"description": ""
 					},
@@ -1172,18 +1371,26 @@
 						}
 					],
 					"request": {
-						"url": "{{base_url}}/Users/login",
 						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"user_name\": \"test_user3\",\n\t\"password\": \"test3\"\n}"
+							"raw": "{\n  \"user_name\": \"test_user3\",\n  \"password\": \"test3\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Users/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Users",
+								"login"
+							]
 						},
 						"description": ""
 					},
@@ -1208,2316 +1415,26 @@
 						}
 					],
 					"request": {
-						"url": "{{base_url}}/Users/{{new_user_id}}",
 						"method": "DELETE",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							},
-							{
-								"key": "cookie",
-								"value": "{{cookie}}",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": ""
 						},
-						"description": ""
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Whiskeys",
-			"description": "",
-			"item": [
-				{
-					"name": "Get all whiskeys",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Whiskeys",
-						"method": "GET",
-						"header": [],
-						"body": {},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Add whiskey without distillery",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 500\"] = responseCode.code === 500;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"Check error parameter is correct\"] = jsonData[0].param === \"distillery_id\";",
-									"tests[\"Check error message is correct\"] = jsonData[0].msg === \"Missing distillery id\";"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Whiskeys",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"name\": \"testWhiskey\",\n\t\"abv\": 5,\n\t\"type\": \"grain\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Add distillery for whiskey",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"postman.setEnvironmentVariable(\"new_distillery_id\", jsonData._id);",
-									"",
-									"tests[\"Check name is correct\"] = jsonData.name === \"whiskeyDistillery\";"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Distilleries",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"name\": \"whiskeyDistillery\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Add whiskey with invalid type",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 500\"] = responseCode.code === 500;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"Check error param is correct\"] = jsonData[0].param === \"type\";",
-									"tests[\"Check error message is correct\"] = jsonData[0].msg === \"Invalid type\";"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Whiskeys",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"name\": \"testWhiskey\",\n\t\"abv\": 5,\n\t\"type\": \"test\",\n\t\"distillery_id\": \"{{new_distillery_id}}\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Add whiskey without type",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 500\"] = responseCode.code === 500;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"Check error param is correct\"] = jsonData[0].param === \"type\";",
-									"tests[\"Check error message is correct\"] = jsonData[0].msg === \"Missing type\";",
-									"",
-									"tests[\"Check error param two is correct\"] = jsonData[1].param === \"type\";",
-									"tests[\"Check error message two is correct\"] = jsonData[1].msg === \"Invalid type\";"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Whiskeys",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"name\": \"testWhiskey\",\n\t\"abv\": 5,\n\t\"type\": \"\",\n\t\"distillery_id\": \"{{new_distillery_id}}\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Add whiskey without abv",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 500\"] = responseCode.code === 500;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"Check error param is correct\"] = jsonData[0].param === \"abv\";",
-									"tests[\"Check error message is correct\"] = jsonData[0].msg === \"Missing abv\";"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Whiskeys",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"name\": \"testWhiskey\",\n\t\"abv\": \"\",\n\t\"type\": \"corn\",\n\t\"distillery_id\": \"{{new_distillery_id}}\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Add whiskey without name",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 500\"] = responseCode.code === 500;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"Check error param is correct\"] = jsonData[0].param === \"name\";",
-									"tests[\"Check error message is correct\"] = jsonData[0].msg === \"Missing name\";"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Whiskeys",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"name\": \"\",\n\t\"abv\": 5,\n\t\"type\": \"corn\",\n\t\"distillery_id\": \"{{new_distillery_id}}\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Add valid whiskey",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"postman.setEnvironmentVariable(\"new_whiskey_id\", jsonData._id);",
-									"",
-									"var distilleryId = postman.getEnvironmentVariable(\"new_distillery_id\");",
-									"",
-									"tests[\"Check name is correct\"] = jsonData.name === \"testWhiskey\";",
-									"tests[\"Check abv is correct\"] = jsonData.abv === 5;",
-									"tests[\"Check type is correct\"] = jsonData.type === \"corn\";",
-									"tests[\"Check distillery id is correct\"] = jsonData.distillery_id[0] === distilleryId;"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Whiskeys",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"name\": \"testWhiskey\",\n\t\"abv\": 5,\n\t\"type\": \"corn\",\n\t\"distillery_id\": \"{{new_distillery_id}}\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Add duplicate whiskey",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 400\"] = responseCode.code === 400;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"Response is correct\"] = jsonData.message === \"Whiskey name already exists\";"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Whiskeys",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"name\": \"testWhiskey\",\n\t\"abv\": 7,\n\t\"type\": \"grain\",\n\t\"distillery_id\": \"{{new_distillery_id}}\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Get whiskey",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"var id = postman.getEnvironmentVariable(\"new_whiskey_id\");",
-									"var distilleryId = postman.getEnvironmentVariable(\"new_distillery_id\");",
-									"",
-									"tests[\"Check id is correct\"] = jsonData._id === id;",
-									"tests[\"Check name is correct\"] = jsonData.name === \"testWhiskey\";",
-									"tests[\"Check abv is correct\"] = jsonData.abv === 5;",
-									"tests[\"Check type is correct\"] = jsonData.type === \"corn\";",
-									"tests[\"Check distillery id is correct\"] = jsonData.distillery_id[0] === distilleryId;"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Whiskeys/{{new_whiskey_id}}",
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"name\": \"testWhiskey\",\n\t\"abv\": 7,\n\t\"type\": \"grain\",\n\t\"distillery_id\": \"{{new_distillery_id}}\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Get whiskeys for distillery",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"var id = postman.getEnvironmentVariable(\"new_whiskey_id\");",
-									"var distilleryId = postman.getEnvironmentVariable(\"new_distillery_id\");",
-									"",
-									"tests[\"Check id is correct\"] = jsonData[0]._id === id;",
-									"tests[\"Check name is correct\"] = jsonData[0].name === \"testWhiskey\";",
-									"tests[\"Check abv is correct\"] = jsonData[0].abv === 5;",
-									"tests[\"Check type is correct\"] = jsonData[0].type === \"corn\";",
-									"tests[\"Check distillery id is correct\"] = jsonData[0].distillery_id[0] === distilleryId;"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Distilleries/{{new_distillery_id}}/Whiskeys",
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"name\": \"testWhiskey\",\n\t\"abv\": 7,\n\t\"type\": \"grain\",\n\t\"distillery_id\": \"{{new_distillery_id}}\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Edit whiskey with duplicate name",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 400\"] = responseCode.code === 400;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"Response is correct\"] = jsonData.message === \"Whiskey name already exists\";"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Whiskeys/{{new_whiskey_id}}",
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"name\": \"testWhiskey\",\n\t\"abv\": 10,\n\t\"type\": \"single pot\",\n\t\"distillery_id\": \"{{new_distillery_id}}\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Edit whiskey",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"var id = postman.getEnvironmentVariable(\"new_whiskey_id\");",
-									"var distilleryId = postman.getEnvironmentVariable(\"new_distillery_id\");",
-									"",
-									"tests[\"Check id is correct\"] = jsonData._id === id;",
-									"tests[\"Check name is correct\"] = jsonData.name === \"testWhiskeyEdit\";",
-									"tests[\"Check abv is correct\"] = jsonData.abv === 10;",
-									"tests[\"Check type is correct\"] = jsonData.type === \"single pot\";",
-									"tests[\"Check distillery id is correct\"] = jsonData.distillery_id[0] === distilleryId;"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Whiskeys/{{new_whiskey_id}}",
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"name\": \"testWhiskeyEdit\",\n\t\"abv\": 10,\n\t\"type\": \"single pot\",\n\t\"distillery_id\": \"{{new_distillery_id}}\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Delete distillery for whiskey",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Distilleries/{{new_distillery_id}}",
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Get edited whiskey",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"var id = postman.getEnvironmentVariable(\"new_whiskey_id\");",
-									"var distilleryId = postman.getEnvironmentVariable(\"new_distillery_id\");",
-									"",
-									"tests[\"Check id is correct\"] = jsonData._id === id;",
-									"tests[\"Check name is correct\"] = jsonData.name === \"testWhiskeyEdit\";",
-									"tests[\"Check abv is correct\"] = jsonData.abv === 10;",
-									"tests[\"Check type is correct\"] = jsonData.type === \"single pot\";",
-									"tests[\"Check distillery id is correct\"] = jsonData.distillery_id[0] === distilleryId;"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Whiskeys/{{new_whiskey_id}}",
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"name\": \"testWhiskeyEdit\",\n\t\"abv\": 10,\n\t\"type\": \"single pot\",\n\t\"distillery_id\": \"{{new_distillery_id}}\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Delete whiskey",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"tests[\"Check response is correct\"] = responseBody.has(\"Whiskey successfully deleted\");"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Whiskeys/{{new_whiskey_id}}",
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Delete deleted whiskey",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 400\"] = responseCode.code === 400;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"Response is correct\"] = jsonData.message === \"Could not find whiskey to delete\";"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Whiskeys/{{new_whiskey_id}}",
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Get deleted whiskey",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 404\"] = responseCode.code === 404;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"Response is correct\"] = jsonData.message === \"No whiskey could be found with the given details\";"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Whiskeys/{{new_whiskey_id}}",
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"description": ""
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Distilleries",
-			"description": "",
-			"item": [
-				{
-					"name": "Get all distilleries",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Distilleries",
-						"method": "GET",
-						"header": [],
-						"body": {},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Add distillery without name",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 500\"] = responseCode.code === 500;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"Check error parameter is correct\"] = jsonData[0].param === \"name\";",
-									"tests[\"Check error message is correct\"] = jsonData[0].msg === \"Missing name\";"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Distilleries",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"name\": \"\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Add distillery",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"postman.setEnvironmentVariable(\"new_distillery_id\", jsonData._id);",
-									"",
-									"tests[\"Check name is correct\"] = jsonData.name === \"testDistillery\";"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Distilleries",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"name\": \"testDistillery\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Add duplicate distillery",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 400\"] = responseCode.code === 400;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"Check response is correct\"] = jsonData.message === \"Distillery name already exists\";"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Distilleries",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"name\": \"testDistillery\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Get distillery",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"var id = postman.getEnvironmentVariable(\"new_distillery_id\");",
-									"",
-									"tests[\"Check id is correct\"] = jsonData._id === id;",
-									"tests[\"Check name is correct\"] = jsonData.name === \"testDistillery\";"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Distilleries/{{new_distillery_id}}",
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"name\": \"testDistillery\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Edit distillery with duplicate name",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 400\"] = responseCode.code === 400;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"Check response is correct\"] = jsonData.message === \"Distillery name already exists\";"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Distilleries/{{new_distillery_id}}",
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"name\": \"testDistillery\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Edit distillery",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"Check name is correct\"] = jsonData.name === \"testDistilleryEdit\";"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Distilleries/{{new_distillery_id}}",
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"name\": \"testDistilleryEdit\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Get edited distillery",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"var id = postman.getEnvironmentVariable(\"new_distillery_id\");",
-									"",
-									"tests[\"Check id is correct\"] = jsonData._id === id;",
-									"tests[\"Check name is correct\"] = jsonData.name === \"testDistilleryEdit\";"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Distilleries/{{new_distillery_id}}",
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"name\": \"testDistilleryEdit\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Delete distillery",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"tests[\"Check response is correct\"] = responseBody.has(\"Distillery successfully deleted\");"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Distilleries/{{new_distillery_id}}",
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Delete deleted distillery",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 400\"] = responseCode.code === 400;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"Check response is correct\"] = jsonData.message === \"Could not find distillery to delete\";"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Distilleries/{{new_distillery_id}}",
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Get deleted distillery",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 404\"] = responseCode.code === 404;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"Check response is correct\"] = jsonData.message === \"No distillery could be found with the given details\";"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Distilleries/{{new_distillery_id}}",
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"name\": \"testDistilleryEdit\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Locations",
-			"description": "",
-			"item": [
-				{
-					"name": "Get all locations",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Locations",
-						"method": "GET",
-						"header": [],
-						"body": {},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Add location without name",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 500\"] = responseCode.code === 500;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"Check error parameter is correct\"] = jsonData[0].param === \"name\";",
-									"tests[\"Check error message is correct\"] = jsonData[0].msg === \"Missing name\";"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Locations",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"name\": \"\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Add location",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"postman.setEnvironmentVariable(\"new_location_id\", jsonData._id);",
-									"",
-									"tests[\"Check name is correct\"] = jsonData.name === \"testLocation\";"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Locations",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"name\": \"testLocation\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Add duplicate location",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 400\"] = responseCode.code === 400;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"Check response is correct\"] = jsonData.message === \"Location name already exists\";"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Locations",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"name\": \"testLocation\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Get location",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"var id = postman.getEnvironmentVariable(\"new_location_id\");",
-									"",
-									"tests[\"Check id is correct\"] = jsonData._id === id;",
-									"tests[\"Check name is correct\"] = jsonData.name === \"testLocation\";"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Locations/{{new_location_id}}",
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"name\": \"testDistillery\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Edit location with duplicate name",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 400\"] = responseCode.code === 400;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"Check response is correct\"] = jsonData.message === \"Location name already exists\";"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Locations/{{new_location_id}}",
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"name\": \"testLocation\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Edit location",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"Check name is correct\"] = jsonData.name === \"testLocationEdit\";"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Locations/{{new_location_id}}",
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"name\": \"testLocationEdit\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Get edited location",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"var id = postman.getEnvironmentVariable(\"new_location_id\");",
-									"",
-									"tests[\"Check id is correct\"] = jsonData._id === id;",
-									"tests[\"Check name is correct\"] = jsonData.name === \"testLocationEdit\";"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Locations/{{new_location_id}}",
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"name\": \"testDistilleryEdit\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Delete location",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"tests[\"Check response is correct\"] = responseBody.has(\"Location successfully deleted\");"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Locations/{{new_location_id}}",
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Delete deleted location",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 400\"] = responseCode.code === 400;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"Check response is correct\"] = jsonData.message === \"Could not find location to delete\";"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Locations/{{new_location_id}}",
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Get deleted distillery",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 404\"] = responseCode.code === 404;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"Check response is correct\"] = jsonData.message === \"No location could be found with the given details\";"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Locations/{{new_location_id}}",
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"name\": \"testDistilleryEdit\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Ratings",
-			"description": "",
-			"item": [
-				{
-					"name": "Get all ratings",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Ratings",
-						"method": "GET",
-						"header": [],
-						"body": {},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Add rating with invalid options",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 500\"] = responseCode.code === 500;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"Check error parameter is correct\"] = jsonData[0].param === \"rating\";",
-									"tests[\"Check error message is correct\"] = jsonData[0].msg === \"Must be an integer between 0 and 10\";",
-									"",
-									"tests[\"Check error parameter two is correct\"] = jsonData[1].param === \"whiskey_id\";",
-									"tests[\"Check error message two is correct\"] = jsonData[1].msg === \"Missing whiskey id\";"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Ratings",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"rating\": 11,\n\t\"whiskey_id\": \"\",\n\t\"created_by\": \"\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Add distillery for rating",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"postman.setEnvironmentVariable(\"new_distillery_id\", jsonData._id);",
-									"",
-									"tests[\"Check name is correct\"] = jsonData.name === \"ratingDistillery\";"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Distilleries",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"name\": \"ratingDistillery\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Add whiskey for rating",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"postman.setEnvironmentVariable(\"new_whiskey_id\", jsonData._id);",
-									"",
-									"var distilleryId = postman.getEnvironmentVariable(\"new_distillery_id\");",
-									"",
-									"tests[\"Check name is correct\"] = jsonData.name === \"ratingWhiskey\";",
-									"tests[\"Check abv is correct\"] = jsonData.abv === 15;",
-									"tests[\"Check type is correct\"] = jsonData.type === \"rice\";",
-									"tests[\"Check distillery id is correct\"] = jsonData.distillery_id[0] === distilleryId;"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Whiskeys",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"name\": \"ratingWhiskey\",\n\t\"abv\": 15,\n\t\"type\": \"rice\",\n\t\"distillery_id\": \"{{new_distillery_id}}\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Add whiskey two for rating",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"postman.setEnvironmentVariable(\"second_whiskey_id\", jsonData._id);",
-									"",
-									"var distilleryId = postman.getEnvironmentVariable(\"new_distillery_id\");",
-									"",
-									"tests[\"Check name is correct\"] = jsonData.name === \"ratingWhiskeyTwo\";",
-									"tests[\"Check abv is correct\"] = jsonData.abv === 15;",
-									"tests[\"Check type is correct\"] = jsonData.type === \"rice\";",
-									"tests[\"Check distillery id is correct\"] = jsonData.distillery_id[0] === distilleryId;"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Whiskeys",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"name\": \"ratingWhiskeyTwo\",\n\t\"abv\": 15,\n\t\"type\": \"rice\",\n\t\"distillery_id\": \"{{new_distillery_id}}\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Add user for rating",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"postman.setEnvironmentVariable(\"new_user_id\", jsonData.id);",
-									"",
-									"tests[\"First name value is correct\"] = jsonData.first_name === \"Rating\";",
-									"tests[\"Surname value is correct\"] = jsonData.surname === \"User\";",
-									"tests[\"Username value is correct\"] = jsonData.user_name === \"ratinguser\";",
-									"tests[\"Email value is correct\"] = jsonData.email === \"rating@user.com\";",
-									"tests[\"Is locked value is correct\"] = jsonData.isLocked === false;",
-									"tests[\"Full name value is correct\"] = jsonData.full_name === \"Rating User\";"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Users",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"first_name\": \"Rating\",\n\t\"surname\": \"User\",\n\t\"user_name\": \"ratingUser\",\n\t\"email\": \"rating@user.com\",\n\t\"password\": \"rating1\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Add valid rating before login",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 403\"] = responseCode.code === 403;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"Response is correct\"] = jsonData.message === \"User must be logged in to access this resource\";"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Ratings",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"rating\": 5,\n\t\"whiskey_id\": \"{{new_whiskey_id}}\",\n\t\"created_by\": \"{{new_user_id}}\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Login as rating user",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var token1 = postman.getResponseHeader(\"set-cookie\");",
-									"",
-									"if (token1.indexOf(';') > -1)",
-									"{",
-									"  var array = token1.split(';');",
-									"  token1 = array[0];",
-									"}",
-									"",
-									"postman.setEnvironmentVariable(\"cookie\", token1);",
-									"",
-									"console.log(responseBody);"
-								]
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"postman.clearEnvironmentVariable(\"cookie\");"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Users/login",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"user_name\": \"ratinguser\",\n\t\"password\": \"rating1\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Add valid rating",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"console.log(responseBody);",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"postman.setEnvironmentVariable(\"new_rating_id\", jsonData._id);",
-									"",
-									"var whiskeyId = postman.getEnvironmentVariable(\"new_whiskey_id\");",
-									"var userId = postman.getEnvironmentVariable(\"new_user_id\");",
-									"",
-									"tests[\"Check rating is correct\"] = jsonData.rating === 5;",
-									"tests[\"Check whiskey id is correct\"] = jsonData.whiskey_id === whiskeyId;",
-									"tests[\"Check user id is correct\"] = jsonData.created_by === userId;"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Ratings",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							},
-							{
-								"key": "cookie",
-								"value": "{{cookie}}",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"rating\": 5,\n\t\"whiskey_id\": \"{{new_whiskey_id}}\",\n\t\"created_by\": \"{{new_user_id}}\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Add immediate duplicate rating",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 400\"] = responseCode.code === 400;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"Response is correct\"] = jsonData.message === \"Duplicate rating, wait one minute and try again\";"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Ratings",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							},
-							{
-								"key": "cookie",
-								"value": "{{cookie}}",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"rating\": 5,\n\t\"whiskey_id\": \"{{new_whiskey_id}}\",\n\t\"created_by\": \"{{new_user_id}}\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Add second rating",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"postman.setEnvironmentVariable(\"second_rating_id\", jsonData._id);",
-									"",
-									"var whiskeyId = postman.getEnvironmentVariable(\"second_whiskey_id\");",
-									"var userId = postman.getEnvironmentVariable(\"new_user_id\");",
-									"",
-									"tests[\"Check rating is correct\"] = jsonData.rating === 5;",
-									"tests[\"Check whiskey id is correct\"] = jsonData.whiskey_id === whiskeyId;",
-									"tests[\"Check user id is correct\"] = jsonData.created_by === userId;"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Ratings",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							},
-							{
-								"key": "cookie",
-								"value": "{{cookie}}",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"rating\": 5,\n\t\"whiskey_id\": \"{{second_whiskey_id}}\",\n\t\"created_by\": \"{{new_user_id}}\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Get rating",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"var id = postman.getEnvironmentVariable(\"new_rating_id\");",
-									"var whiskeyId = postman.getEnvironmentVariable(\"new_whiskey_id\");",
-									"var userId = postman.getEnvironmentVariable(\"new_user_id\");",
-									"",
-									"tests[\"Check id is correct\"] = jsonData._id === id;",
-									"tests[\"Check rating is correct\"] = jsonData.rating === 5;",
-									"tests[\"Check whiskey id is correct\"] = jsonData.whiskey_id === whiskeyId;",
-									"tests[\"Check user id is correct\"] = jsonData.created_by === userId;"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Ratings/{{new_rating_id}}",
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							},
-							{
-								"key": "cookie",
-								"value": "{{cookie}}",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"name\": \"testWhiskey\",\n\t\"abv\": 7,\n\t\"type\": \"grain\",\n\t\"distillery_id\": \"{{new_distillery_id}}\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Get ratings for whiskey",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"var whiskeyId = postman.getEnvironmentVariable(\"new_whiskey_id\");",
-									"",
-									"tests[\"Check just one record returned\"] = jsonData.length === 1;",
-									"tests[\"Check correct record returned\"] = jsonData[0].whiskey_id === whiskeyId;"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Whiskeys/{{new_whiskey_id}}/Ratings",
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"name\": \"testWhiskey\",\n\t\"abv\": 7,\n\t\"type\": \"grain\",\n\t\"distillery_id\": \"{{new_distillery_id}}\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Logout",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"tests[\"Response message is correct\"] = responseBody.has(\"User logged out\");"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Users/logout",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"user_name\": \"ratinguser\",\n\t\"password\": \"rating1\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Edit rating before login",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 403\"] = responseCode.code === 403;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"Response is correct\"] = jsonData.message === \"User must be logged in to access this resource\";"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Ratings/{{new_rating_id}}",
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"rating\": 6,\n\t\"whiskey_id\": \"{{new_whiskey_id}}\",\n\t\"created_by\": \"{{new_user_id}}\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Delete rating before login",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 403\"] = responseCode.code === 403;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"Response is correct\"] = jsonData.message === \"User must be logged in to access this resource\";"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Ratings/{{new_rating_id}}",
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Add new user for rating via signup",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"postman.setEnvironmentVariable(\"second_user_id\", jsonData.id);",
-									"",
-									"tests[\"First name value is correct\"] = jsonData.first_name === \"Rating\";",
-									"tests[\"Surname value is correct\"] = jsonData.surname === \"User\";",
-									"tests[\"Username value is correct\"] = jsonData.user_name === \"rating_user2\";",
-									"tests[\"Email value is correct\"] = jsonData.email === \"rating2@user.com\";",
-									"tests[\"Is locked value is correct\"] = jsonData.isLocked === false;",
-									"tests[\"Full name value is correct\"] = jsonData.full_name === \"Rating User\";"
-								]
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"postman.clearEnvironmentVariable(\"cookie\");"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Users/signup",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"first_name\": \"Rating\",\n\t\"surname\": \"User\",\n\t\"user_name\": \"rating_User2\",\n\t\"email\": \"rating2@user.com\",\n\t\"password\": \"rating2\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Edit rating with incorrect user",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 403\"] = responseCode.code === 403;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"Response is correct\"] = jsonData.message === \"Logged in user (rating_user2) is not authorised to access this resource\";"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Ratings/{{new_rating_id}}",
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"rating\": 6,\n\t\"whiskey_id\": \"{{new_whiskey_id}}\",\n\t\"created_by\": \"{{new_user_id}}\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Delete rating with incorrect user",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 403\"] = responseCode.code === 403;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"Response is correct\"] = jsonData.message === \"Logged in user (rating_user2) is not authorised to access this resource\";"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Ratings/{{new_rating_id}}",
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
+						"url": {
+							"raw": "{{base_url}}/Users/{{new_user_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Users",
+								"{{new_user_id}}"
+							]
 						},
 						"description": ""
 					},
@@ -3562,18 +1479,2593 @@
 						}
 					],
 					"request": {
-						"url": "{{base_url}}/Users/login",
 						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"user_name\": \"ratinguser\",\n\t\"password\": \"rating1\"\n}"
+							"raw": "{\n  \"user_name\": \"ratinguser\",\n  \"password\": \"rating1\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Users/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Users",
+								"login"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Whiskeys",
+			"description": "",
+			"item": [
+				{
+					"name": "Get all whiskeys",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{base_url}}/Whiskeys",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Whiskeys"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add whiskey without distillery",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 500\"] = responseCode.code === 500;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Check error parameter is correct\"] = jsonData[0].param === \"distillery_id\";",
+									"tests[\"Check error message is correct\"] = jsonData[0].msg === \"Missing distillery id\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"testWhiskey\",\n  \"abv\": 5,\n  \"type\": \"grain\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Whiskeys",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Whiskeys"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add distillery for whiskey",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"new_distillery_id\", jsonData._id);",
+									"",
+									"tests[\"Check name is correct\"] = jsonData.name === \"whiskeyDistillery\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"whiskeyDistillery\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Distilleries",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Distilleries"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add whiskey with invalid type",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 500\"] = responseCode.code === 500;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Check error param is correct\"] = jsonData[0].param === \"type\";",
+									"tests[\"Check error message is correct\"] = jsonData[0].msg === \"Invalid type\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"testWhiskey\",\n  \"abv\": 5,\n  \"type\": \"test\",\n  \"distillery_id\": \"{{new_distillery_id}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Whiskeys",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Whiskeys"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add whiskey without type",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 500\"] = responseCode.code === 500;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Check error param is correct\"] = jsonData[0].param === \"type\";",
+									"tests[\"Check error message is correct\"] = jsonData[0].msg === \"Missing type\";",
+									"",
+									"tests[\"Check error param two is correct\"] = jsonData[1].param === \"type\";",
+									"tests[\"Check error message two is correct\"] = jsonData[1].msg === \"Invalid type\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"testWhiskey\",\n  \"abv\": 5,\n  \"type\": \"\",\n  \"distillery_id\": \"{{new_distillery_id}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Whiskeys",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Whiskeys"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add whiskey without abv",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 500\"] = responseCode.code === 500;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Check error param is correct\"] = jsonData[0].param === \"abv\";",
+									"tests[\"Check error message is correct\"] = jsonData[0].msg === \"Missing abv\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"testWhiskey\",\n  \"abv\": \"\",\n  \"type\": \"corn\",\n  \"distillery_id\": \"{{new_distillery_id}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Whiskeys",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Whiskeys"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add whiskey without name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 500\"] = responseCode.code === 500;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Check error param is correct\"] = jsonData[0].param === \"name\";",
+									"tests[\"Check error message is correct\"] = jsonData[0].msg === \"Missing name\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"\",\n  \"abv\": 5,\n  \"type\": \"corn\",\n  \"distillery_id\": \"{{new_distillery_id}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Whiskeys",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Whiskeys"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add valid whiskey",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"new_whiskey_id\", jsonData._id);",
+									"",
+									"var distilleryId = postman.getEnvironmentVariable(\"new_distillery_id\");",
+									"",
+									"tests[\"Check name is correct\"] = jsonData.name === \"testWhiskey\";",
+									"tests[\"Check abv is correct\"] = jsonData.abv === 5;",
+									"tests[\"Check type is correct\"] = jsonData.type === \"corn\";",
+									"tests[\"Check distillery id is correct\"] = jsonData.distillery_id[0] === distilleryId;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"testWhiskey\",\n  \"abv\": 5,\n  \"type\": \"corn\",\n  \"distillery_id\": \"{{new_distillery_id}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Whiskeys",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Whiskeys"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add duplicate whiskey",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 400\"] = responseCode.code === 400;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Response is correct\"] = jsonData.message === \"Whiskey name already exists\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"testWhiskey\",\n  \"abv\": 7,\n  \"type\": \"grain\",\n  \"distillery_id\": \"{{new_distillery_id}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Whiskeys",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Whiskeys"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get whiskey",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"var id = postman.getEnvironmentVariable(\"new_whiskey_id\");",
+									"var distilleryId = postman.getEnvironmentVariable(\"new_distillery_id\");",
+									"",
+									"tests[\"Check id is correct\"] = jsonData._id === id;",
+									"tests[\"Check name is correct\"] = jsonData.name === \"testWhiskey\";",
+									"tests[\"Check abv is correct\"] = jsonData.abv === 5;",
+									"tests[\"Check type is correct\"] = jsonData.type === \"corn\";",
+									"tests[\"Check distillery id is correct\"] = jsonData.distillery_id[0] === distilleryId;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"testWhiskey\",\n  \"abv\": 7,\n  \"type\": \"grain\",\n  \"distillery_id\": \"{{new_distillery_id}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Whiskeys/{{new_whiskey_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Whiskeys",
+								"{{new_whiskey_id}}"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get whiskeys for distillery",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"var id = postman.getEnvironmentVariable(\"new_whiskey_id\");",
+									"var distilleryId = postman.getEnvironmentVariable(\"new_distillery_id\");",
+									"",
+									"tests[\"Check id is correct\"] = jsonData[0]._id === id;",
+									"tests[\"Check name is correct\"] = jsonData[0].name === \"testWhiskey\";",
+									"tests[\"Check abv is correct\"] = jsonData[0].abv === 5;",
+									"tests[\"Check type is correct\"] = jsonData[0].type === \"corn\";",
+									"tests[\"Check distillery id is correct\"] = jsonData[0].distillery_id[0] === distilleryId;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"testWhiskey\",\n  \"abv\": 7,\n  \"type\": \"grain\",\n  \"distillery_id\": \"{{new_distillery_id}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Distilleries/{{new_distillery_id}}/Whiskeys",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Distilleries",
+								"{{new_distillery_id}}",
+								"Whiskeys"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Edit whiskey with duplicate name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 400\"] = responseCode.code === 400;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Response is correct\"] = jsonData.message === \"Whiskey name already exists\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"testWhiskey\",\n  \"abv\": 10,\n  \"type\": \"single pot\",\n  \"distillery_id\": \"{{new_distillery_id}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Whiskeys/{{new_whiskey_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Whiskeys",
+								"{{new_whiskey_id}}"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Edit whiskey",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"var id = postman.getEnvironmentVariable(\"new_whiskey_id\");",
+									"var distilleryId = postman.getEnvironmentVariable(\"new_distillery_id\");",
+									"",
+									"tests[\"Check id is correct\"] = jsonData._id === id;",
+									"tests[\"Check name is correct\"] = jsonData.name === \"testWhiskeyEdit\";",
+									"tests[\"Check abv is correct\"] = jsonData.abv === 10;",
+									"tests[\"Check type is correct\"] = jsonData.type === \"single pot\";",
+									"tests[\"Check distillery id is correct\"] = jsonData.distillery_id[0] === distilleryId;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"testWhiskeyEdit\",\n  \"abv\": 10,\n  \"type\": \"single pot\",\n  \"distillery_id\": \"{{new_distillery_id}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Whiskeys/{{new_whiskey_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Whiskeys",
+								"{{new_whiskey_id}}"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete distillery for whiskey",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/Distilleries/{{new_distillery_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Distilleries",
+								"{{new_distillery_id}}"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get edited whiskey",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"var id = postman.getEnvironmentVariable(\"new_whiskey_id\");",
+									"var distilleryId = postman.getEnvironmentVariable(\"new_distillery_id\");",
+									"",
+									"tests[\"Check id is correct\"] = jsonData._id === id;",
+									"tests[\"Check name is correct\"] = jsonData.name === \"testWhiskeyEdit\";",
+									"tests[\"Check abv is correct\"] = jsonData.abv === 10;",
+									"tests[\"Check type is correct\"] = jsonData.type === \"single pot\";",
+									"tests[\"Check distillery id is correct\"] = jsonData.distillery_id[0] === distilleryId;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"testWhiskeyEdit\",\n  \"abv\": 10,\n  \"type\": \"single pot\",\n  \"distillery_id\": \"{{new_distillery_id}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Whiskeys/{{new_whiskey_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Whiskeys",
+								"{{new_whiskey_id}}"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete whiskey",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"tests[\"Check response is correct\"] = responseBody.has(\"Whiskey successfully deleted\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/Whiskeys/{{new_whiskey_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Whiskeys",
+								"{{new_whiskey_id}}"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete deleted whiskey",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 400\"] = responseCode.code === 400;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Response is correct\"] = jsonData.message === \"Could not find whiskey to delete\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/Whiskeys/{{new_whiskey_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Whiskeys",
+								"{{new_whiskey_id}}"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get deleted whiskey",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 404\"] = responseCode.code === 404;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Response is correct\"] = jsonData.message === \"No whiskey could be found with the given details\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/Whiskeys/{{new_whiskey_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Whiskeys",
+								"{{new_whiskey_id}}"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Distilleries",
+			"description": "",
+			"item": [
+				{
+					"name": "Get all distilleries",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{base_url}}/Distilleries",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Distilleries"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add distillery without name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 500\"] = responseCode.code === 500;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Check error parameter is correct\"] = jsonData[0].param === \"name\";",
+									"tests[\"Check error message is correct\"] = jsonData[0].msg === \"Missing name\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Distilleries",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Distilleries"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add distillery",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"new_distillery_id\", jsonData._id);",
+									"",
+									"tests[\"Check name is correct\"] = jsonData.name === \"testDistillery\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"testDistillery\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Distilleries",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Distilleries"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add duplicate distillery",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 400\"] = responseCode.code === 400;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Check response is correct\"] = jsonData.message === \"Distillery name already exists\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"testDistillery\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Distilleries",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Distilleries"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get distillery",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"var id = postman.getEnvironmentVariable(\"new_distillery_id\");",
+									"",
+									"tests[\"Check id is correct\"] = jsonData._id === id;",
+									"tests[\"Check name is correct\"] = jsonData.name === \"testDistillery\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"testDistillery\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Distilleries/{{new_distillery_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Distilleries",
+								"{{new_distillery_id}}"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Edit distillery with duplicate name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 400\"] = responseCode.code === 400;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Check response is correct\"] = jsonData.message === \"Distillery name already exists\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"testDistillery\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Distilleries/{{new_distillery_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Distilleries",
+								"{{new_distillery_id}}"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Edit distillery",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Check name is correct\"] = jsonData.name === \"testDistilleryEdit\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"testDistilleryEdit\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Distilleries/{{new_distillery_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Distilleries",
+								"{{new_distillery_id}}"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get edited distillery",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"var id = postman.getEnvironmentVariable(\"new_distillery_id\");",
+									"",
+									"tests[\"Check id is correct\"] = jsonData._id === id;",
+									"tests[\"Check name is correct\"] = jsonData.name === \"testDistilleryEdit\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"testDistilleryEdit\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Distilleries/{{new_distillery_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Distilleries",
+								"{{new_distillery_id}}"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete distillery",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"tests[\"Check response is correct\"] = responseBody.has(\"Distillery successfully deleted\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/Distilleries/{{new_distillery_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Distilleries",
+								"{{new_distillery_id}}"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete deleted distillery",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 400\"] = responseCode.code === 400;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Check response is correct\"] = jsonData.message === \"Could not find distillery to delete\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/Distilleries/{{new_distillery_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Distilleries",
+								"{{new_distillery_id}}"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get deleted distillery",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 404\"] = responseCode.code === 404;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Check response is correct\"] = jsonData.message === \"No distillery could be found with the given details\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"testDistilleryEdit\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Distilleries/{{new_distillery_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Distilleries",
+								"{{new_distillery_id}}"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Locations",
+			"description": "",
+			"item": [
+				{
+					"name": "Get all locations",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{base_url}}/Locations",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Locations"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add location without name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 500\"] = responseCode.code === 500;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Check error parameter is correct\"] = jsonData[0].param === \"name\";",
+									"tests[\"Check error message is correct\"] = jsonData[0].msg === \"Missing name\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Locations",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Locations"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add location",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"new_location_id\", jsonData._id);",
+									"",
+									"tests[\"Check name is correct\"] = jsonData.name === \"testLocation\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"testLocation\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Locations",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Locations"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add duplicate location",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 400\"] = responseCode.code === 400;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Check response is correct\"] = jsonData.message === \"Location name already exists\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"testLocation\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Locations",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Locations"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get location",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"var id = postman.getEnvironmentVariable(\"new_location_id\");",
+									"",
+									"tests[\"Check id is correct\"] = jsonData._id === id;",
+									"tests[\"Check name is correct\"] = jsonData.name === \"testLocation\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"testDistillery\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Locations/{{new_location_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Locations",
+								"{{new_location_id}}"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Edit location with duplicate name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 400\"] = responseCode.code === 400;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Check response is correct\"] = jsonData.message === \"Location name already exists\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"testLocation\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Locations/{{new_location_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Locations",
+								"{{new_location_id}}"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Edit location",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Check name is correct\"] = jsonData.name === \"testLocationEdit\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"testLocationEdit\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Locations/{{new_location_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Locations",
+								"{{new_location_id}}"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get edited location",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"var id = postman.getEnvironmentVariable(\"new_location_id\");",
+									"",
+									"tests[\"Check id is correct\"] = jsonData._id === id;",
+									"tests[\"Check name is correct\"] = jsonData.name === \"testLocationEdit\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"testDistilleryEdit\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Locations/{{new_location_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Locations",
+								"{{new_location_id}}"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete location",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"tests[\"Check response is correct\"] = responseBody.has(\"Location successfully deleted\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/Locations/{{new_location_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Locations",
+								"{{new_location_id}}"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete deleted location",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 400\"] = responseCode.code === 400;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Check response is correct\"] = jsonData.message === \"Could not find location to delete\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/Locations/{{new_location_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Locations",
+								"{{new_location_id}}"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get deleted distillery",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 404\"] = responseCode.code === 404;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Check response is correct\"] = jsonData.message === \"No location could be found with the given details\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"testDistilleryEdit\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Locations/{{new_location_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Locations",
+								"{{new_location_id}}"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ratings",
+			"description": "",
+			"item": [
+				{
+					"name": "Get all ratings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{base_url}}/Ratings",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Ratings"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add rating with invalid options",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 500\"] = responseCode.code === 500;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Check error parameter is correct\"] = jsonData[0].param === \"rating\";",
+									"tests[\"Check error message is correct\"] = jsonData[0].msg === \"Must be an integer between 0 and 10\";",
+									"",
+									"tests[\"Check error parameter two is correct\"] = jsonData[1].param === \"whiskey_id\";",
+									"tests[\"Check error message two is correct\"] = jsonData[1].msg === \"Missing whiskey id\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"rating\": 11,\n  \"whiskey_id\": \"\",\n  \"created_by\": \"\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Ratings",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Ratings"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add distillery for rating",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"new_distillery_id\", jsonData._id);",
+									"",
+									"tests[\"Check name is correct\"] = jsonData.name === \"ratingDistillery\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"ratingDistillery\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Distilleries",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Distilleries"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add whiskey for rating",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"new_whiskey_id\", jsonData._id);",
+									"",
+									"var distilleryId = postman.getEnvironmentVariable(\"new_distillery_id\");",
+									"",
+									"tests[\"Check name is correct\"] = jsonData.name === \"ratingWhiskey\";",
+									"tests[\"Check abv is correct\"] = jsonData.abv === 15;",
+									"tests[\"Check type is correct\"] = jsonData.type === \"rice\";",
+									"tests[\"Check distillery id is correct\"] = jsonData.distillery_id[0] === distilleryId;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"ratingWhiskey\",\n  \"abv\": 15,\n  \"type\": \"rice\",\n  \"distillery_id\": \"{{new_distillery_id}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Whiskeys",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Whiskeys"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add whiskey two for rating",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"second_whiskey_id\", jsonData._id);",
+									"",
+									"var distilleryId = postman.getEnvironmentVariable(\"new_distillery_id\");",
+									"",
+									"tests[\"Check name is correct\"] = jsonData.name === \"ratingWhiskeyTwo\";",
+									"tests[\"Check abv is correct\"] = jsonData.abv === 15;",
+									"tests[\"Check type is correct\"] = jsonData.type === \"rice\";",
+									"tests[\"Check distillery id is correct\"] = jsonData.distillery_id[0] === distilleryId;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"ratingWhiskeyTwo\",\n  \"abv\": 15,\n  \"type\": \"rice\",\n  \"distillery_id\": \"{{new_distillery_id}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Whiskeys",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Whiskeys"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add user for rating",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"new_user_id\", jsonData.id);",
+									"",
+									"tests[\"First name value is correct\"] = jsonData.first_name === \"Rating\";",
+									"tests[\"Surname value is correct\"] = jsonData.surname === \"User\";",
+									"tests[\"Username value is correct\"] = jsonData.user_name === \"ratinguser\";",
+									"tests[\"Email value is correct\"] = jsonData.email === \"rating@user.com\";",
+									"tests[\"Is locked value is correct\"] = jsonData.isLocked === false;",
+									"tests[\"Full name value is correct\"] = jsonData.full_name === \"Rating User\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"first_name\": \"Rating\",\n  \"surname\": \"User\",\n  \"user_name\": \"ratingUser\",\n  \"email\": \"rating@user.com\",\n  \"password\": \"rating1\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Users"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add valid rating before login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 403\"] = responseCode.code === 403;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Response is correct\"] = jsonData.message === \"User must be logged in to access this resource\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"rating\": 5,\n  \"whiskey_id\": \"{{new_whiskey_id}}\",\n  \"created_by\": \"{{new_user_id}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Ratings",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Ratings"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add immediate duplicate rating",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 400\"] = responseCode.code === 400;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Response is correct\"] = jsonData.message === \"Duplicate rating, wait one minute and try again\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"rating\": 5,\n  \"whiskey_id\": \"{{new_whiskey_id}}\",\n  \"created_by\": \"{{new_user_id}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Ratings",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Ratings"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add second rating",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"second_rating_id\", jsonData._id);",
+									"",
+									"var whiskeyId = postman.getEnvironmentVariable(\"second_whiskey_id\");",
+									"var userId = postman.getEnvironmentVariable(\"new_user_id\");",
+									"",
+									"tests[\"Check rating is correct\"] = jsonData.rating === 5;",
+									"tests[\"Check whiskey id is correct\"] = jsonData.whiskey_id === whiskeyId;",
+									"tests[\"Check user id is correct\"] = jsonData.created_by === userId;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"rating\": 5,\n  \"whiskey_id\": \"{{second_whiskey_id}}\",\n  \"created_by\": \"{{new_user_id}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Ratings",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Ratings"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get rating",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"var id = postman.getEnvironmentVariable(\"new_rating_id\");",
+									"var whiskeyId = postman.getEnvironmentVariable(\"new_whiskey_id\");",
+									"var userId = postman.getEnvironmentVariable(\"new_user_id\");",
+									"",
+									"tests[\"Check id is correct\"] = jsonData._id === id;",
+									"tests[\"Check rating is correct\"] = jsonData.rating === 5;",
+									"tests[\"Check whiskey id is correct\"] = jsonData.whiskey_id === whiskeyId;",
+									"tests[\"Check user id is correct\"] = jsonData.created_by === userId;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"testWhiskey\",\n  \"abv\": 7,\n  \"type\": \"grain\",\n  \"distillery_id\": \"{{new_distillery_id}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Ratings/{{new_rating_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Ratings",
+								"{{new_rating_id}}"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get ratings for whiskey",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"var whiskeyId = postman.getEnvironmentVariable(\"new_whiskey_id\");",
+									"",
+									"tests[\"Check just one record returned\"] = jsonData.length === 1;",
+									"tests[\"Check correct record returned\"] = jsonData[0].whiskey_id === whiskeyId;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"testWhiskey\",\n  \"abv\": 7,\n  \"type\": \"grain\",\n  \"distillery_id\": \"{{new_distillery_id}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Whiskeys/{{new_whiskey_id}}/Ratings",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Whiskeys",
+								"{{new_whiskey_id}}",
+								"Ratings"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Edit rating before login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 403\"] = responseCode.code === 403;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Response is correct\"] = jsonData.message === \"User must be logged in to access this resource\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"rating\": 6,\n  \"whiskey_id\": \"{{new_whiskey_id}}\",\n  \"created_by\": \"{{new_user_id}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Ratings/{{new_rating_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Ratings",
+								"{{new_rating_id}}"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete rating before login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 403\"] = responseCode.code === 403;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Response is correct\"] = jsonData.message === \"User must be logged in to access this resource\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/Ratings/{{new_rating_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Ratings",
+								"{{new_rating_id}}"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add new user for rating via signup",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"second_user_id\", jsonData.id);",
+									"",
+									"tests[\"First name value is correct\"] = jsonData.first_name === \"Rating\";",
+									"tests[\"Surname value is correct\"] = jsonData.surname === \"User\";",
+									"tests[\"Username value is correct\"] = jsonData.user_name === \"rating_user2\";",
+									"tests[\"Email value is correct\"] = jsonData.email === \"rating2@user.com\";",
+									"tests[\"Is locked value is correct\"] = jsonData.isLocked === false;",
+									"tests[\"Full name value is correct\"] = jsonData.full_name === \"Rating User\";"
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"postman.clearEnvironmentVariable(\"cookie\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"first_name\": \"Rating\",\n  \"surname\": \"User\",\n  \"user_name\": \"rating_User2\",\n  \"email\": \"rating2@user.com\",\n  \"password\": \"rating2\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Users/signup",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Users",
+								"signup"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Edit rating with incorrect user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 403\"] = responseCode.code === 403;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Response is correct\"] = jsonData.message === \"Logged in user (rating_user2) is not authorised to access this resource\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"rating\": 6,\n  \"whiskey_id\": \"{{new_whiskey_id}}\",\n  \"created_by\": \"{{new_user_id}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Ratings/{{new_rating_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Ratings",
+								"{{new_rating_id}}"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete rating with incorrect user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 403\"] = responseCode.code === 403;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Response is correct\"] = jsonData.message === \"Logged in user (rating_user2) is not authorised to access this resource\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/Ratings/{{new_rating_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Ratings",
+								"{{new_rating_id}}"
+							]
 						},
 						"description": ""
 					},
@@ -3608,23 +4100,201 @@
 						}
 					],
 					"request": {
-						"url": "{{base_url}}/Ratings/{{new_rating_id}}",
 						"method": "PUT",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							},
-							{
-								"key": "cookie",
-								"value": "{{cookie}}",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"rating\": 6,\n\t\"whiskey_id\": \"{{new_whiskey_id}}\"\n}"
+							"raw": "{\n  \"rating\": 6,\n  \"whiskey_id\": \"{{new_whiskey_id}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Ratings/{{new_rating_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Ratings",
+								"{{new_rating_id}}"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete rating distillery",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"tests[\"Check response is correct\"] = responseBody.has(\"Distillery successfully deleted\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/Distilleries/{{new_distillery_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Distilleries",
+								"{{new_distillery_id}}"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete deleted rating",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 400\"] = responseCode.code === 400;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Response is correct\"] = jsonData.message === \"Could not find rating to delete\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/Ratings/{{new_rating_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Ratings",
+								"{{new_rating_id}}"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete rating",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"tests[\"Check response is correct\"] = responseBody.has(\"Rating successfully deleted\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/Ratings/{{new_rating_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Ratings",
+								"{{new_rating_id}}"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete rating two",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"tests[\"Check response is correct\"] = responseBody.has(\"Rating successfully deleted\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "cookie",
+								"value": "{{cookie}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/Ratings/{{second_rating_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Ratings",
+								"{{second_rating_id}}"
+							]
 						},
 						"description": ""
 					},
@@ -3657,143 +4327,26 @@
 						}
 					],
 					"request": {
-						"url": "{{base_url}}/Ratings/{{new_rating_id}}",
 						"method": "GET",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							},
-							{
-								"key": "cookie",
-								"value": "{{cookie}}",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\": \"testWhiskey\",\n\t\"abv\": 7,\n\t\"type\": \"grain\",\n\t\"distillery_id\": \"{{new_distillery_id}}\"\n}"
+							"raw": "{\n  \"name\": \"testWhiskey\",\n  \"abv\": 7,\n  \"type\": \"grain\",\n  \"distillery_id\": \"{{new_distillery_id}}\"\n}"
 						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Delete rating",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"tests[\"Check response is correct\"] = responseBody.has(\"Rating successfully deleted\");"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Ratings/{{new_rating_id}}",
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							},
-							{
-								"key": "cookie",
-								"value": "{{cookie}}",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Delete rating two",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"tests[\"Check response is correct\"] = responseBody.has(\"Rating successfully deleted\");"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Ratings/{{second_rating_id}}",
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							},
-							{
-								"key": "cookie",
-								"value": "{{cookie}}",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Delete deleted rating",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 400\"] = responseCode.code === 400;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"",
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"Response is correct\"] = jsonData.message === \"Could not find rating to delete\";"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Ratings/{{new_rating_id}}",
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							},
-							{
-								"key": "cookie",
-								"value": "{{cookie}}",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
+						"url": {
+							"raw": "{{base_url}}/Ratings/{{new_rating_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Ratings",
+								"{{new_rating_id}}"
+							]
 						},
 						"description": ""
 					},
@@ -3819,18 +4372,26 @@
 						}
 					],
 					"request": {
-						"url": "{{base_url}}/Ratings/{{new_rating_id}}",
 						"method": "GET",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/Ratings/{{new_rating_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Ratings",
+								"{{new_rating_id}}"
+							]
 						},
 						"description": ""
 					},
@@ -3853,18 +4414,26 @@
 						}
 					],
 					"request": {
-						"url": "{{base_url}}/Whiskeys/{{new_whiskey_id}}",
 						"method": "DELETE",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/Whiskeys/{{new_whiskey_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Whiskeys",
+								"{{new_whiskey_id}}"
+							]
 						},
 						"description": ""
 					},
@@ -3887,52 +4456,26 @@
 						}
 					],
 					"request": {
-						"url": "{{base_url}}/Whiskeys/{{second_whiskey_id}}",
 						"method": "DELETE",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": ""
 						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Delete rating distillery",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Response code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"tests[\"Check response is correct\"] = responseBody.has(\"Distillery successfully deleted\");"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{base_url}}/Distilleries/{{new_distillery_id}}",
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
+						"url": {
+							"raw": "{{base_url}}/Whiskeys/{{second_whiskey_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Whiskeys",
+								"{{second_whiskey_id}}"
+							]
 						},
 						"description": ""
 					},
@@ -3955,23 +4498,70 @@
 						}
 					],
 					"request": {
-						"url": "{{base_url}}/Users/{{new_user_id}}",
 						"method": "DELETE",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							},
-							{
-								"key": "cookie",
-								"value": "{{cookie}}",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/Users/{{new_user_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Users",
+								"{{new_user_id}}"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete rating user two",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"tests[\"Check response is correct\"] = responseBody.has(\"User successfully deleted\");",
+									"",
+									"console.log(responseBody);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/Users/{{second_user_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Users",
+								"{{second_user_id}}"
+							]
 						},
 						"description": ""
 					},
@@ -4012,25 +4602,33 @@
 						}
 					],
 					"request": {
-						"url": "{{base_url}}/Users/login",
 						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"user_name\": \"rating_user2\",\n\t\"password\": \"rating2\"\n}"
+							"raw": "{\n  \"user_name\": \"rating_user2\",\n  \"password\": \"rating2\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Users/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Users",
+								"login"
+							]
 						},
 						"description": ""
 					},
 					"response": []
 				},
 				{
-					"name": "Delete rating user two",
+					"name": "Add valid rating",
 					"event": [
 						{
 							"listen": "test",
@@ -4040,31 +4638,151 @@
 									"tests[\"Response code is 200\"] = responseCode.code === 200;",
 									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
 									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
-									"tests[\"Check response is correct\"] = responseBody.has(\"User successfully deleted\");",
 									"",
-									"console.log(responseBody);"
+									"console.log(responseBody);",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"new_rating_id\", jsonData._id);",
+									"",
+									"var whiskeyId = postman.getEnvironmentVariable(\"new_whiskey_id\");",
+									"var userId = postman.getEnvironmentVariable(\"new_user_id\");",
+									"",
+									"tests[\"Check rating is correct\"] = jsonData.rating === 5;",
+									"tests[\"Check whiskey id is correct\"] = jsonData.whiskey_id === whiskeyId;",
+									"tests[\"Check user id is correct\"] = jsonData.created_by === userId;"
 								]
 							}
 						}
 					],
 					"request": {
-						"url": "{{base_url}}/Users/{{second_user_id}}",
-						"method": "DELETE",
+						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							},
 							{
 								"key": "cookie",
-								"value": "{{cookie}}",
-								"description": ""
+								"value": "{{cookie}}"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": ""
+							"raw": "{\n  \"rating\": 5,\n  \"whiskey_id\": \"{{new_whiskey_id}}\",\n  \"created_by\": \"{{new_user_id}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Ratings",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Ratings"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Login as rating user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"var token1 = postman.getResponseHeader(\"set-cookie\");",
+									"",
+									"if (token1.indexOf(';') > -1)",
+									"{",
+									"  var array = token1.split(';');",
+									"  token1 = array[0];",
+									"}",
+									"",
+									"postman.setEnvironmentVariable(\"cookie\", token1);",
+									"",
+									"console.log(responseBody);"
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"postman.clearEnvironmentVariable(\"cookie\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"user_name\": \"ratinguser\",\n  \"password\": \"rating1\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Users/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Users",
+								"login"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Response code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Content-Type is JSON\"] = postman.getResponseHeader(\"Content-Type\").includes(\"application/json\");",
+									"",
+									"tests[\"Response message is correct\"] = responseBody.has(\"User logged out\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"user_name\": \"ratinguser\",\n  \"password\": \"rating1\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/Users/logout",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"Users",
+								"logout"
+							]
 						},
 						"description": ""
 					},
